@@ -39,7 +39,7 @@ Keep in mind that this example test doesn't actually test your code very well, a
 
 Lingua Franca provides translators with a user interface to add and edit translations. Using a list of collected translation keys you users will be able to select any language that they chose and translate you entire site. The following is a screen capture of the included +test_app+ application. Linguage Franca provides you with terse HTML markup that allows you to style the translation pages just about any way you want, but you do need to style them yourself. Templates are also used so you may override them if you choose.
 
-screencapture.png
+http://i.imgur.com/HlxMd1y.png
 
 === Available Locales
 
