@@ -1,0 +1,28 @@
+source 'https://rubygems.org'
+
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.0'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
+
+gem 'haml'
+
+gem 'lingua_franca', :path => '..'
+
+group :development do
+	gem 'better_errors'
+end
+
+group :development, :test do
+	gem 'rspec'
+	gem 'rspec-rails'
+	gem 'capybara'
+	gem 'poltergeist'
+	gem 'factory_girl_rails'
+	gem 'database_cleaner'
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

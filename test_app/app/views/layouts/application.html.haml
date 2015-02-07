@@ -1,0 +1,51 @@
+!!!
+%html{ lang: I18n.locale.to_s }
+	%head
+		%title
+			LinguaFranca TestApp
+		= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,800', media: 'all'
+		= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Cutive+Mono', media: 'all'
+		= stylesheet_link_tag 'application', media: 'all'
+		= javascript_include_tag 'application'
+		%meta{'http-equiv' => 'content-language', 'content' => I18n.locale.to_s}
+		= csrf_meta_tags
+%body
+	= translations_needed_banner! :attract_volunteers => current_user.present? && !I18n.backend.can_translate?, :volunteer_link => '/translate?start_translating=1'
+	%header
+		%div
+			%h1
+				%a{href: '/'}
+					=_'page_titles.site_name'
+			- if current_user.present?
+				= form_for current_user, url: :logout do |f|
+					%strong=current_user.name
+					= f.submit :logout
+				= form_tag('/translate', :method => :post, :name => 'toggle_translate_form') do
+					- if current_user.can_translate?
+						= submit_tag :stop_translating, :name => :stop_translating
+					- else
+						= submit_tag :start_translating, :name => :start_translating
+			- else
+				= form_for User.new, url: :login do |f|
+					= f.label :name
+					= f.text_field :name, placeholder: true
+					= f.submit :login
+			%form{:method => :get, :name => 'language_form'}
+				= label_tag :language, :select_language
+				- options = I18n.backend.enabled_locales.collect{|locale| [I18n.t(locale, scope: :languages, locale: locale), locale]}
+				= select_tag :language, options_for_select(options, I18n.locale), :scope => 'languages', :onchange => "changeLocale()"
+	%main
+		= yield
+		:javascript
+			function changeLocale() {
+				document.language_form.submit();
+			}
+			function toggleTranslate() {
+				document.toggle_translate_form.submit();
+			}
+			var translations = document.querySelectorAll('.translated-content');
+			for (var i = 0; i < translations.length; i++) {
+				var key = translations[i].dataset.i18nKey;
+				var link = '<a href="/translations/#{I18n.locale}/?concern=' + key.replace(/^(.*?)\..*$/, '$1#' + key) + '" class="translation-link">Translate</a>';
+				translations[i].innerHTML = link + translations[i].innerHTML
+			}

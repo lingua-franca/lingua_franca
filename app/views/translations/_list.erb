@@ -1,0 +1,26 @@
+<% if @enabled_locales.present? %>
+	<h2><%=_'translate.translation_pages.Enabled_Locales'%></h2>
+	<ul class="translation-list enabled-translations">
+	<% @enabled_locales.each do |locale| %>
+		<%= render 'translations/locale', :locale => locale %>
+	<% end %>
+	</ul>
+<% end %>
+
+<% if @inprogress_locales.present? %>
+	<h2><%=_'translate.translation_pages.Incomplete_Locales'%></h2>
+	<ul class="translation-list inprogress-translations">
+	<% @inprogress_locales.each do |locale| %>
+		<%= render 'translations/locale', :locale => locale %>
+	<% end %>
+	</ul>
+<% end %>
+
+<% if @disabled_locales.present? %>
+	<h2><%=_'translate.translation_pages.Other_Locales'%></h2>
+	<ul class="translation-list disabled-translations">
+	<% @disabled_locales.each do |locale| %>
+		<%= render 'translations/locale', :locale => locale %>
+	<% end %>
+<% end %>
+</ul>

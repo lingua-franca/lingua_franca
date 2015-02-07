@@ -1,0 +1,53 @@
+---
+en:
+  translate:
+    pages:
+      Locale_Translations: "%{language} Translations"
+      Enabled_Locales: "Enabled Locales"
+      Incomplete_Locales: "Incomplete Locales"
+      Other_Locales: "Other Locales"
+      pages: "Pages:"
+      context_title: "Context:"
+      context:
+        one: "%{context}"
+        other: "%{context} (× %{count})"
+      contexts:
+        character: "character"
+        sentence: "sentence"
+        title: "title"
+        paragraph: "paragraph"
+        language: "language"
+        geography: "geography"
+        other: "other"
+      pluraliztion_rules:
+        zero: "none"
+        one: "singular"
+        two: "two"
+        few: "few"
+        many: "many"
+        other: "plural"
+      pluraliztion_same_as_other: "Same as other"
+      no_value: "Undefined"
+      default_value: "Default"
+      variables: "Variables"
+      uses_default_value: 'This translation will use the plural version for the number 0'
+      uses_custom_value: 'This translation has been overridden, normally the number 0 is treated as a plural in English'
+      use_default_value: 'Use the default value'
+      use_custom_value: 'Use a custom value'
+    content:
+      needs_translations: "This page contains untranslated content"
+      requires_translation: "This %{model} is in %{language}."
+      translation_out_of_date: "Translated content on this page may no longer be accurate"
+      translation_last_modified: "The text in the original language was last modified on %{date}"
+      translate_now: "Translate it now"
+      can_you_help: "Can you translate from %{language_a} to %{language_b}?"
+      un_translated: "Untranslated content"
+      outdated_translation: "Outdated content"
+    volunteer:
+      become_a_volunteer: "Become a volunteer translator"
+      volunteer: "Can you help us translate it?"
+    site:
+      locale_is_available: "%{site_name} is available in %{language}."
+      go_to_locale: "See the %{language} site now"
+      locale_not_available: "Sorry, %{site_name} is not currently available in %{language}."
+      locale_needs_help: "Can you help us translate the site into %{language}?"

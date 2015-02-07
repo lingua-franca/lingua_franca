@@ -1,0 +1,6 @@
+<tr<%= defined?(plural_keys) && plural_keys ? ' class="plural-keys"'.html_safe : '' %>>
+	<th>
+		<% if key_head.present? %><span class="parent-keys"><span><%= key_head.gsub(/\.(.)/, '.</span><span>\1').html_safe %></span></span><% end %><%= key_tail %>
+	</th>
+	<td></td>
+</tr>

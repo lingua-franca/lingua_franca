@@ -1,0 +1,323 @@
+= Lingua Franca
+
+Lingua Franca is a rails i18n plugin. It provides the following services to you app:
+
+== Translation and Test Coverage Assurance
+
+Lingua Franca's most unique feature is that it keeps an up to date translation list by listening to your code during integration tests. When your integration tests begin all translation info is removed, each time the translation method +I18n.t+ is called, that key is added to an info file along with relevant context such the current page. In the end, you will be able to give translators only the translations currently and use, and assuming you have good code coverage for your app, all of the translations in use.
+
+=== Writing Integration Tests
+You don't need to worry about setting up Lingua Franca for your test suite, all you need to do is write those tests and execute them. {RSpec}[https://github.com/rspec/rspec] along with {Capybara}[https://github.com/jnicklas/capybara] are highly recommended.
+
+==== Test Example
+
+Assuming you have a static home page, all you will need to do to collect all of the translations for that page. A test for this could resemble to following:
+
+ ENV["RAILS_ENV"] ||= 'test'
+ 
+ require File.expand_path("../../config/environment", __FILE__)
+ require 'rspec/rails'
+ require 'capybara/rails'
+ require 'capybara/rspec'
+ require 'capybara/poltergeist'
+ 
+ Capybara.configure do |c|
+   c.run_server = true
+   c.javascript_driver = :poltergeist
+   c.default_driver = :poltergeist
+ end
+ 
+ feature 'Home page' do
+   scenario 'user visits the home page' do
+     visit '/'
+   end
+ end
+
+Keep in mind that this example test doesn't actually test your code very well, as long as the page is generated the test will pass. You should accompany the test with some expectations but even so this will at least ensure that your pages are still there and work and ensures that you have all the current translations.
+
+== Translation UI
+
+Lingua Franca provides translators with a user interface to add and edit translations. Using a list of collected translation keys you users will be able to select any language that they chose and translate you entire site. The following is a screen capture of the included +test_app+ application. Linguage Franca provides you with terse HTML markup that allows you to style the translation pages just about any way you want, but you do need to style them yourself. Templates are also used so you may override them if you choose.
+
+http://i.imgur.com/HlxMd1y.png
+
+=== Available Locales
+
+By default, Lingua Franca will allow users to select from any locale which already has some based definitions provided by the {rails-i18n}[https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale] gem. Currently, only two letter locales are supported, sub locales such as en-GB are not available yet.
+
+=== Enabled Locales
+
+A locale becomes enabled once it has met a minimum translation coverage, by default this is set to 80%. So if you have a total of 1000 translation keys, you will need at least 800 of them to be complete in order for users to view your site in that language.
+
+== Base Translations
+Along with the base translations provided by {rails-i18n}[https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale], Lingua Franca provides a rake task +rake lingua_franca:import+ which collects translations in all available locales from a variety of APIs.
+
+=== Languages
+A list of most known languages in all available languages is collected from {unicode.org}[ftp://unicode.org/Public/cldr/]. This repo contains a list which is updated occasionally so the task will select the latest data and import languages into keys in the format +languages.code+. For example, calling <tt>I18n.t('languages.de', locale => :en)</tt> will produce <tt>'German'</tt> while <tt>I18n.t('languages.de', locale => :fr)</tt> will produce <tt>'allemand'</tt>. The list may include languages which are not available for translations.
+
+=== Geography
+A list of countries and their sub-regions (provinces, states, territories, etc.) is provided by {geonames.org}[http://api.geonames.org]. To enable this you will need to create an account at geonames and enable the api. Once this is done you will need to set the <tt>importer => geonames => username</tt> config variable in +lingua_franca.yml+ in your config directory.
+
+The task will provide you with keys and values in the format: +geography.countries.COUNTRY_CODE+ and +geography.subregions.COUNTRY_CODE.REGION_CODE+. For example calling <tt>I18n.t('geography.countries.US', locale => :en)</tt> will return <tt>'United States'</tt> while calling <tt>I18n.t('geography.countries.US', locale => :fr)</tt> will return <tt>'États-Unis'</tt> and <tt>I18n.t('geography.subregions.US.NM', locale => :en)</tt> will return <tt>'New Mexico'</tt> while calling <tt>I18n.t('geography.subregions.US.NM', locale => :fr)</tt> will return <tt>'Nouveau-Mexique'</tt>.
+
+== Translation History
+Lingua Franca makes a record of every translation when it is saved by a translator containing the key, value, time, and translator id. These records can enable change comparisons and well a rolling back translations if required.
+
+== Dynamic Content Translations
+Lingua Franca also plugs into your ActiveRecord models using the `translates` helper method. When defining your model, include this method to mark which fields can be translated, for example: 
+
+  class Post < ActiveRecord::Base
+    translates :title, :content
+    belongs_to :user
+  end
+
+This will allow you to save and retrieve the marked fields in any enabled language. As long as a translation exists, no extra effort is required, if for example a Post object was originally created in the +en+ locale, if the user's language is currently set to +fr+ all you need to do is call +mypost.title+ and the French version of the title is returned. You may also call +mypost.title!+ to retrieve the original untranslated version.
+
+Keep in mind, each translatable model will also need a +locale+ field to store the content's original locale. This property is updated automatically when the object is first saved using the current user's current locale.
+
+Dynamic translations are recorded in the database as DynamicTranslationRecord objects which contain the translated content, translator id, date, as well as the model name and id.
+
+=== Saving Translations
+No user interface is provided by default for saving and updating translatable content but just like retrieving data, if you update an object while in a locale other than the original locale in which the object was created, only the current locale's version is updated.
+
+For example, if a Post object was originally created by an English user it may look something like the following:
+
+ mypost = {
+   id:         10,
+   title:      'My Title',
+   content:    'My posts\'s content...',
+   created_by: 1,
+   locale:     'en'
+ }
+
+If a French user now updates the object this original object will remain the same in the DB but a set of <tt>DynmanicTranslationRecord</tt>s will be saved that may look like:
+
+ mypost_translation_records = [{
+   id:            1,
+   model_type:    'post'
+   model_id:      10,
+   column:        'title',
+   content:       'Mon titre',
+   translator_id: 2,
+   locale:        'fr'
+ }, {
+   id:            2,
+   model_type:    'post'
+   model_id:      10,
+   column:        'content',
+   content:       'Le contenu de mon post...',
+   translator_id: 2,
+   locale:        'fr'
+ }]
+
+If a French user then retrieve's the object for display, they should then see an object that appears as:
+
+ mypost = {
+   id:         10,
+   title:      'Mon titre',
+   content:    'Le contenu de mon post...',
+   created_by: 1,
+   locale:     'en'
+ }
+
+== URL and Request Language Detection and Redirection Helpers
+
+Lingua Franca will detect the current language using the current URL scheme which you can customize. Here is a recommended resource when considering which technique you should use for your site: https://support.google.com/webmasters/answer/182192#2.
+
+=== Falling Back
+If the language cannot be detected using the selected method, it will attempt to look at the +Accept-Language+ header and redirect the user to the proper URL for that language and resource. If that fails it will fallback to +I18n.config.default_locale+.
+
+If the locale is successfully detected but is not yet fully translated, a 404 exception will be thrown allowing the developer a chance to explain to the user that their language is not yet available and a chance to ask to the user to volunteer if possible.
+
+If the locale is successfully detected and is available but it is determined not to be the best language for the user, a banner may be shown 
+
+=== Detection Methods
+You can set the detection method by setting the +I18n.config.language_detection_method+ to one of the following values:
+
+==== +DETECT_LANGUAGE_FROM_URL_PARAM+
+Example: <tt>http://www.yoursite.com/mypage?locale=code</tt>
+
+The language may be automatically detected by URL parameters. The parameter need only be provided once per session, the setting is then saved in the user's session and will not change until the session expires or a different locale parameter is provided.
+
+==== +DETECT_LANGUAGE_FROM_SUBDOMAIN+
+Example :<tt>http://locale-code.yoursite.com</tt>
+
+For example, assuming your site is called example.com, if a user visits +en.example.com+, they will see the site in English, if they visit +es.example.com+, they will see Spanish. If the user navigates to <tt>http://example.com</tt> or <tt>http://www.example.com</tt> they will be redirected to <tt>http://es.example.com</tt> if that is selected to be the best choice for that user.
+
+==== +DETECT_LANGUAGE_FROM_SUBDIR+
+Example: <tt>http://example.com/locale/mypage</tt>
+
+<b>Not Yet Implemented</b>
+
+== Translation Helpers
+
+=== +I18n.t+
+
+Lingua Franca modifies the way that the native translator works:
+
+==== Missing Translations and the +context+ parameter
+
+By default, fallback text is generated by looking at the last portion of the key provided with underscores replaced by spaces. For example if you were to execute +I18n.t 'my_concern.this_needs_translation'+ you will receive +'this needs translation'+ as the output string. This may be useful for developers both for generating useful key names and also see text while developing without providing translations themselves. Because of this, uppercase keys are encouraged, for example:
+
+ <h1><% I18n.t 'titles.This_is_the_Page_Title'%></h1>
+
+Thus generating:
+
+ <h1>This is the Page Title</h1>
+
+===== The +context+ Parameter
+
+The context parameter allows you to provide alternate fallback text but more importantly, meaningless lorem ipsum text. If context is a string and is not recognized as a valid context, the context itself is returned as the fallback text:
+
+ <h1><% I18n.t 'titles.this_page_title', :context => 'My Awesome Page Title' %></h1>
+
+Thus generating:
+
+ <h1>My Awesome Page Title</h1>
+
+However, if the context is a recognized context, lorem ipsum text will be returned instead and the context will be recorded during tests to provide translators with more...well, context.
+
+character, characters, char, c:: A single random lowercase character, or if +context_size+ is provided a a string of capitalized characters: <tt>I18n.t 'concern.a_char' :context => :character --> 'f'</tt> <tt>I18n.t 'concern.some_chars' :context => :characters, :context_size => 8 --> 'Vel pede'</tt>
+
+word, words, w:: A single word or if +context_size+ is provided a string of words: <tt>I18n.t 'concern.a_word' :context => :word --> 'Erat'</tt> <tt>I18n.t 'concern.some_words' :context => :words, :context_size => 4 --> 'Cubilia curae donec pharetra'</tt>
+
+sentence, sentences, s:: A single sentence or if +context_size+ is provided a string of sentences which should each be delimited by periods: <tt>I18n.t 'concern.a_sentence' :context => :sentence --> 'Morbi a ipsum.'</tt> <tt>I18n.t 'concern.some_sentences' :context => :words, :context_size => 4 --> 'Cubilia curae donec pharetra'</tt>
+
+paragraph, paragraphs, p:: A set of n sentences where n is determined by +I18n.config.default_paragraph_length+ or 10 by default or the number provided by +context_size+ if provided. If +context_size+ is provided a paragraphs will be determined, each of a random length of sentences: <tt>I18n.t 'concern.a_paragraph' :context => :paragraph --> 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condiment um id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tris tique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.'</tt>. You should generally avoid expecting more than a single paragraph from translators, which would both be far less manageable for them but may also cause problems parsing output later.
+
+title, titles, t:: A single sentence of either random length or +context_size+ if provided and transformed into titlecase and does not include a trailing period: <tt>I18n.t 'concern.a_title' :context => :title --> 'Proin At Turpis A Pede Posuere Nonummy'</tt>
+
+=== The underscore helper: +_'key'+
+
+Your main tool for translating should be the underscore helper method +_+, it is available to all views. It does the work of looking up a translation and surrounding the text with markup to help translators translate the text (when needed). it takes your key as the first parameter and the +context+ and +context_size+ as optional second and thrid parameters.
+
+==== Example 1: A Simple View
+
+  <h1><% _'page_titles.A_Simple_View', :title %></h1>
+
+  <p><% _'page_intros.simple_view_description', :paragraph %></p>
+
+For most users, assuming that translations are missing, they will see something like:
+
+  <h1>
+    Fusce Posuere Felis Sed Lacus
+  </h1>
+  <p>
+    Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede,malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.
+  </p>
+
+For translators on the other hand, they may see markup similar to the following:
+
+  <h1>
+    <span class="translated-content" data-i18n-key="page_titles.A_Simple_View" data-i18n-needs-translation="1">
+      <a href="/translations/en/?concern=translate#page_titles.A_Simple_View" class="translation-link">
+        Translate
+      </a>
+      Fusce Posuere Felis Sed Lacus
+    </span>
+  </h1>
+  <p>
+     <span class="translated-content" data-i18n-key="page_intros.simple_view_description" data-i18n-needs-translation="1">
+        <a href="/translations/en/?concern=translate#page_intros.simple_view_description" class="translation-link">
+          Translate
+        </a>
+        Fusce Posuere Felis Sed Lacus
+    </span>
+  </p>
+
+This will allow translators to see which text requires translation and translate it immediately.
+
+==== Example 2: Haml
+
+Haml is _highly_ encouraged as it, apart from all of the other benefits, greatly decreased the amount you will need to type for each translation and make the markup much more readable
+
+  %h1=_'page_titles.A_Simple_View', :t
+
+  %p=_'page_intros.simple_view_description', :p
+
+Notice also here that we are using the context abbreviations: +t+ and +p+ as opposed to +title+ and +paragraph+
+
+==== Example 3: Pushing and popping
+
+Sometimes surrounding your translation in HTML will not produce a desired output, in this case you will need to surround your code with the underscore method and pop the actual translation using +_!+.
+
+  %h1=_'page_titles.My_Image'
+  =_'images.myimage.alt_text, :t do
+    %img{src: 'myimage.png', alt: _!}
+
+This will provide the user with:
+
+  <h1>
+    My Image
+  </h1>
+  <img src="myimage.png" alt="Duis Ac Nibh">
+
+More importantly this will provide the translators with:
+
+  <h1>
+    <span class="translated-content" data-i18n-key="page_titles.My_Image" data-i18n-needs-translation="1">
+      <a href="/translations/en/?concern=translate#page_titles.My_Image" class="translation-link">
+        Translate
+      </a>
+      My Image
+    </span>
+  </h1>
+  <span class="translated-content" data-i18n-key="images.myimage.alt_text" data-i18n-needs-translation="1">
+    <a href="/translations/en/?concern=translate#images.myimage.alt_text" class="translation-link">
+      Translate
+    </a>
+    <img src="myimage.png" alt="Duis Ac Nibh">
+  </span>
+
+The underscore method can also be chained if required:
+
+  %h1=_'page_titles.My_Image'
+  =_'images.myimage.alt_text, :t do
+    =_'images.myimage.title, :t
+      %img{src: 'myimage.png', alt: _!, title: _!}
+
+Which may generate something like:
+
+  <h1>
+    My Image
+  </h1>
+  <img src="myimage.png" alt="Duis Ac Nibh" title="Proin Interdum Mauris Non Ligula Pellentesque Ultrices">
+
+=== Form integration
+
+Lingua Franca also alters the default text provided by form helpers, it will generate default translation keys for you based on the inputs provided:
+
+==== Example 4: +form_for+
+ 
+  =form_for @user do |user_form|
+    =user_form.label :username
+    =user_form.text_field :username, placeholder: true
+    =user_form.submit
+
+This provides the label text with the key: +forms.labels.user.username+, the placeholder for the text field will be given a key of +forms.placeholders.user.username+, and the submit button's value will be given a key of +forms.actions.user.update+. If the submit button is called as such: +=user_form.submit :login+ it's key will instead be: +forms.actions.user.login+.
+
+==== Example 5: +select_tag+
+
+For select fields, you may call +options_for_select+ using an single dimensional array (+['a', 'b', 'c'...]+) instead of the multi-dimensional array of keys and values normally required (+[['a', 1], ['b', 2], ['c', 3]...]+). This will then give each option a value equal to that in the array and a key in the form of +forms.options.input_name.option_value+. For example:
+
+ =select_tag :colour, options_for_select(['red', 'green', 'blue'], 'green')
+
+Now if the selected language is French and values are provided for the following keys: +forms.options.colours.red+, +forms.options.colours.green+, +forms.options.colours.blue+. The output will be:
+
+ <select name="colours" id="colours">
+   <option value="red">Rouge</option>
+   <option value="green" selected="selected">Vert</option>
+   <option value="blue">Bleu</option>
+ </select>
+
+These keys may be altered by providing the +select_tag+ with a +:scope+ option. For example, you may which to provide a list of countries which is already provided to you by Franca Lingua in the form of 'geography.countries.XX' so calling: 
+  
+ =select_tag :country, options_for_select(['CA', 'MX', 'US'], 'CA'), scope: 'geography.countries'
+
+will instead look up the keys: +geography.countries.CA+, +geography.countries.MX+, and +geography.countries.US+. It will provide French users with the following:
+
+  <select name="country" id="country">
+   <option value="CA" selected="selected">Canada</option>
+   <option value="MX">Mexique</option>
+   <option value="US">États-Unis</option>
+ </select>

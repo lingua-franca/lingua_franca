@@ -1,0 +1,858 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*#lingua-franca-keys {
+	float: left;
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0 3em 0;
+	list-style: none;
+}
+
+#lingua-franca-translation-form {
+	border: 1px solid #CCC;
+	margin: 0;
+	min-height: 10em;
+	box-sizing: border-box;
+	overflow: auto;
+}
+*/
+
+html {
+    background-color: antiquewhite;
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 1em;
+  color: #222;
+  /*margin: 0 auto;
+  width: 60em;*/
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#translation-value {
+  border: 1px solid #CCC;
+  outline: none;
+  padding: 1em 1.75em;
+  color: khaki;
+  background-color: #222;
+  position: relative;
+}
+
+#translation-value:active:before,
+#translation-value:focus:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0.5em;
+  top: 0.9em;
+  border-width: 0.6em;
+  border-color: transparent transparent transparent crimson;
+  border-style: solid;
+  -webkit-animation: editing 800ms ease-in-out 0 infinite alternate;
+}
+
+@-webkit-keyframes editing {
+  to { opacity: 0.333; }
+}
+
+@-webkit-keyframes translate {
+  to { color: inherit; }
+}
+
+#translation-value::selection,
+#translation-value input::selection {
+  background: #999;
+}
+#translation-value::-moz-selection,
+#translation-value input::-moz-selection {
+  background: #999;
+}
+
+.debugger button {
+  width: 7em;
+  margin-bottom: 0.5em;
+  padding: 0.23em 0;
+  vertical-align: top;
+}
+
+#test-input, #test-output, #test-vars {
+  width: 50em;
+  padding: 0.38em 0.5em;
+}
+
+#translation-value > input {
+  display: inline;
+  border: 0;
+  line-height: 1em;
+  font: inherit;
+  font-weight: bold;
+  padding: 0 0.25em;
+  outline: none;
+  font-style: italic;
+  color: deepskyblue;
+  background-color: transparent;
+  border-radius: 0.4em;
+  box-shadow: inset 0 0 1em 0em #000;
+}
+
+#translation-value > input.special {
+  color: chocolate;
+  font-style: normal;
+  font-weight: bold;
+}
+
+#translation-control-variables {
+  overflow: auto;
+  padding: 0;
+  background-color: #CCC;
+  padding: 0.5em;
+}
+
+#translation-control-variables strong {
+  float: left;
+  margin: 0.1em 0.5em 0 0.25em;
+}
+
+#translation-control-variables .variables {
+  overflow: auto;
+  height: 5em;
+}
+
+.variable-btn {
+  position: relative;
+  border: 1px solid darkcyan;
+  padding: 0.25em;
+  background-color: deepskyblue;
+  color: aliceblue;
+  font-style: italic;
+  border-radius: 0.3333em;
+  box-shadow: 0 0 0.5em -0.25em #000;
+  margin: 0 0.25em;
+  outline: 0;
+}
+
+.variable-btn:hover,
+.variable-btn:active,
+.variable-btn:focus {
+  box-shadow: 0 0 0.5em 0.15em darkcyan;
+}
+
+.variable-btn.special {
+  background-color: chocolate;
+  border-color: sienna;
+}
+
+.variable-btn.special:hover,
+.variable-btn.special:active,
+.variable-btn.special:focus {
+  box-shadow: 0 0 0.5em 0.15em sienna;
+}
+
+#translation-value,
+.lingua-franca-translations .variable-btn,
+.lingua-franca-translations input {
+  font-family: 'Cutive Mono', monospace;
+}
+
+.lingua-franca-translations .showkeys .variable-btn:after {
+  content: attr(data-hotkey);
+  position: absolute;
+  background-color: #FFF;
+  color: #222;
+  font-style: normal;
+  width: 1.2wem;
+  height: 1.2em;
+  top: -0.2em;
+  right: -0.8em;
+  border-radius: 50%;
+  font-weight: bold;
+  box-shadow: 0 0.25em 0.25em -0.25em #000;
+  text-align: center;
+  line-height: 1.2em;
+  border: 1px solid #AAA;
+  text-shadow: 0em 0.1em 0.1em rgba(0, 0, 0, 0.66);
+}
+
+.lingua-franca-translations .variable-btn,
+.lingua-franca-translations input {
+  font-weight: bold;
+}
+
+.variable-btn.variable-btn:disabled {
+  opacity: 0.3333;
+  box-shadow: none;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th {
+	text-align: left;
+}
+
+.lingua-franca-translations th a,
+.lingua-franca-translations .plural-keys th {
+	font-family: 'Cutive Mono', monospace;
+}
+
+td {
+	font-size: 0.8em;
+	font-style: italic;
+	position: relative;
+	max-width: 33em;
+}
+
+th, td {
+	padding: 0.15em 0.25em;
+}
+
+table a {
+	color: inherit;
+	text-decoration: none;
+	display: block;
+}
+
+table td a {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+table th {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 100%;
+}
+
+table tr.selectable-key[data-has-value="0"] th,
+table tr.selectable-key[data-has-value="0"] td {
+	/*background-color: khaki;*/
+}
+
+table tr.selectable-key:hover th,
+table tr.selectable-key:hover td {
+	background-color: #CCC;
+}
+
+table tr.selected {
+	background-color: crimson;
+	color: antiquewhite;
+}
+
+table .parent-keys {
+	color: transparent;
+}
+
+table tr.selected .parent-keys {
+	color: lightcoral;
+	font-style: italic;
+}
+
+table .parent-keys span {
+	width: 1em;
+	display: inline-block;
+	visibility: hidden;
+}
+
+table tr:hover [data-real-name],
+table tr.selected [data-real-name] {
+	color: transparent;
+}
+
+table tr:hover [data-real-name]:before,
+table tr.selected [data-real-name]:before {
+	content: attr(data-real-name);
+	color: #FFF;
+}
+
+table tr:hover th .parent-keys {
+	color: antiquewhite;
+	font-style: italic;
+}
+
+th {
+	font-weight: bold;
+	font-style: italic;
+}
+
+tr.selectable-key th,
+tr.plural-keys th {
+	font-weight: normal;
+	font-style: normal;
+}
+
+tr.plural-key th {
+	color: seagreen;
+	font-weight: bold;
+}
+
+tr td .variable {
+	color: deepskyblue;
+}
+
+tr td .variable.special {
+	color: chocolate;
+}
+
+tr td .undefined {
+	font-family: 'Cutive Mono', monospace;
+	font-style: normal;
+	font-weight: bold;
+	color: crimson;
+	background-color: khaki;
+	padding: 0 0.5em;
+}
+tr td .default-value {
+	font-family: 'Cutive Mono', monospace;
+	font-style: normal;
+	color: #888;
+}
+
+#lingua-franca-translation-form {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 15em;
+	background-color: whitesmoke;
+	box-shadow: 0em -2em 1em -2em #888;
+}
+
+#lingua-franca-translation-form h2 {
+	font-family: 'Cutive Mono', monospace;
+}
+
+#lingua-franca-translation-form > div {
+    position: relative;
+    width: 60rem;
+    margin: 0 auto;
+}
+
+.lingua-franca-translations {
+}
+
+.lingua-franca-translations h1 {
+	width: 60rem;
+	margin: 0 auto;
+}
+
+#lingua-franca-translation-form [type="submit"] {
+	position: absolute;
+	right: 0.5em;
+	bottom: 0.75em;
+}
+
+#lingua-franca-translation-form[data-modified="0"] [type="submit"] {
+	display: none;
+}
+
+.lingua-franca-checkbox {
+	font-weight: bold;
+	display: inline-block;
+	margin-bottom: 1em;
+}
+
+.lingua-franca-checkbox input {
+	margin-right: 0.5em;
+}
+
+#lingua-franca-translation-form .enable-translation {
+	display: none;
+}
+
+#lingua-franca-translation-form.optional .enable-translation {
+	display: block;
+}
+
+#lingua-franca-translation-form.optional.enabled .uses-default-value {
+	display: none;
+}
+
+#lingua-franca-translation-form.optional.disabled .uses-custom-value,
+#lingua-franca-translation-form.optional.disabled .translation-control {
+	display: none;
+}
+
+.lingua-franca-key-wrapper {
+	position: absolute;
+	top: 5em;
+	right: 0;
+	bottom: 15em;
+	left: 0;
+	overflow-y: auto;
+	padding-bottom: 5em;
+}
+
+.lingua-franca-key-wrapper > div {
+	width: 60rem;
+	margin: 0 auto;
+}
+
+#lingua-franca-keys {
+	/*width: 60rem;
+	margin: 0 auto;*/
+	width: 45rem;
+	float: right;
+}
+
+.lingua-franca-navigation {
+	width: 15rem;
+}
+
+main {
+	width: 60em;
+	margin: 0 auto;
+}
+
+.translation-history {
+	position: absolute;
+	right: 0;
+	top: 100%;
+	height: auto;
+	width: auto;
+	z-index: 1;
+	background-color: #222;
+	color: khaki;
+	min-width: 30em;
+	padding: 0 0.5em;
+	box-shadow: 0em 1em 2em -0.6em rgba(0, 0, 0, 0.333);
+	font-style: normal;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: opacity 500ms ease-in-out, visibility 0 ease-in-out 500ms;
+}
+
+table tr.selectable-key:hover .translation-history {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: opacity 500ms ease-in-out;
+}
+
+.diff strong {
+	color: crimson;
+}
+
+.translation-history ul {
+	font-family: 'Cutive Mono', monospace;
+	list-style: none;
+	padding: 0;
+	overflow: auto;
+}
+
+.translation-history li {
+	width: 50%;
+	float: left;
+}
+
+.translation-history time {
+	display: block;
+}
+
+.diff del,
+.diff ins {
+	text-decoration: none;
+}
+
+body > header {
+	width: 100%;
+	background-color: #222;
+}
+
+body > header > div {
+	width: 60em;
+	margin: 0 auto;
+	padding: 1em 0;
+	color: #FFF;
+	text-align: right;
+}
+
+body > header form {
+	display: inline-block;
+	text-align: left;
+}
+body > header h1 {
+	display: inline-block;
+	margin: 0;
+	float: left;
+	line-height: 0.75em;
+}
+
+h1 a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.translated-content:hover > * {
+	opacity: 0.5;
+}
+
+.translated-content > .translation-link {
+	display: inline-block;
+	position: absolute;
+	font-size: 0rem;
+	/*margin-top: -1.4em;*/
+	/*width: 1.5em;*/
+	height: 1.4em;
+	max-width: 0;
+	overflow: hidden;
+	color: inherit;
+	text-decoration: none;
+	font-style: normal;
+	font-weight: normal;
+	text-transform: none;
+	white-space: nowrap;
+	z-index: 100;
+	/*visibility: hidden;*/
+	padding: 0;/* 0.5em;*/
+	background-color: seagreen;
+	opacity: 1;
+	transition: all 250ms ease-in-out;
+	opacity: 0;
+	/*color: transparent;
+	-webkit-animation: translate 800ms ease-in-out 0 infinite alternate;
+	-webkit-animation-steps: 2;*/
+}
+
+.translated-content:hover > .translation-link {
+	width: auto;
+	color: #FFF;
+	z-index: 1000;
+	visibility: visible;
+	-webkit-animation: none;
+	max-width: 10em;
+	padding: 0 0.5em;
+	font-size: 1rem;
+	opacity: 1;
+}
+.translated-content:hover {
+	background-color: rgba(46, 139, 87, 0.1) !important;
+}
+
+.translated-content:before {
+	content: '';
+	position: absolute;
+	border: 1em solid;
+	border-color: seagreen;
+	font-size: 0.5rem;
+	border-bottom-color: transparent;
+	border-right-color: transparent;
+	opacity: 0.5;
+	z-index: 100;
+}
+
+.translated-content[data-i18n-needs-translation="1"] > .translation-link {
+	background-color: crimson;
+}
+
+.translated-content[data-i18n-needs-translation="1"]:before {
+	border-top-color: crimson;
+	border-left-color: crimson;
+}
+.translated-content[data-i18n-needs-translation="1"]:hover {
+	background-color: rgba(237, 20, 61, 0.1) !important;
+}
+
+.translated-content:hover:before {
+	opacity: 1;
+}
+
+#lingua-franca-keys .translated-content:before,
+#lingua-franca-keys .translation-link {
+	display: none;
+}
+
+#translations-needed-banner {
+	background-color: crimson;
+	color: #FFF;
+	padding: 1em 0;
+	overflow: auto;
+}
+
+#translations-needed-banner > div {
+	width: 60rem;
+	margin: 0 auto;
+	text-align: right;
+	position: relative;
+}
+
+#translations-needed-banner > div:before {
+	content: '';
+	display: inline-block;
+	border: 1em solid transparent;
+	border-bottom-color: inherit;
+	border-bottom-width: 1.5em;
+	border-top-width: 0;
+	float: left;
+	margin-right: 0.5em;
+	border-radius: 0.25em;
+}
+
+#translations-needed-banner > div:after {
+	content: '!';
+	color: crimson;
+	position: absolute;
+	left: 0.825rem;
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+#translations-needed-banner strong {
+	float: left;
+}
+
+#translations-needed-banner a,
+.requires-translation-notice a {
+	margin-left: 0.5em;
+	text-decoration: none;
+	background-color: #FFF;
+	color: #222;
+	padding: 0.25em 0.5em;
+	box-shadow: 0 0.25em 1.5em -0.5em #000;
+	border-radius: 0.15em;
+	font-weight: bold;
+	transition: all 250ms ease-in-out;
+}
+
+#translations-needed-banner a:hover {
+	color: #000;
+	box-shadow: 0 0.5em 1.5em -0.5em #000;
+}
+
+#new_blog {
+	width: 50em;
+	margin: 1em auto;
+}
+
+#new_blog input[type="text"],
+#new_blog textarea {
+	display: block;
+	width: 100%;
+	padding: 0.5em;
+	font-size: 1em;
+	font-family: inherit;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 1px dashed rgba(128, 128, 128, 0.3333);
+	outline: none;
+}
+#new_blog input[type="text"]:focus,
+#new_blog textarea:focus,
+#new_blog input[type="text"]:active,
+#new_blog textarea:active {
+	border-style: solid;
+}
+#new_blog input[type="text"] {
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+#new_blog textarea {
+	margin-bottom: 1em;
+	min-height: 8em;
+}
+
+#new_blog label {
+	font-weight: bold;
+}
+
+input[type="submit"] {
+	font-family: inherit;
+}
+
+#posts article {
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 1em;
+}
+
+article h3 {
+	margin: 0;
+}
+
+article .post-meta {
+	float: right;
+}
+
+.requires-translation-notice {
+	background-color: crimson;
+	display: block;
+	color: #FFF;
+	font-weight: bold;
+	padding: 0.5em;
+	text-align: left;
+	overflow: auto;
+}
+
+.requires-translation-notice a {
+	line-height: 0.75em;
+	float: right;
+}
+
+.translate-post header {
+	text-align: center;
+	overflow: auto;
+}
+
+.translate-post header .attribute {
+	background-color: #CCC;
+}
+
+.translate-post section {
+	overflow: auto;
+	margin: 1em auto;
+	width: 50rem;
+	outline: 1px solid rgba(34, 34, 34, 0.5);
+	outline-offset: -1px;
+}
+
+.translate-post footer {
+	margin-left: 50%;
+	padding: 0.5em;
+}
+
+.translate-post section > h3 {
+	background-color: #222;
+	color: #FFF;
+	padding: 0.5em;
+	margin: 0;
+}
+
+.translate-post .attribute {
+	width: 49%;
+	float: right;
+	clear: right;
+	position: relative;
+	padding: 0.5em;
+}
+
+.translate-post .attribute.original {
+	float: left;
+}
+
+.translate-post .attribute.original p,
+.translate-post .attribute.original h4 {
+	margin: 0;
+}
+
+.translate-post .attribute input,
+.translate-post .attribute textarea {
+	display: block;
+	width: 100%;
+	padding: 0.5em;
+	font-size: 1em;
+	font-family: inherit;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 1px dashed rgba(128, 128, 128, 0.3333);
+	outline: none;
+}
+
+.translate-post .attribute textarea {
+	min-height: 8em;
+}
+
+.translate-post .attribute input[type="text"]:focus,
+.translate-post .attribute textarea:focus,
+.translate-post .attribute input[type="text"]:active,
+.translate-post .attribute textarea:active {
+	border-style: solid;
+}
+
+.translation-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.translation-list li {
+	width: 8em;
+	height: 5em;
+	padding: 0;
+	background-color: #A90928;
+	text-align: center;
+	color: #FFF;
+	font-weight: bold;
+	display: inline-block;
+	margin: 1em;
+	box-shadow: 0 1em 3em -0.5em rgba(0, 0, 0, 0.5);
+	transition: all 100ms ease-in-out;
+}
+
+.translation-list .locale-completion {
+	font-weight: normal;
+	font-family: 'Cutive Mono', monospace;
+	letter-spacing: -0.15em;
+}
+
+.translation-list li:hover {
+	box-shadow: 0 1em 2em 0 rgba(0, 0, 0, 0.5), inset 0em -1em 3em 1em rgba(0, 0, 0, 0.2);
+	background-color: crimson;
+}
+
+.translation-list.enabled-translations li {
+	background-color: #1E5E3A;
+}
+
+.translation-list.enabled-translations li:hover {
+	background-color: seagreen;
+}
+
+.translation-list.inprogress-translations li {
+	background-color: #AD5B21;
+}
+
+.translation-list.inprogress-translations li:hover {
+	background-color: chocolate;
+}
+
+.translation-list a {
+	color: inherit;
+	display: block;
+	text-decoration: none;
+	display: table-cell;
+	vertical-align: middle;
+	width: inherit;
+	height: inherit;
+}
+
+.lingua-franca-navigation ul {
+	list-style: none;
+	margin: 2em 0 0;
+	padding: 0 0 1em;
+	font-weight: bold;
+}
+
+.lingua-franca-navigation ul ul {
+	margin: 0 0 0 1em;
+	font-weight: normal;
+}
+
+.lingua-franca-navigation a {
+	text-decoration: none;
+	color: seagreen;
+}
+
+.lingua-franca-navigation a:hover {
+	text-decoration: underline;
+}

@@ -1,0 +1,13 @@
+<% if page_needs_translations? %>
+<div role="banner" id="translations-needed-banner">
+	<div>
+		<strong><%=_'translate.content.needs_translations' %></strong>
+		<% if attract_volunteers %>
+			<%=_'translate.volunteer.volunteer' %>
+			<a href="<%= volunteer_link || '/translations' %>">
+				<%=_'translate.volunteer.become_a_volunteer' %>
+			</a>
+		<% end %>
+	</div>
+</div>
+<% end %>

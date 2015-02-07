@@ -1,0 +1,50 @@
+<% key_parts = key.split('.') %>
+<% key_tail = key_parts.last %>
+<% key_head = key_parts.first(key_parts.length - 1).join('.') %>
+<% key_head += key_head.present? ? '.' : '' %>
+<% if data[:value].is_a?(Hash) %>
+	<%= render 'translations/key_head_row', :key_head => key_head, :key_tail => key_tail, :plural_keys => true %>
+	<% data[:value].each do |sub_key, sub_data| %>
+		<% if key_tail !~ /month_names$/ || sub_key != 0 %>
+			<%= render 'translations/key_row', :key => "#{key}.#{sub_key}", :data => {:value => sub_data, :plural_key => true, :zero_optional => data[:zero_optional], 'vars' => data['vars']} %>
+		<% end %>
+	<% end %>
+<% else %>
+	<tr data-key="<%= key %>" data-has-value="<%= data[:value] ? 1 : 0 %>" class="selectable-key<%= data[:plural_key] ? ' plural-key' : '' %>">
+		<th class="lingua-franca-key lingua-franca-link">
+			<a href="#<%= key %>"><% if key_head.present? %><span class="parent-keys"><span><%= key_head.gsub(/\.(.)/, '.</span><span>\1').html_safe %></span></span><% end %><%= data[:plural_key] ? ('<span data-real-name="' + key_tail + '">' + _('translate.pages.pluraliztion_rules.' + key_tail) + '</span>').html_safe : key_tail %></a>
+		</th>
+		<td class="lingua-franca-value lingua-franca-link">
+			<% puts data[:value] if key == 'date.abbr_month_names' %>
+			<% data[:optional] = (data[:plural_key] && key_tail == 'zero' && data[:zero_optional]) %>
+			<a href="#<%= key %>"></a>
+			<%
+				records = TranslationRecord.where(:key => key, :locale => locale).limit(2)
+				this_record = records[0]
+				last_record = records[1]
+			%>
+			<% if this_record %>
+			<div class="translation-history">
+				<div>Translated by <%= this_record.translator_id %> on <%= I18n.l this_record.created_at, :format => :long %></div>
+				<% if last_record %>
+				<ul class="translation-diff-info">
+					<li>
+						<time datetime="<%= this_record.created_at %>">
+							<%= I18n.l this_record.created_at, :format => :long %>
+						</time>
+						<%= this_record.translator_id == 0 ? 'admin' : this_record.translator_id %>
+					</li>
+					<li>
+						<time datetime="<%= last_record.created_at %>">
+							<%= I18n.l last_record.created_at, :format => :long %>
+						</time>
+						<%= last_record.translator_id == 0 ? 'admin' : last_record.translator_id %>
+					</li>
+				</ul>
+				<%= Diffy::Diff.new(this_record.value, last_record.value).to_s(:html).html_safe %>
+				<% end %>
+			</div>
+			<% end %>
+		</td>
+	</tr>
+<% end %>

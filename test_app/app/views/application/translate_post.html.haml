@@ -1,0 +1,22 @@
+%h1=_'page_titles.translate.translate_post', :t
+
+= form_for @post, :url => '/save_post', :html => {:class => 'translate-post'} do |post_form|
+	= post_form.hidden_field :id
+	%header
+		.attribute.original
+			%h2=_'translate.content.original'
+		.attribute.translated
+			%h2=_'translate.content.translation'
+	%section.title-attribute
+		%h3=_'content.attributes.posts.title'
+		.attribute.original{:lang => @post.locale}
+			%h4=@post.title!
+		.attribute.translated
+			= post_form.text_field :title, placeholder: true
+	%section.content-attribute
+		%h3=_'content.attributes.posts.content'
+		.attribute.original{:lang => @post.locale}
+			%p=@post.content!
+		.attribute.translated
+			= post_form.text_area :content, placeholder: true
+	%footer= post_form.submit

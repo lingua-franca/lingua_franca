@@ -1,0 +1,31 @@
+%h1
+	=_'page_titles.home.Welcome_to_our_Site', :t
+%p
+	=_'page_descriptions.home.welcome_paragraph', :p
+
+%h2=_'page_titles.home.recent_posts', :t
+- if @posts.length > 0
+	%section#posts
+		- @posts.each do |post|
+			%article{:class => (post.requires_translation? ? 'requires-translation' : nil), :lang => (post.requires_translation? ? post.locale : nil)}
+				- if post.requires_translation?
+					.requires-translation-notice
+						=_'translate.content.requires_translation', :vars => {:model => (_'models.names.post'), :language => language_name(post.locale)}
+						- if I18n.backend.can_translate?
+							%a{:href => "/translate_post/#{post.id}"}
+								=_'translate.content.translate_now'
+				%div.post-meta
+					=_'meta-data.posts.author_and_date', :vars => {:author => "<span class=\"author\" rel=\"author\">#{post.user.name}</span>", :date => "<time datetime=\"#{post.created_at}\">#{I18n.l(post.created_at.to_date, :format => :long)}</time>"}
+				%h3=post.title
+				%p=post.content
+- else
+	=_'notices.no_posts', :t
+- if current_user.present?
+	= form_for @new_post, :url => :save_post do |post_form|
+		%h3=_'page_titles.posts.create_post', :t
+		%div
+			= post_form.label :title
+			= post_form.text_field :title, placeholder: true, reqiuired: true
+			= post_form.label :content
+			= post_form.text_area :content, placeholder: true, required: true
+			= post_form.submit
