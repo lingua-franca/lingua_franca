@@ -6,20 +6,19 @@ module I18n
 			options = {:random => true}
 			case I18n.backend.get_context(context)
 			when 'character'
-				return (Forgery::LoremIpsum.characters size, options).strip.capitalize if size
+				return (Forgery::LoremIpsum.characters size, options).strip.capitalize if size.present?
 				return Forgery::LoremIpsum.character, options
 			when 'word'
-				return (Forgery::LoremIpsum.words size, options).capitalize if size
+				return (Forgery::LoremIpsum.words size, options).capitalize if size.present?
 				return (Forgery::LoremIpsum.word options).capitalize
 			when 'sentence'
-				if size
-					return Forgery::LoremIpsum.sentences size, options
-				end
+				return Forgery::LoremIpsum.sentences size, options if size.present?
 				return (Forgery::LoremIpsum.sentence options).capitalize
 			when 'paragraph'
-				return Forgery::LoremIpsum.paragraphs size, options.merge({:sentences => (size || I18n.config.default_paragraph_length)})
+				return Forgery::LoremIpsum.sentences (size.present? ? size : I18n.config.default_paragraph_length), options
+				#return Forgery::LoremIpsum.sentences size, options.merge({:sentences => (size.present? ? size : I18n.config.default_paragraph_length)})
 			when 'title'
-				return (Forgery::LoremIpsum.words size, options).gsub(/\.$/, '').titlecase if size
+				return (Forgery::LoremIpsum.words size, options).gsub(/\.$/, '').titlecase if size.present?
 				return (Forgery::LoremIpsum.sentence options).gsub(/\.$/, '').titlecase
 			end
 

@@ -1,0 +1,108 @@
+---
+translate.pages.Locale_Translations:
+  context: title
+  vars:
+    - language
+translate.pages.Enabled_Locales:
+  context: title
+translate.pages.Incomplete_Locales:
+  context: title
+translate.pages.Other_Locales:
+  context: title
+translate.pages.contexts.character:
+  context: word
+translate.pages.contexts.sentence:
+  context: word
+translate.pages.contexts.title:
+  context: word
+translate.pages.contexts.paragraph:
+  context: word
+translate.pages.contexts.language:
+  context: word
+translate.pages.contexts.geography:
+  context: word
+translate.pages.contexts.other:
+  context: word
+translate.pages.pluraliztion_rules.zero:
+  context: word
+translate.pages.pluraliztion_rules.one:
+  context: word
+translate.pages.pluraliztion_rules.two:
+  context: word
+translate.pages.pluraliztion_rules.few:
+  context: word
+translate.pages.pluraliztion_rules.many:
+  context: word
+translate.pages.pluraliztion_rules.other:
+  context: word
+translate.pages.pluraliztion_same_as_other:
+  context: sentence
+translate.pages.no_value:
+  context: word
+translate.pages.default_value:
+  context: word
+translate.pages.use_custom_value:
+  context: word
+translate.pages.use_default_value:
+  context: sentence
+translate.pages.explain_zero_fallback:
+  context: sentence
+translate.pages.variables:
+  context: word
+translate.pages.pages:
+  context: title
+translate.pages.context_title:
+  context: title
+translate.pages.context:
+  context: word
+  vars:
+    - context
+    - count
+translate.pages.test:
+  context: sentence
+  vars:
+    - context
+    - count
+translate.content.not_translation:
+  context: sentence
+  vars:
+    - languages
+translate.content.translation_out_of_date:
+  context: sentence
+translate.content.translation_last_modified:
+  context: sentence
+  vars:
+    - date
+translate.content.translate_now:
+  context: sentence
+translate.content.can_you_help:
+  context: sentence
+  vars:
+    - language_a
+    - language_b
+translate.content.un_translated:
+  context: sentence
+translate.content.outdated_translation:
+  context: sentence
+translate.volunteer.become_a_volunteer:
+  context: sentence
+translate.volunteer.volunteer:
+  context: sentence
+translate.site.locale_is_available:
+  context: sentence
+  vars:
+    - site_name
+    - language
+translate.site.go_to_locale:
+  context: sentence
+  vars:
+    - language
+translate.site.locale_not_available:
+  context: sentence
+  vars:
+    - site_name
+    - language
+translate.site.locale_needs_help:
+  context: sentence
+  vars:
+    - language

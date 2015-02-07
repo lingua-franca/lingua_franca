@@ -3,11 +3,26 @@ require "action_view"
 module LinguaFrancaHelper
 	def _(*args, &block)#key, context = nil, context_size = nil, locale: nil, vars: {})#, html: nil, blockData: {}, &block)
 		wrapper = I18n.backend.html_wrapper(*args)
+		inner_html = nil
 		if block_given?
 			I18n.backend.push(*args)
-			return (wrapper.first + capture(&block) + wrapper.last).html_safe
+
+			key = args.first
+			
+			translations = Array.new
+
+			if key.is_a?(Array)
+				key.each { |k|
+					args2 = args
+					args[0] = k
+					translations << I18n.backend._(*args2)
+				}
+			else
+				translations << I18n.backend._(*args)
+			end
+			inner_html = send(:capture, *translations, &block)
 		end
-		(wrapper.first + I18n.backend._(*args) + wrapper.last).html_safe
+		(wrapper.first + (inner_html || I18n.backend._(*args)) + wrapper.last).html_safe
 	end
 
 	def renderTranslationForTranslators(data)

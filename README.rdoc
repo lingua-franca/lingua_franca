@@ -187,7 +187,7 @@ paragraph, paragraphs, p:: A set of n sentences where n is determined by +I18n.c
 
 title, titles, t:: A single sentence of either random length or +context_size+ if provided and transformed into titlecase and does not include a trailing period: <tt>I18n.t 'concern.a_title' :context => :title --> 'Proin At Turpis A Pede Posuere Nonummy'</tt>
 
-=== The underscore helper: +_'key'+
+=== The underscore helper: <tt>_'key'</tt>
 
 Your main tool for translating should be the underscore helper method +_+, it is available to all views. It does the work of looking up a translation and surrounding the text with markup to help translators translate the text (when needed). it takes your key as the first parameter and the +context+ and +context_size+ as optional second and thrid parameters.
 
@@ -237,13 +237,13 @@ Haml is _highly_ encouraged as it, apart from all of the other benefits, greatly
 
 Notice also here that we are using the context abbreviations: +t+ and +p+ as opposed to +title+ and +paragraph+
 
-==== Example 3: Pushing and popping
+==== Example 3: Translating HTML Attributes
 
-Sometimes surrounding your translation in HTML will not produce a desired output, in this case you will need to surround your code with the underscore method and pop the actual translation using +_!+.
+Sometimes surrounding your translation in HTML will not produce a desired output, in this case you can use code blocks to wrap around elements.
 
   %h1=_'page_titles.My_Image'
-  =_'images.myimage.alt_text, :t do
-    %img{src: 'myimage.png', alt: _!}
+  =_'images.myimage.alt_text', :t do |my_alt_text|
+    %img{src: 'myimage.png', alt: my_alt_text}
 
 This will provide the user with:
 
@@ -269,12 +269,11 @@ More importantly this will provide the translators with:
     <img src="myimage.png" alt="Duis Ac Nibh">
   </span>
 
-The underscore method can also be chained if required:
+If you need multiple attributes, you may provide an array instead:
 
   %h1=_'page_titles.My_Image'
-  =_'images.myimage.alt_text, :t do
-    =_'images.myimage.title, :t
-      %img{src: 'myimage.png', alt: _!, title: _!}
+  =_(['images.myimage.alt_text', 'images.myimage.title'], :t) do |my_alt_text, my_title_text|
+    %img{src: 'myimage.png', alt: my_alt_text, title: my_title_text}
 
 Which may generate something like:
 
