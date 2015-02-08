@@ -8,6 +8,8 @@ Lingua Franca is a rails i18n plugin. It provides the following services to you 
 
 Lingua Franca's most unique feature is that it keeps an up to date translation list by listening to your code during integration tests. When your integration tests begin all translation info is removed, each time the translation method +I18n.t+ is called, that key is added to an info file along with relevant context such the current page. In the end, you will be able to give translators only the translations currently and use, and assuming you have good code coverage for your app, all of the translations in use.
 
+In addition to collecting your translated content, if you use the Lingua Franca driver for Capybara, you will also get failed tests if untranslated content is seen. When calling +visit(page)+ Lingua Franca returns the empty string for all translations including dynamic content. It then stips all HTML tags and if anything is left over, your test fails. You can mark untranslatable content using the <tt>_!</tt> method.
+
 === Writing Integration Tests
 You don't need to worry about setting up Lingua Franca for your test suite, all you need to do is write those tests and execute them. {RSpec}[https://github.com/rspec/rspec] along with {Capybara}[https://github.com/jnicklas/capybara] are highly recommended.
 

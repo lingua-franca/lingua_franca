@@ -23,6 +23,11 @@ module LinguaFrancaHelper
 		I18n.backend.wrap(inner_html || I18n.backend._(*args), *args).html_safe
 	end
 
+	# mark contents as exempt from translation
+	def _!(contents = nil, &block)
+		I18n.backend._!(contents, &block)
+	end
+
 	def renderTranslationForTranslators(data)
 		if !data.has_key?(:value) || data[:value].blank?
 			if data.has_key?(:optional) && data[:optional]

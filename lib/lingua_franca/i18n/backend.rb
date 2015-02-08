@@ -48,6 +48,18 @@ module I18n
 				end
 			end
 
+			def start_looking_for_untranslated_content
+				@@block_translations = true
+			end
+
+			def stop_looking_for_untranslated_content
+				@@block_translations = false
+			end
+
+			def translations_blocked
+				@@block_translations ||= false
+			end
+
 			# Initializes the page, takes in request and params for recording
 			#  contextual information about translations during testing
 			def init_page(request, params)
@@ -251,7 +263,7 @@ module I18n
 				info = {}
 				languages.each { |language|
 					info["languages.#{language}"] = {
-						:value => lookup ? translations[locale.to_sym][:languages][language.to_sym] : nil,
+						:value => lookup ? "languages.#{language}" : nil,
 						:pages => nil,
 						:data => nil,
 						:context => :language
@@ -276,14 +288,14 @@ module I18n
 				info = {}
 				geography.each { |country, subregions|
 					info["geography.countries.#{country}"] = {
-						:value => lookup ? translations[locale.to_sym][:geography][:countries][country.to_sym] : nil,
+						:value => lookup ? I18n.t("geography.countries.#{country}", :locale => locale, :resolve => false) : nil,
 						:pages => nil,
 						:data => nil,
 						:context => :geography
 					}
 					subregions.each { |subregion|
 						info["geography.subregions.#{country}.#{subregion}"] = {
-							:value => lookup ? translations[locale.to_sym][:geography][:subregions][country.to_sym][subregion.to_sym] : nil,
+							:value => lookup ? I18n.t("geography.subregions.#{country}.#{subregion}", :locale => locale, :resolve => false) : nil,
 							:pages => nil,
 							:data => nil,
 							:context => :geography
@@ -449,6 +461,10 @@ module I18n
 				I18n.translate(key, options)
 			end
 
+			def _!(contents, &block)
+				(contents || yield) unless translations_blocked
+			end
+
 			def push(*args)
 				@stack ||= Array.new
 				@stack.push(_(*args))
@@ -580,6 +596,8 @@ module I18n
 				# Returns the translation or if the translation is missing it will use
 				#  options[:context] to determine what to return
 				def lookup(locale, key, scope = [], options = {})
+					return '' if translations_blocked
+
 					result = super(locale, key, scope, options)
 
 					key = key_name(key, scope)

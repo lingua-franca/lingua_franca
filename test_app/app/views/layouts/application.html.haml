@@ -1,8 +1,8 @@
 !!!
 %html{ lang: I18n.locale.to_s, class: (@translatable ? nil : 'example-page')}
 	%head
-		%title
-			LinguaFranca TestApp
+		-# Make sure to mark the title as not translatable
+		%title=_!'LinguaFranca TestApp'
 		= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,800', media: 'all'
 		= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Cutive+Mono', media: 'all'
 		= stylesheet_link_tag 'application', media: 'all'
