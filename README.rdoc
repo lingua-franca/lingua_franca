@@ -35,7 +35,27 @@ Assuming you have a static home page, all you will need to do to collect all of 
 
 Keep in mind that this example test doesn't actually test your code very well, as long as the page is generated the test will pass. You should accompany the test with some expectations but even so this will at least ensure that your pages are still there and work and ensures that you have all the current translations.
 
-To enable example pages for your translators, replace your default driver with :lingua_franca_poltergeist or :lingua_franca_selenium.
+To enable example pages for your translators, replace your default driver with +:lingua_franca_poltergeist+ or +:lingua_franca_selenium+.
+
+ ENV["RAILS_ENV"] ||= 'test'
+ 
+ require File.expand_path("../../config/environment", __FILE__)
+ require 'rspec/rails'
+ require 'capybara/rails'
+ require 'capybara/rspec'
+ require 'capybara/poltergeist'
+ 
+ Capybara.configure do |c|
+   c.run_server = true
+   c.javascript_driver = :lingua_franca_poltergeist
+   c.default_driver = :lingua_franca_poltergeist
+ end
+ 
+ feature 'Home page' do
+   scenario 'user visits the home page' do
+     visit '/'
+   end
+ end
 
 == Translation UI
 
@@ -235,7 +255,7 @@ This will allow translators to see which text requires translation and translate
 
 ==== Example 2: Haml
 
-Haml is _highly_ encouraged as it, apart from all of the other benefits, greatly decreased the amount you will need to type for each translation and make the markup much more readable
+Haml is _highly_ encouraged as it, apart from all of the other benefits, greatly decreases the amount you will need to type for each translation and make the markup much more readable
 
   %h1=_'page_titles.A_Simple_View', :t
 
