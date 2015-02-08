@@ -12,6 +12,14 @@ module I18n
 			@@translation_info_file ||= 'config/locales/data/translation-info.yml'
 		end
 
+		def html_records_dir
+			@@html_records_dir ||= 'config/locales/data/html_records'
+		end
+
+		def html_records_dir=(html_records_dir)
+			@@html_records_dir = html_records_dir
+		end
+
 		def info_file=(info_file)
 			@@translation_info_file = info_file
 		end

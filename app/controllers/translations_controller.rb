@@ -70,6 +70,14 @@ class TranslationsController < ::ApplicationController
 		render json: { :locale => params[:locale], :data => data }
 	end
 
+	def example_page
+		html = File.read(File.join(I18n.config.html_records_dir, "#{params[:id]}.html"))
+		html = html.gsub('class="translated-content" data-i18n-key="' + params[:key] + '"', 'class="translated-content highlight-key" data-i18n-key="' + params[:key] + '"')
+		puts 'class="translated-content" data-i18n-key="' + params[:key] + '"'
+		@translatable = false
+		render html: html.html_safe
+	end
+
 	protected
 		def get_locale_info(locale)
 			{

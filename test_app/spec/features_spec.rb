@@ -6,11 +6,12 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'factory_girl'
+require 'lingua_franca/capybara'
 
 Capybara.configure do |c|
   c.run_server = true
-  c.javascript_driver = :poltergeist
-  c.default_driver = :poltergeist
+  c.javascript_driver = :lingua_franca_poltergeist
+  c.default_driver = :lingua_franca_poltergeist
 end
 
 RSpec.configure do |config|

@@ -22,6 +22,8 @@ class LinguaFrancaApplicationController < ActionController::Base
 
 		I18n.config.translation_model ||= TranslationRecord
 		I18n.backend.init_page(request, params)
+
+		@translatable = !I18n.backend.testing_started
 	end
 
 	def locale_not_available!(locale = nil)

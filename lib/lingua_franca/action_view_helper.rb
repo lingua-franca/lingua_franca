@@ -5,8 +5,6 @@ module LinguaFrancaHelper
 		wrapper = I18n.backend.html_wrapper(*args)
 		inner_html = nil
 		if block_given?
-			I18n.backend.push(*args)
-
 			key = args.first
 			
 			translations = Array.new
@@ -22,7 +20,7 @@ module LinguaFrancaHelper
 			end
 			inner_html = send(:capture, *translations, &block)
 		end
-		(wrapper.first + (inner_html || I18n.backend._(*args)) + wrapper.last).html_safe
+		I18n.backend.wrap(inner_html || I18n.backend._(*args), *args).html_safe
 	end
 
 	def renderTranslationForTranslators(data)
@@ -45,10 +43,6 @@ module LinguaFrancaHelper
 			}
 		end
 		value.html_safe
-	end
-
-	def _!
-		I18n.backend.pop
 	end
 
 	def page_needs_translations?

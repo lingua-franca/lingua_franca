@@ -1,5 +1,5 @@
 !!!
-%html{ lang: I18n.locale.to_s }
+%html{ lang: I18n.locale.to_s, class: (@translatable ? nil : 'example-page')}
 	%head
 		%title
 			LinguaFranca TestApp
@@ -43,9 +43,11 @@
 			function toggleTranslate() {
 				document.toggle_translate_form.submit();
 			}
-			var translations = document.querySelectorAll('.translated-content');
-			for (var i = 0; i < translations.length; i++) {
-				var key = translations[i].dataset.i18nKey;
-				var link = '<a href="/translations/#{I18n.locale}/?concern=' + key.replace(/^(.*?)\..*$/, '$1#' + key) + '" class="translation-link">Translate</a>';
-				translations[i].innerHTML = link + translations[i].innerHTML
-			}
+		- if @translatable && false
+			:javascript
+				var translations = document.querySelectorAll('.translated-content');
+				for (var i = 0; i < translations.length; i++) {
+					var key = translations[i].dataset.i18nKey;
+					var link = '<a href="/translations/#{I18n.locale}/?concern=' + key.replace(/^(.*?)\..*$/, '$1#' + key) + '" class="translation-link">Translate</a>';
+					translations[i].innerHTML = link + translations[i].innerHTML
+				}

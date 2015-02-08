@@ -25,6 +25,13 @@
 			</div>
 		</div>
 	</form>
+	<div class="translation-examples">
+		<div class="example-list">
+			<ul></ul>
+		</div>
+		<a href="#" class="change-example prev-example"></a>
+		<a href="#" class="change-example next-example"></a>
+	</div>
 	<div class="lingua-franca-key-wrapper">
 		<div>
 			<table id="lingua-franca-keys" lang="<%= @locale[:code] %>">
@@ -162,7 +169,40 @@ function LinguaFranca(_data) {
 			value = lf.data[key].value;
 		}
 		value === false || $this.html(lf.createTranslationData(key, value, true));
-	})
+	});
+	$('.lingua-franca-translations .translation-examples').click(function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+		var $this = $(this);
+		if (!$this.hasClass('open')) {
+			$this.addClass('open');
+		}
+	});
+	$('.lingua-franca-translations .translation-examples .change-example').click(function() {
+		event.preventDefault();
+		var goLeft = $(this).hasClass('prev-example');
+		var $examples = $('.lingua-franca-translations .translation-examples li');
+		var $firstExample = $examples.first();
+		var margin = Number.parseInt($firstExample[0].style.marginLeft) || 0;
+		
+		margin += (goLeft ? 1 : -1) * 100;
+
+		var max = ($examples.length - 1) * -100;
+		if (margin > 0) {
+			margin = 0;
+		} else if (margin < max) {
+			margin = max;
+		}
+
+		$firstExample.css('margin-left', margin + '%');
+	});
+	$('body').click(function(event) {
+		if ($('.lingua-franca-translations .translation-examples.open').length > 0) {
+			event.preventDefault();
+			event.stopPropagation();
+			$('.lingua-franca-translations .translation-examples.open').removeClass('open');
+		}
+	});
 }
 LinguaFranca.prototype = {
 	COUNT: 'count',
@@ -204,6 +244,18 @@ LinguaFranca.prototype = {
 				lf.showKey($('#lingua-franca-keys [data-key].selected'));
 			}
 			lf.checkModifiedState();
+
+			var $exampleWrapper = $('.lingua-franca-translations .translation-examples');
+			var $examples = $('.lingua-franca-translations .translation-examples ul');
+			$examples.empty();
+			if (data.examples && data.examples.length > 0) {
+				for (var i = 0; i < data.examples.length; i++) {
+					$examples.append('<li><iframe class="example-page" src="/translations/examples/' + key + '/' + data.examples[i] + '" frameborder="0" allowtransparency="yes"></iframe></li>');
+				}
+				$exampleWrapper.removeClass('empty');
+			} else if (!$exampleWrapper.hasClass('empty')) {
+				$exampleWrapper.addClass('empty');
+			}
 		}
 	},
 	insertVar: function(event, object) {

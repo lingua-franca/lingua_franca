@@ -35,11 +35,17 @@ Assuming you have a static home page, all you will need to do to collect all of 
 
 Keep in mind that this example test doesn't actually test your code very well, as long as the page is generated the test will pass. You should accompany the test with some expectations but even so this will at least ensure that your pages are still there and work and ensures that you have all the current translations.
 
+To enable example pages for your translators, replace your default driver with :lingua_franca_poltergeist or :lingua_franca_selenium.
+
 == Translation UI
 
 Lingua Franca provides translators with a user interface to add and edit translations. Using a list of collected translation keys you users will be able to select any language that they chose and translate you entire site. The following is a screen capture of the included +test_app+ application. Linguage Franca provides you with terse HTML markup that allows you to style the translation pages just about any way you want, but you do need to style them yourself. Templates are also used so you may override them if you choose.
 
 http://i.imgur.com/HlxMd1y.png
+
+If you use one of the Lingua Franca drivers for Capybara, you'll also get previews of each page tested so that your translators can have even better context for the given translation:
+
+http://i.imgur.com/sErxvZ4.png
 
 === Available Locales
 

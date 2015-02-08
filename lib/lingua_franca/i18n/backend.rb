@@ -26,6 +26,25 @@ module I18n
 					@@testing_started = true
 					File.open(I18n.config.info_file, 'w+')
 					File.open(I18n.config.cache_file, 'w+')
+					FileUtils.rm_rf(Dir.glob(File.join(I18n.config.html_records_dir, '*')))
+					FileUtils.mkdir_p I18n.config.html_records_dir
+				end
+			end
+
+			def testing_started
+				@@testing_started
+			end
+
+			def start_recording_html
+				if ENV["RAILS_ENV"] == 'test' && @@testing_started
+					@@html_id ||= 0
+					@@html_id += 1
+				end
+			end
+
+			def stop_recording_html(html)
+				if ENV["RAILS_ENV"] == 'test' && @@testing_started
+					File.open(File.join(I18n.config.html_records_dir, "#{@@html_id}.html"), 'w+') { |f| f.write html }
 				end
 			end
 
@@ -440,7 +459,7 @@ module I18n
 			end
 
 			def html_wrapper(*args)
-				return ['', ''] unless can_translate?
+				return ['', ''] unless can_translate? || @@testing_started
 
 				options  = args.last.is_a?(Hash) ? args.pop.dup : {}
 				scope    = options.has_key?(:scope) ? options[:scope] : []
@@ -478,7 +497,7 @@ module I18n
 			end
 
 			def should_wrap_translation?(translation_exists)
-				can_translate? && !translation_exists
+				(can_translate? && !translation_exists) || @@testing_started
 			end
 
 			def can_translate?
@@ -615,6 +634,11 @@ module I18n
 					route = current_page
 					unless route.nil? || data[key]['pages'].include?(route)
 						data[key]['pages'] << route
+					end
+
+					if @@html_id.present?
+						data[key]['examples'] ||= Array.new 
+						data[key]['examples'] << @@html_id
 					end
 
 					# write them to the info DB
