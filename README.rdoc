@@ -1,3 +1,5 @@
+<em><b>Disclamer</b>: This Gem is not yet production ready, if you are interested in using it please be prepared to become a collaborator. If you are interested, please see <b>Next Steps</b> at the end of this document.</em>
+
 = Lingua Franca
 
 Lingua Franca is a rails i18n plugin. It provides the following services to you app:
@@ -346,3 +348,22 @@ will instead look up the keys: +geography.countries.CA+, +geography.countries.MX
    <option value="MX">Mexique</option>
    <option value="US">États-Unis</option>
  </select>
+
+= Next Steps
+I am currently looking for collaborators, this is my first ruby gem and I feel like I could definitely use some experienced gem developers to help make the code follow better practices. In addition I could use help with the following:
+
+== Testing
+
+This is my current concern, I am working on this but there are a lot of cases to cover, and testing a product that itself integrates with testing creates some interesting problems. Also, just using it it multiple apps and tweaking to be more customizable would be extremely helpful.
+
+== Splitting into Multiple Gems
+
+I'm starting to feel that the scope of this gem is too large for one product and it should perhaps be split into its various components.
+
+== Building a Better UI
+
+There are things that the UI could deliver that it is currently not, such as providing translations in alternate languages for context and a better change history.
+
+== Adding More Localization APIs
+
+We're collecting info about languages and geography, we can probably do better, especially since we're already using {unicode.org}[ftp://unicode.org/Public/cldr/]s vast repository.
