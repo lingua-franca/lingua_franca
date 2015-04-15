@@ -124,6 +124,22 @@ module ActionView
 				super_submit_tag(value, options)
 			end
 
+			def this_button_tag(value = nil, options = {})
+				if value.nil? || value.is_a?(Symbol)
+					key = "forms.actions.generic.#{(value || :button).to_s}"
+					return I18n.backend.wrap(super_button_tag(I18n.t(key), options), key)
+				end
+				super_button_tag(value, options)
+			end
+
+			def placeholderable(super_method, name, value = nil, options = {})
+				if options[:placeholder] === true
+					options[:placeholder] = I18n.t("generic.#{name}", :scope => "forms.placeholders")
+					return I18n.backend.wrap(send(super_method, name, value, options), "generic.#{name}", :scope => "forms.placeholders")
+				end
+				send(super_method, name, value, options)
+			end
+
 			def this_label_tag(name = nil, content_or_options = nil, options = nil, &block)
 				if !block_given? &&
 						(!content_or_options || content_or_options === true || content_or_options.is_a?(Symbol))
@@ -155,8 +171,21 @@ module ActionView
 			alias_method :super_submit_tag, :submit_tag
 			alias_method :submit_tag, :this_submit_tag
 
-			#alias_method :super_text_area_tag, :text_area_tag
-			#alias_method :text_area_tag, :this_text_area_tag
+			alias_method :super_button_tag, :button_tag
+			alias_method :button_tag, :this_button_tag
+
+			[:text_field, :password_field, :telephone_field, :search_field, :email_field, :url_field, :text_area].each { |type|
+			class_eval <<-RUBY, __FILE__, __LINE__+1
+
+			def this_#{type}_tag(name, value = nil, options = {})
+				placeholderable(:super_#{type}_tag, name, value, options)
+			end
+
+			alias_method :super_#{type}_tag, :#{type}_tag
+			alias_method :#{type}_tag, :this_#{type}_tag
+
+				RUBY
+			}
 		end
 	end
 end

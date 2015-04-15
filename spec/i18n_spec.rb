@@ -43,6 +43,7 @@ describe "I18n tests" do
 
 	describe "set_locale" do
 		it "en.bikebike.org should set language to en" do
+			I18n.config.language_detection_method = I18n::Config::DETECT_LANGUAGE_FROM_SUBDOMAIN
 			I18n.backend.set_translations({
 				:en => {
 					'phrase1' => 'A phrase',
@@ -54,11 +55,12 @@ describe "I18n tests" do
 				}
 			})
 
-			expect(I18n.backend.set_locale("http://en.bikebike.org")).to be true
+			expect(I18n.backend.set_locale("http://en.bikebike.org", {})).to be true
 			expect(I18n.locale).to eq(:en)
 		end
 
 		it "fr.bikebike.org should set language to fr" do
+			I18n.config.language_detection_method = I18n::Config::DETECT_LANGUAGE_FROM_SUBDOMAIN
 			I18n.backend.set_translations({
 				:en => {
 					'phrase1' => 'A phrase',
@@ -70,11 +72,12 @@ describe "I18n tests" do
 				}
 			})
 
-			expect(I18n.backend.set_locale("http://fr.bikebike.org")).to be true
+			expect(I18n.backend.set_locale("http://fr.bikebike.org", {})).to be true
 			expect(I18n.locale).to eq(:fr)
 		end
 
 		it "fr.bikebike.org should set language to en if en is default and fr is not available" do
+			I18n.config.language_detection_method = I18n::Config::DETECT_LANGUAGE_FROM_SUBDOMAIN
 			I18n.backend.set_translations({
 				:en => {
 					'phrase1' => 'A phrase',
@@ -83,11 +86,12 @@ describe "I18n tests" do
 			})
 
 			I18n.default_locale = :en
-			expect(I18n.backend.set_locale("http://fr.bikebike.org")).to be false
+			expect(I18n.backend.set_locale("http://fr.bikebike.org", {})).to be false
 			expect(I18n.locale).to eq(:en)
 		end
 
 		it "en.bikebike.org should set language to fr if fr is default and en is not available" do
+			I18n.config.language_detection_method = I18n::Config::DETECT_LANGUAGE_FROM_SUBDOMAIN
 			I18n.backend.set_translations({
 				:fr => {
 					'phrase1' => 'Une phrase',
@@ -96,7 +100,7 @@ describe "I18n tests" do
 			})
 
 			I18n.default_locale = :fr
-			expect(I18n.backend.set_locale("http://en.bikebike.org")).to be false
+			expect(I18n.backend.set_locale("http://en.bikebike.org", {})).to be false
 			expect(I18n.locale).to eq(:fr)
 		end
 	end
