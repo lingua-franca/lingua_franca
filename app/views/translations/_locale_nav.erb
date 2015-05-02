@@ -1,0 +1,20 @@
+<div class="lingua-franca-navigation">
+	<ul>
+		<li>
+			<%=_'translate.pages.sidebar.pages' %>
+			<ul><% @pages.each do |page| %>
+				<li>
+					<%= link_to page[:name] || page[:path], translate_locale_index_path(:locale => @locale[:code], :page => page[:path]), class: (@page == page[:path] ? 'current' : nil) %>
+				</li>
+			<% end %></ul>
+		</li>
+		<li>
+			<%=_'translate.pages.sidebar.concerns' %>
+			<ul><% @concerns.each do |concern| %>
+				<li>
+					<%= link_to concern, translate_locale_index_path(:locale => @locale[:code], :concern => concern), class: (@concern == concern ? 'current' : nil) %>
+				</li>
+			<% end %></ul>
+		</li>
+	</ul>
+</div>

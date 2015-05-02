@@ -1,0 +1,15 @@
+<table id="lingua-franca-keys" lang="<%= @locale[:code] %>">
+<% last_key = '' %>
+<% @translation_info.sort.each do |key, data| %>
+	<% head_key = '' %>
+	<% key.gsub(/^(.*)\..*?$/, '\1').split('.').each do |this_key| %>
+		<% new_head_key = "#{head_key}#{this_key}." %>
+		<% if last_key.nil? || !last_key.start_with?(new_head_key) %>
+			<%= render 'translations/key_head_row', :key_head => head_key, :key_tail => this_key %>
+		<% end %>
+		<% head_key = new_head_key %>
+	<% end %>
+	<% last_key = head_key %>
+	<%= render 'translations/key_row', :key => key, :data => data, :locale => @locale[:code] %>
+<% end %>
+</table>
