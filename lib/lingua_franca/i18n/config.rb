@@ -104,5 +104,13 @@ module I18n
 		def language_url_param=(language_url_param)
 			@@language_url_param = language_url_param
 		end
+
+		def host_locale_regex
+			@@host_locale_regex ||= /^([a-z]{2})\.[^\.]+\..*$/
+		end
+
+		def host_locale_regex=(host_locale_regex)
+			@@host_locale_regex = host_locale_regex
+		end
 	end
 end

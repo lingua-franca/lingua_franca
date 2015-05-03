@@ -152,11 +152,12 @@ module I18n
 
 			# Determines the locale based on the current URL
 			def get_locale(host)
-				if host =~ /^((\d{1,3}\.){3}\d{1,3})|(localhost)$/
-					# we can't get any info from this address, it's probably the dev environment
-					return I18n.default_locale
-				end
-				host.gsub(/^(https?:\/\/)?((dev|test|www)\.)?(([^\.]+)\.)?.*\.([^\.]{2,7})$/, '\5')
+				#if host =~ /^((\d{1,3}\.){3}\d{1,3})|(localhost)$/
+				#	# we can't get any info from this address, it's probably the dev environment
+				#	return I18n.default_locale
+				#end
+				#host.gsub(/^(https?:\/\/)?((dev|test|www)\.)?(([^\.]+)\.)?.*\.([^\.]{2,7})$/, '\5')
+				host.gsub(I18n.config.host_locale_regex, '\1') || I18n.default_locale
 			end
 
 			# Sets the current locale based on the URL and user settings
