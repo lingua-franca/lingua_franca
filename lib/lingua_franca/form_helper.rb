@@ -124,12 +124,12 @@ module ActionView
 				super_submit_tag(value, options)
 			end
 
-			def this_button_tag(value = nil, options = {})
-				if value.nil? || value.is_a?(Symbol)
+			def this_button_tag(value = nil, options = {}, &block)
+				if !block_given? && (value.nil? || value.is_a?(Symbol))
 					key = "forms.actions.generic.#{(value || :button).to_s}"
 					return I18n.backend.wrap(super_button_tag(I18n.t(key), options), key)
 				end
-				super_button_tag(value, options)
+				super_button_tag(value, options, &block)
 			end
 
 			def placeholderable(super_method, name, value = nil, options = {})
