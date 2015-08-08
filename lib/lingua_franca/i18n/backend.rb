@@ -658,6 +658,7 @@ module I18n
 					if @@html_id.present?
 						data[key]['examples'] ||= Array.new 
 						data[key]['examples'] << @@html_id
+						data[key]['examples'].uniq!
 					end
 
 					# write them to the info DB

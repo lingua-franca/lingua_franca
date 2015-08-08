@@ -124,39 +124,6 @@ function LinguaFranca(_data) {
 		}
 		value === false || $this.html(lf.createTranslationData(key, value, true));
 	});
-	$('.lingua-franca-translations .translation-examples').click(function(event) {
-		event.preventDefault();
-		event.stopPropagation();
-		var $this = $(this);
-		if (!$this.hasClass('open')) {
-			$this.addClass('open');
-		}
-	});
-	$('.lingua-franca-translations .translation-examples .change-example').click(function() {
-		event.preventDefault();
-		var goLeft = $(this).hasClass('prev-example');
-		var $examples = $('.lingua-franca-translations .translation-examples li');
-		var $firstExample = $examples.first();
-		var margin = Number.parseInt($firstExample[0].style.marginLeft) || 0;
-		
-		margin += (goLeft ? 1 : -1) * 100;
-
-		var max = ($examples.length - 1) * -100;
-		if (margin > 0) {
-			margin = 0;
-		} else if (margin < max) {
-			margin = max;
-		}
-
-		$firstExample.css('margin-left', margin + '%');
-	});
-	$('body').click(function(event) {
-		if ($('.lingua-franca-translations .translation-examples.open').length > 0) {
-			event.preventDefault();
-			event.stopPropagation();
-			$('.lingua-franca-translations .translation-examples.open').removeClass('open');
-		}
-	});
 }
 LinguaFranca.prototype = {
 	COUNT: 'count',
@@ -210,6 +177,42 @@ LinguaFranca.prototype = {
 			} else if (!$exampleWrapper.hasClass('empty')) {
 				$exampleWrapper.addClass('empty');
 			}
+			
+			$('.lingua-franca-translations .translation-examples li').click(function(event) {
+				event.preventDefault();
+				event.stopPropagation();
+				var $this = $(this);
+				if ($this.hasClass('open')) {
+					$this.removeClass('open');
+				} else {
+					$this.addClass('open');
+				}
+			});
+			$('.lingua-franca-translations .translation-examples .change-example').click(function() {
+				event.preventDefault();
+				var goLeft = $(this).hasClass('prev-example');
+				var $examples = $('.lingua-franca-translations .translation-examples li');
+				var $firstExample = $examples.first();
+				var margin = Number.parseInt($firstExample[0].style.marginLeft) || 0;
+				
+				margin += (goLeft ? 1 : -1) * 100;
+
+				var max = ($examples.length - 1) * -100;
+				if (margin > 0) {
+					margin = 0;
+				} else if (margin < max) {
+					margin = max;
+				}
+
+				$firstExample.css('margin-left', margin + '%');
+			});
+			$('body').click(function(event) {
+				if ($('.lingua-franca-translations .translation-examples li.open').length > 0) {
+					event.preventDefault();
+					event.stopPropagation();
+					$('.lingua-franca-translations .translation-examples li.open').removeClass('open');
+				}
+			});
 		}
 	},
 	insertVar: function(event, object) {
