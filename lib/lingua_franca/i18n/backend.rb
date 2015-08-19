@@ -44,7 +44,9 @@ module I18n
 
 			def stop_recording_html(html)
 				if ENV["RAILS_ENV"] == 'test' && @@testing_started
-					File.open(File.join(I18n.config.html_records_dir, "#{@@html_id}.html"), 'w+') { |f| f.write html }
+					File.open(File.join(I18n.config.html_records_dir, "#{@@html_id}.html"), 'w+') {
+						|f| f.write(html.gsub(/https?:\/\/(\w\w\.)?127.0.0.1:\d+\//, '/'))
+					}
 				end
 			end
 
@@ -658,7 +660,6 @@ module I18n
 					if @@html_id.present?
 						data[key]['examples'] ||= Array.new 
 						data[key]['examples'] << @@html_id
-						data[key]['examples'].uniq!
 					end
 
 					# write them to the info DB

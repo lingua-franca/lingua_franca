@@ -54,21 +54,12 @@ class LinguaFrancaMock < I18n::Backend::LinguaFranca
 			translations[locale] ||= {}
 			translations[locale].deep_merge!(d.deep_symbolize_keys)
 
-			#puts "key? #{''.split(".").inject(hash) { |hash, key| hash[key] }}"
-			#@@available_locales.push(locale) unless @@available_locales.include?(locale)
 			I18n.with_locale(locale) do
 				hash_keys_to_strings(d).each { |key|
 					I18n.t!(key)
 				}
 			end
-			#record_translation(locale.to_s, key.to_s, scope, options, result)
-			#@@translation_info ||= {}
 		}
-		#I18n.config.available_locales = available_locales
-		#reload!
-		#@@available_locales = nil
-		#@@enabled_locales = nil
-		#@@language_completion = nil
 	end
 
 	def get_route(path)
