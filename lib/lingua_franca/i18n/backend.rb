@@ -182,7 +182,7 @@ module I18n
 						end
 						lang = get_locale(host)
 				end
-				if lang.present? && locale_enabled?(lang)
+				if lang.present? && (locale_enabled?(lang) || can_translate?)
 					I18n.locale = lang
 					return true
 				end
