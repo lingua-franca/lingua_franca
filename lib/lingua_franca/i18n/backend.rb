@@ -209,7 +209,7 @@ module I18n
 				if !@@enabled_locales
 					@@enabled_locales = Array.new
 					available_locales.each { |locale|
-						if locale_enabled?(locale)
+						if (can_translate? && File.exists?("config/locales/#{locale}.yml")) || locale_enabled?(locale)
 							@@enabled_locales << locale
 						end
 					}
@@ -229,7 +229,8 @@ module I18n
 				end
 
 				# return 0 if we haven't got all of our base translations in
-				return 0.0 if _get_language_completion(locale, lingua_franca_translation_info(locale)) < 100
+				#return 0.0 if _get_language_completion(locale, lingua_franca_translation_info(locale)) < 100
+				return 0.0 unless File.exists?("config/locales/#{locale}.yml")
 
 				# return the percentage of translations in use
 				@@language_completion[locale] = _get_language_completion(locale, translation_info(locale))
@@ -312,7 +313,13 @@ module I18n
 				info = {}
 				get_translation_info().each { |key, value|
 					info[key] = value
-					info[key][:value] = lookup ? I18n.t(key, :locale => locale, :resolve => false) : nil
+					#info[key][:value] = lookup ? I18n.t(key, :locale => locale, :resolve => false, :throw => true) : nil
+					info[key][:value] = nil
+					if lookup
+						catch(:exception) do
+							info[key][:value] = lookup_raw(locale, key)
+						end
+					end
 					if info[key][:value].is_a?(Array)
 						info[key][:value] = Hash[[*info[key][:value].map.with_index]].invert
 						info[key][:array] = true
@@ -410,7 +417,6 @@ module I18n
 						}
 					end
 				}
-				puts page_list
 				page_list
 			end
 
@@ -544,8 +550,10 @@ module I18n
 					_translation_info.each { |key, info|
 						if info[:value].is_a?(Hash)
 							pluralization_rules(locale).each { |rule|
-								total += 1
-								complete += 1 unless info[:value].nil? || !info[:value].has_key?(rule) || info[:value][rule].nil?
+								if rule.to_sym == :one || rule.to_sym == :other
+									total += 1
+									complete += 1 unless info[:value].nil? || !info[:value].has_key?(rule) || info[:value][rule].nil?
+								end
 							}
 						else
 							total += 1
@@ -682,11 +690,11 @@ module I18n
 
 				def lookup_raw(locale, key, scope = [], options = {})
 					init_translations unless initialized?
-					keys = I18n.normalize_keys(locale, key, scope, options[:separator])
+					keys = I18n.normalize_keys(locale, key, scope, options[:separator] || '.')
 
 					keys.inject(translations) do |result, _key|
 						_key = _key.to_sym
-						result = result[_key]
+						result = result[_key] if result
 						result
 					end
 				end
