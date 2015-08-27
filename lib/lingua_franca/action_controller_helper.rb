@@ -38,7 +38,7 @@ class LinguaFrancaApplicationController < ActionController::Base
 
 	def locale_not_detected!
 		default_locale = set_default_locale
-		if I18n.config.language_detection_method == I18n::Config::DETECT_LANGUAGE_FROM_SUBDOMAIN
+		if !@lingua_franca_halt_redirection && I18n.config.language_detection_method == I18n::Config::DETECT_LANGUAGE_FROM_SUBDOMAIN
 			redirect_to subdomain: default_locale
 		end
 	end
@@ -52,5 +52,9 @@ class LinguaFrancaApplicationController < ActionController::Base
 
 	def can_translate
 		return true
+	end
+
+	def halt_redirection!
+		@@lingua_franca_halt_redirection = true
 	end
 end
