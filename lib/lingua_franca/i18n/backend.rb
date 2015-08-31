@@ -246,13 +246,14 @@ module I18n
 			end
 
 			def add_translation(locale, data, options = {})
-				#if translations.empty?
-				#end
-				load_translations
+				if translations.empty?
+					load_translations
+				end
 				store_translations(locale, data, options)
 				write_translations(locale.to_s, {locale => translations[locale.to_sym].deep_stringify_keys})
 				save_change(locale, data)
 				reset_stats!
+				load_translations
 			end
 
 			def validate_translation(locale, key, value)
