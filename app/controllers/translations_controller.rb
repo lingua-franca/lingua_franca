@@ -30,7 +30,7 @@ class TranslationsController < ::ApplicationController
 		end
 
 		# default to translation info
-		@translation_info ||= I18n.backend.lingua_franca_translation_info(params[:locale])
+		@translation_info ||= I18n.backend.undefined_translation_info(params[:locale])
 
 		@pages = I18n.backend.pages
 		@concerns = I18n.backend.concerns

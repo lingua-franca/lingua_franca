@@ -1,4 +1,10 @@
 ---
+translate.pages.History:
+  context: title
+translate.pages.Locale_Translation:
+  context: title
+  vars:
+    - language
 translate.pages.Locale_Translations:
   context: title
   vars:
@@ -49,17 +55,14 @@ translate.pages.explain_zero_fallback:
   context: sentence
 translate.pages.variables:
   context: word
+translate.pages.Save:
+  context: word
 translate.pages.pages:
   context: title
 translate.pages.context_title:
   context: title
 translate.pages.context:
   context: word
-  vars:
-    - context
-    - count
-translate.pages.test:
-  context: sentence
   vars:
     - context
     - count

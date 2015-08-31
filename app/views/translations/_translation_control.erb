@@ -14,10 +14,13 @@
 		<div class="translation-control">
 			<div id="translation-value" contenteditable lang="<%= @locale[:code] %>"></div>
 			<div id="translation-control-variables">
-				<strong>Variables:</strong>
+				<strong><%= _'translate.pages.variables' %></strong>
 				<div class="variables"></div>
 			</div>
-			<button type="submit">Save</button>
+			<div class="actions">
+				<button type="submit"><%= _'translate.pages.Save' %></button>
+				<a href="#" class="button" id="translation-control-close"><%= _'translate.pages.Cancel' %></a>
+			</div>
 		</div>
 	</div>
 </form>
@@ -27,6 +30,8 @@
 	</div>
 	<a href="#" class="change-example prev-example"></a>
 	<a href="#" class="change-example next-example"></a>
+</div>
+<div id="lingua-franca-translation-history">
 </div>
 <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-2.1.3.min.js"><\/script>')</script>
 <script>
@@ -41,12 +46,15 @@ function LinguaFranca(_data) {
 	if (window.location.hash) {
 		lf.select_key(window.location.hash.substr(1));
 	}
+	$('#translation-control-close').click(function() {
+		lf.select_key('');
+	});
 	lf.updateVars();
 	$('#translation-value').keyup(function() {
 		lf.updateVars();
 		lf.checkModifiedState();
 	});
-	$('#lingua-franca-translation-form .uses-default-value button').keydown(function(e){
+	/*$('#lingua-franca-translation-form .uses-default-value button').keydown(function(e){
 		switch (e.keyCode) {
 			case 38:
 				lf.selectPrev();
@@ -55,7 +63,7 @@ function LinguaFranca(_data) {
 				lf.selectNext();
 				return;
 		}
-	});
+	});*/
 	$('#translation-value').keyup(function(e){
 		if ((e.keyCode == 18 || e.altKey) && (e.keyCode == 16 || e.shiftKey)) {
 			return;
@@ -84,14 +92,16 @@ function LinguaFranca(_data) {
 					lf.selectNext(e.shiftKey)
 				}
 				return;
-			case 38:
+			case 27: // escape
+				lf.select_key(undefined);
+			/*case 38:
 				e.preventDefault();
 				lf.selectPrev();
 				return;
 			case 40:
 				e.preventDefault();
 				lf.selectNext();
-				return;
+				return;*/
 		}
 	});
 	$('#lingua-franca-translation-form .uses-custom-value button').click(function(e) {
@@ -131,9 +141,10 @@ LinguaFranca.prototype = {
 	DEFAULT_TEXT: '<span class="default-value"><%= _"translate.pages.default_value" %></span>',
 	UNDEFINED_TEXT: '<span class="undefined"><%= _"translate.pages.undefined" %></span>',
 	HOT_KEYS: '1234567890QWERTYUOPASDFGHJKLZXCVBNM',
+	MAX_EXAMPLES: 5,
 
 	_keyListSelector: '.lingua-franca-key-wrapper',
-	_saveUrl: '/translations/:locale/store/',
+	_saveUrl: '<% translate_save_key_path %>',
 	_locale: '<%= @locale[:code] %>',
 
 	data: [],
@@ -146,6 +157,14 @@ LinguaFranca.prototype = {
 			$('#lingua-franca-translation-form h2').html(key);
 			$('#lingua-franca-keys [data-key]').removeClass('selected');
 			$('#lingua-franca-keys [data-key="' + key + '"]').addClass('selected');
+
+			var history = $('#lingua-franca-keys [data-key].selected .translation-history').html();
+			$('#lingua-franca-translation-history').html(history);
+
+			var $translations = $('.lingua-franca-translations');
+			if (!$translations.hasClass('editing')) {
+				$translations.addClass('editing');
+			}
 			lf.setVariables(data['vars']);
 			var value = data['value'];
 			$('#lingua-franca-translation-form').removeAttr('class');
@@ -170,7 +189,7 @@ LinguaFranca.prototype = {
 			var $examples = $('.lingua-franca-translations .translation-examples ul');
 			$examples.empty();
 			if (data.examples && data.examples.length > 0) {
-				for (var i = 0; i < data.examples.length; i++) {
+				for (var i = 0; i < data.examples.length && i < this.MAX_EXAMPLES; i++) {
 					$examples.append('<li><iframe class="example-page" src="/translations/examples/' + key + '/' + data.examples[i] + '" frameborder="0" allowtransparency="yes"></iframe></li>');
 				}
 				$exampleWrapper.removeClass('empty');
@@ -213,6 +232,8 @@ LinguaFranca.prototype = {
 					$('.lingua-franca-translations .translation-examples li.open').removeClass('open');
 				}
 			});
+		} else {
+			$('.lingua-franca-translations').removeClass('editing');
 		}
 	},
 	insertVar: function(event, object) {

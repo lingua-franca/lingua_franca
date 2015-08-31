@@ -267,7 +267,7 @@ module I18n
 				info = {}
 				languages.each { |language|
 					info["languages.#{language}"] = {
-						:value => lookup ? "languages.#{language}" : nil,
+						:value => lookup ? lookup_raw(locale, "languages.#{language}") : nil,
 						:pages => nil,
 						:data => nil,
 						:context => :language
@@ -292,14 +292,14 @@ module I18n
 				info = {}
 				geography.each { |country, subregions|
 					info["geography.countries.#{country}"] = {
-						:value => lookup ? I18n.t("geography.countries.#{country}", :locale => locale, :resolve => false) : nil,
+						:value => lookup ? lookup_raw(locale, "geography.countries.#{country}") : nil,
 						:pages => nil,
 						:data => nil,
 						:context => :geography
 					}
 					subregions.each { |subregion|
 						info["geography.subregions.#{country}.#{subregion}"] = {
-							:value => lookup ? I18n.t("geography.subregions.#{country}.#{subregion}", :locale => locale, :resolve => false) : nil,
+							:value => lookup ? lookup_raw(locale, "geography.subregions.#{country}.#{subregion}") : nil,
 							:pages => nil,
 							:data => nil,
 							:context => :geography
@@ -333,15 +333,13 @@ module I18n
 				plurals = pluralization_rules(locale)
 				info.each { |key, data|
 					if lookup
-						value = I18n.t(key, :locale => locale, :resolve => false)
+						value = lookup_raw(locale, key)
 
 						if data.has_key?('vars') && data['vars'].include?('count')
 							info[key][:count] = true
 							info[key][:value] = Hash.new
 							(plurals | [:zero]).each { |rule|
-								info[key][:value][rule] =
-									value.blank? ? nil :
-										value[rule.to_sym]
+								info[key][:value][rule] = value.blank? ? nil : value[rule.to_sym]
 							}
 							info[key][:zero_optional] = !plurals.include?(:zero)
 						else
@@ -432,6 +430,14 @@ module I18n
 				info = Hash.new
 				all_translation_info(locale).each { |key, value|
 					info[key] = value if ((page == nil && !value.has_key?('pages')) || (value.has_key?('pages') && value['pages'].collect{|p|p.nil? ? nil : p[:path]}.include?(page)))
+				}
+				info
+			end
+
+			def undefined_translation_info(locale = I18n.locale)
+				info = Hash.new
+				all_translation_info(locale).each { |key, value|
+					info[key] = value if value[:value].nil?
 				}
 				info
 			end

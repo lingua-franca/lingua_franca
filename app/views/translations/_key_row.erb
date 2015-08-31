@@ -22,26 +22,40 @@
 				records = TranslationRecord.where(:key => key, :locale => locale).limit(2)
 				this_record = records[0]
 				last_record = records[1]
+
+				if I18n.default_locale.to_sym == locale.to_sym
+					default_locale_translation = nil
+				else
+					default_locale = (_"languages.#{I18n.default_locale}")
+					default_locale_translation = I18n.t(key, :locale => default_locale)
+				end
 			%>
-			<% if this_record %>
+			<% if this_record || default_locale_translation %>
 			<div class="translation-history">
-				<div>Translated by <%= this_record.translator_id %> on <%= I18n.l this_record.created_at, :format => :long %></div>
-				<% if last_record %>
-				<ul class="translation-diff-info">
-					<li>
-						<time datetime="<%= this_record.created_at %>">
-							<%= I18n.l this_record.created_at, :format => :long %>
-						</time>
-						<%= this_record.translator_id == 0 ? 'admin' : this_record.translator_id %>
-					</li>
-					<li>
-						<time datetime="<%= last_record.created_at %>">
-							<%= I18n.l last_record.created_at, :format => :long %>
-						</time>
-						<%= last_record.translator_id == 0 ? 'admin' : last_record.translator_id %>
-					</li>
-				</ul>
-				<%= Diffy::Diff.new(this_record.value, last_record.value).to_s(:html).html_safe %>
+				<% if this_record %>
+					<h3><%= _'translate.pages.History' %></h3>
+					<div>Translated by <%= this_record.translator_id %> on <%= I18n.l this_record.created_at, :format => :long %></div>
+					<% if last_record %>
+						<ul class="translation-diff-info">
+							<li>
+								<time datetime="<%= this_record.created_at %>">
+									<%= I18n.l this_record.created_at, :format => :long %>
+								</time>
+								<%= this_record.translator_id == 0 ? 'admin' : this_record.translator_id %>
+							</li>
+							<li>
+								<time datetime="<%= last_record.created_at %>">
+									<%= I18n.l last_record.created_at, :format => :long %>
+								</time>
+								<%= last_record.translator_id == 0 ? 'admin' : last_record.translator_id %>
+							</li>
+						</ul>
+						<%= Diffy::Diff.new(this_record.value, last_record.value).to_s(:html).html_safe %>
+					<% end %>
+				<% end %>
+				<% if default_locale_translation %>
+					<h3><%=_'translate.translation_pages.Locale_Translation', "#{default_locale} Translation", :vars => {:language => default_locale} %></h3>
+					<p><%= default_locale_translation %></p>
 				<% end %>
 			</div>
 			<% end %>
