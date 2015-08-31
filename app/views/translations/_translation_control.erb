@@ -144,7 +144,7 @@ LinguaFranca.prototype = {
 	MAX_EXAMPLES: 5,
 
 	_keyListSelector: '.lingua-franca-key-wrapper',
-	_saveUrl: '<% translate_save_key_path %>',
+	_saveUrl: '<%= translate_save_key_path @locale[:code] %>',
 	_locale: '<%= @locale[:code] %>',
 
 	data: [],
