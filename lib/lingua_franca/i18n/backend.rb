@@ -246,9 +246,9 @@ module I18n
 			end
 
 			def add_translation(locale, data, options = {})
-				if translations.empty?
-					load_translations
-				end
+				#if translations.empty?
+				#end
+				load_translations
 				store_translations(locale, data, options)
 				write_translations(locale.to_s, {locale => translations[locale.to_sym].deep_stringify_keys})
 				save_change(locale, data)
