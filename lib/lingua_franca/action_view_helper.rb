@@ -1,8 +1,8 @@
 require "action_view"
 
 module LinguaFrancaHelper
-	def _(*args, &block)#key, context = nil, context_size = nil, locale: nil, vars: {})#, html: nil, blockData: {}, &block)
-		wrapper = I18n.backend.html_wrapper(*args)
+	def _(*args, &block)
+		#wrapper = I18n.backend.html_wrapper(*args)
 		inner_html = nil
 		if block_given?
 			key = args.first
@@ -20,7 +20,7 @@ module LinguaFrancaHelper
 			end
 			inner_html = send(:capture, *translations, &block)
 		end
-		I18n.backend.wrap(inner_html || I18n.backend._(*args), *args).html_safe
+		I18n.backend.wrap(inner_html || I18n.backend._(*args), *args, &block).html_safe
 	end
 
 	# mark contents as exempt from translation

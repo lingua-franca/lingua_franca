@@ -91,6 +91,10 @@ module I18n
 					:controller => params['controller'],
 					:action => params['action']
 				}
+				if ENV["RAILS_ENV"] == 'test'
+					@@request_id ||= 0
+					@@request_id += 1
+				end
 			end
 
 			def needs_translation(key)
@@ -509,7 +513,7 @@ module I18n
 				@stack.pop
 			end
 
-			def html_wrapper(*args)
+			def html_wrapper(*args, &block)
 				return ['', ''] unless can_translate? || @@testing_started
 
 				options  = args.last.is_a?(Hash) ? args.pop.dup : {}
@@ -536,14 +540,14 @@ module I18n
 
 				should_wrap_translation?(exists) ?
 					[
-						'<span class="translated-content"' + data.map{|k,v| v ? " data-i18n-#{k}=\"#{v}\"" : ''}.join('') + '>',
+						'<span class="translated-content' + (block_given? ? 'block' : '') + '"' + data.map{|k,v| v ? " data-i18n-#{k}=\"#{v}\"" : ''}.join('') + '>',
 						'</span>'
 					] :
 					['', '']
 			end
 
-			def wrap(html, *args)
-				outer = html_wrapper(*args)
+			def wrap(html, *args, &block)
+				outer = html_wrapper(*args, &block)
 				(outer.first + (html.nil? ? I18n.t(*args) : html) + outer.last).html_safe
 			end
 
@@ -695,12 +699,14 @@ module I18n
 						data[key]['pages'] << route
 					end
 
-					@@last_url ||= nil
-					if @@last_url != page_info[:path]
+					@@request_id ||= 0
+					@@last_request_id ||= nil
+					if @@last_request_id != @@request_id
 						@@lingua_franca_html ||= nil
-						stop_recording_html#(@@lingua_franca_html) if @@lingua_franca_html#@@test_driver.html)
+						stop_recording_html
 						set_page_name(page_info[:path].gsub(/^\/?(.*?)\.?/, '\1').gsub('/', '.'))
 					end
+					@@last_request_id = @@request_id
 
 					@@page_name ||= nil
 					if @@page_name.present?
