@@ -71,9 +71,10 @@ class TranslationsController < ::ApplicationController
 	end
 
 	def example_page
-		html = File.read(File.join(I18n.config.html_records_dir, "#{params[:id]}.html"))
-		html = html.gsub('class="translated-content" data-i18n-key="' + params[:key] + '"', 'class="translated-content highlight-key" data-i18n-key="' + params[:key] + '"')
-		puts 'class="translated-content" data-i18n-key="' + params[:key] + '"'
+		html = File.read(File.join(I18n.config.html_records_dir, "#{params[:page_name]}.html"))
+		#
+		#html = html.gsub('class="translated-content" data-i18n-key="' + params[:key] + '"', 'class="translated-content highlight-key" data-i18n-key="' + params[:key] + '"')
+		html = html.gsub('</html>', '<div id="lingua-franca-pointer" data-i18n-example-key="' + params[:key] + '"></div><script src="/assets/lingua-franca-example.js"></script>"></html>')
 		@translatable = false
 		render html: html.html_safe
 	end

@@ -35,17 +35,17 @@ module I18n
 				@@testing_started
 			end
 
-			def start_recording_html
-				if ENV["RAILS_ENV"] == 'test' && @@testing_started
-					@@html_id ||= 0
-					@@html_id += 1
-				end
+			def start_recording_html(test_driver)
+				#if ENV["RAILS_ENV"] == 'test' && @@testing_started
+				#end
+				@@test_driver = test_driver
 			end
 
-			def stop_recording_html(html)
-				if ENV["RAILS_ENV"] == 'test' && @@testing_started
-					File.open(File.join(I18n.config.html_records_dir, "#{@@html_id}.html"), 'w+') {
-						|f| f.write(html.gsub(/https?:\/\/(\w\w\.)?127.0.0.1:\d+\//, '/'))
+			def stop_recording_html#(html)
+				@@page_name ||= nil
+				if ENV["RAILS_ENV"] == 'test' && @@page_name && @@lingua_franca_html
+					File.open(File.join(I18n.config.html_records_dir, "#{@@page_name}.html"), 'w+') {
+						|f| f.write(@@lingua_franca_html.gsub(/https?:\/\/(\w\w\.)?127.0.0.1:\d+\//, '/'))
 					}
 				end
 			end
@@ -60,6 +60,27 @@ module I18n
 
 			def translations_blocked
 				@@block_translations ||= false
+			end
+
+			def set_test_name(name)
+				@@test_name = name
+			end
+
+			def set_page_name(name)
+				@@page_names ||= []
+				
+				if name.nil?
+					@@page_name = nil
+					return
+				end
+
+				@@page_name = "#{@@test_name}--#{name}"
+				while @@page_names.include? @@page_name
+					id ||= 0
+					id += 1
+					@@page_name = "#{@@test_name}--#{name}-#{id}"
+				end
+				@@page_names << @@page_name
 			end
 
 			# Initializes the page, takes in request and params for recording
@@ -246,9 +267,7 @@ module I18n
 			end
 
 			def add_translation(locale, data, options = {})
-				if translations.empty?
-					load_translations
-				end
+				load_translations
 				store_translations(locale, data, options)
 				write_translations(locale.to_s, {locale => translations[locale.to_sym].deep_stringify_keys})
 				save_change(locale, data)
@@ -549,6 +568,10 @@ module I18n
 				false
 			end
 
+			def set_html(html)
+				@@lingua_franca_html = html
+			end
+
 			protected
 				def _get_language_completion(locale, _translation_info)
 					total = 0
@@ -672,10 +695,20 @@ module I18n
 						data[key]['pages'] << route
 					end
 
-					if @@html_id.present?
-						data[key]['examples'] ||= Array.new 
-						data[key]['examples'] << @@html_id
+					@@last_url ||= nil
+					if @@last_url != page_info[:path]
+						@@lingua_franca_html ||= nil
+						stop_recording_html#(@@lingua_franca_html) if @@lingua_franca_html#@@test_driver.html)
+						set_page_name(page_info[:path].gsub(/^\/?(.*?)\.?/, '\1').gsub('/', '.'))
 					end
+
+					@@page_name ||= nil
+					if @@page_name.present?
+						data[key]['examples'] ||= Array.new
+						data[key]['examples'] << @@page_name
+					end
+
+					@@last_url = page_info[:path]
 
 					# write them to the info DB
 					write_translation_info(data)
