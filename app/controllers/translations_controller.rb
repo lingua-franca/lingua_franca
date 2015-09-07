@@ -74,8 +74,13 @@ class TranslationsController < ::ApplicationController
 
 	def example_page
 		html = File.read(File.join(I18n.config.html_records_dir, "#{params[:page_name]}.html"))
-		html = html.gsub('</html>', '<div id="lingua-franca-pointer" data-i18n-example-key="' + params[:key] + '"></div><script src="/assets/lingua-franca-example.js"></script>"></html>')
+		html = html.gsub('</body>', '<div id="lingua-franca-pointer" data-i18n-example-key="' + params[:key] + '"></div><script src="/assets/lingua-franca-example.js"></script></body>')
 		@translatable = false
+		matches = /^\s*<!DOCTYPE email>(.*<body.*?>)(.*)(<\/body>.*)$/m.match(html)
+		if matches
+			content = render_to_string 'email', :layout => false, :locals => {:content => matches[2]}
+			html = '<!DOCTYPE html>' + matches[1] + content + matches[3]
+		end
 		render html: html.html_safe
 	end
 

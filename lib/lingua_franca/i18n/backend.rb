@@ -36,8 +36,6 @@ module I18n
 			end
 
 			def start_recording_html(test_driver)
-				#if ENV["RAILS_ENV"] == 'test' && @@testing_started
-				#end
 				@@test_driver = test_driver
 			end
 
@@ -67,11 +65,17 @@ module I18n
 			end
 
 			def set_page_name(name)
+				@@page_override ||= false
+				if @@page_override === true
+					return @@page_name
+				end
+				@@page_name ||= nil
+				old_name = @@page_name
 				@@page_names ||= []
 				
 				if name.nil?
 					@@page_name = nil
-					return
+					return old_name
 				end
 
 				@@page_name = "#{@@test_name}--#{name}"
@@ -81,6 +85,7 @@ module I18n
 					@@page_name = "#{@@test_name}--#{name}-#{id}"
 				end
 				@@page_names << @@page_name
+				return old_name
 			end
 
 			# Initializes the page, takes in request and params for recording
@@ -91,6 +96,10 @@ module I18n
 					:controller => params['controller'],
 					:action => params['action']
 				}
+				init_request
+			end
+
+			def init_request
 				if ENV["RAILS_ENV"] == 'test'
 					@@request_id ||= 0
 					@@request_id += 1
@@ -576,6 +585,18 @@ module I18n
 				@@lingua_franca_html = html
 			end
 
+			def override_page_name(name)
+				old_name = set_page_name(name)
+				@@page_override = true
+				return old_name
+			end
+
+			def end_page_name_override(name)
+				@@page_override = false
+				old_name = set_page_name(name)
+				return old_name
+			end
+
 			protected
 				def _get_language_completion(locale, _translation_info)
 					total = 0
@@ -632,10 +653,6 @@ module I18n
 				def write_translations(file, data)
 					File.open("config/locales/#{file}.yml", 'w+') { |f| f.write data.to_yaml }
 				end
-
-				#def translation_cache
-				#	@@translation_cache ||= {}
-				#end
 
 				# Looks up the translation and makes a record of it if we're currently testing
 				# Returns the translation or if the translation is missing it will use

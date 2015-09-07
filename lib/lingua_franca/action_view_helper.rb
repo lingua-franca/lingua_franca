@@ -2,7 +2,6 @@ require "action_view"
 
 module LinguaFrancaHelper
 	def _(*args, &block)
-		#wrapper = I18n.backend.html_wrapper(*args)
 		inner_html = nil
 		if block_given?
 			key = args.first
