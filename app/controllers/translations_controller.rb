@@ -74,13 +74,20 @@ class TranslationsController < ::ApplicationController
 
 	def example_page
 		html = File.read(File.join(I18n.config.html_records_dir, "#{params[:page_name]}.html"))
-		html = html.gsub('</body>', '<div id="lingua-franca-pointer" data-i18n-example-key="' + params[:key] + '"></div><script src="/assets/lingua-franca-example.js"></script></body>')
 		@translatable = false
 		matches = /^\s*<!DOCTYPE email>(.*<body.*?>)(.*)(<\/body>.*)$/m.match(html)
 		if matches
 			content = render_to_string 'email', :layout => false, :locals => {:content => matches[2]}
 			html = '<!DOCTYPE html>' + matches[1] + content + matches[3]
+			html = html.gsub('<html', '<html data-lingua-franca-example="email"')
+		else
+			html = html.gsub('</body>',
+				'<div id="lingua-franca-window-caption"><div class="window-tab"><span class="lingua-franca-title"></span></div><i class="window-minimize"></i><i class="window-maximize"></i><i class="window-close"></i><div class="window-url-bar"><i class="window-back"></i><i class="window-forward"></i><div class="url-bar">https://www.bikebike.org</div></div></div>' + 
+				#'<div id="lingua-franca-description"><span class="lingua-franca-description"></span></div>' +
+				'</body>')
+			html = html.gsub('<html', '<html data-lingua-franca-example="html"')
 		end
+		html = html.gsub('</body>', '<div id="lingua-franca-pointer" data-i18n-example-key="' + params[:key] + '"></div><script src="/assets/lingua-franca-example.js"></script></body>')
 		render html: html.html_safe
 	end
 

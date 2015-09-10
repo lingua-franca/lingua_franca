@@ -53,8 +53,8 @@ if defined?(Capybara)
 						html = (message.parts && message.parts.last ? message.parts.last.body.raw_source : message.body.raw_source).
 							gsub(/<!DOCTYPE html>/m, '<!DOCTYPE email>').
 							gsub(/<title>.*?<\/title>/m, "<title>#{CGI.escapeHTML(message.subject)}</title>").
-							gsub(/<\/head>/m, "<meta email-from='#{message.from.join(',')}'/>" + 
-								"<meta email-to='#{message.to.join(',')}'/></head>")
+							gsub(/<\/head>/m, "<meta name=\"email-from\" content='#{message.from.join(',')}'/>" + 
+								"<meta name=\"email-to\" content='#{message.to.join(',')}'/></head>")
 						I18n.backend.set_html(html)
 					end
 

@@ -11,26 +11,32 @@ function LinguaFrancaHighlightExample(_data) {
 		return { x: xPosition, y: yPosition };
 	}
 
+	var replaceTemplate = function(item, text) {
+		if (typeof text === "undefined") {
+			var meta = document.querySelector('meta[name="' + item + '"]');
+			if (!meta) {
+				return;
+			}
+			text = meta.getAttribute('content')
+		}
+		text = text.replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&quot;/g, '"');
+		var elements = document.querySelectorAll('.lingua-franca-' + item);
+		for (var i = 0; i < elements.length; i++) {
+			elements[i].innerHTML = text;
+		}
+	}
+
 	var pointer = document.getElementById('lingua-franca-pointer');
 	var key = pointer.dataset.i18nExampleKey;
 
-	var title = document.getElementById('lingua-tranca-title');
-	if (title) {
-		title.innerHTML = document.title.replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&quot;/g, '"');
-	}
+	replaceTemplate('title', document.title);
+	replaceTemplate('email-from');
+	replaceTemplate('email-to');
+	replaceTemplate('description');
 
-	var email_from = document.getElementById('lingua-tranca-from');
-	if (email_from) {
-		email_from.innerHTML = document.querySelector('meta[email-from]').getAttribute('email-from');
-	}
-
-	var email_to = document.getElementById('lingua-tranca-to');
-	if (email_to) {
-		email_to.innerHTML = document.querySelector('meta[email-to]').getAttribute('email-to');
-	}
-
-	var example = document.querySelector('[data-i18n-key="' + key + '"]');
-	if (example) {
+	var example = document.querySelectorAll('[data-i18n-key="' + key + '"]');
+	if (example.length > 0) {
+		example = example[example.length - 1];
 		var rect = example.getBoundingClientRect();
 		var parentRect = example.offsetParent.getBoundingClientRect();
 		

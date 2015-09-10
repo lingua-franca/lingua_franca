@@ -1,7 +1,26 @@
 <%= inject_css! 'email-example' %>
 <div class="lingua-franca-email-content">
-	<h3 id="lingua-tranca-title"></h3>
-	<h4 id="lingua-tranca-from"></h4>
-	<h4 id="lingua-tranca-to"></h4>
-	<%= content.html_safe %>
+	<header id="email-header">
+		<div class="letter-icon"></div>
+		<h1>My Email Client</h1>
+	</header>
+	<ul id="email-folders">
+		<button class="button">New Email</button>
+		<li class="selected">Inbox (<%= rand(20) + 1 %>)</li>
+		<li>Spam (<%= rand(100) + 1 %>)</li>
+		<li>Sent</li>
+		<li>Deleted</li>
+	</ul>
+	<div id="email-inner">
+		<h3 class="lingua-franca-title"></h3>
+		<div id="email-from">
+			From: <span class="lingua-franca-email-from"></span>
+		</div>
+		<div id="email-to">
+			To: <span class="lingua-franca-email-to"></span>
+		</div>
+		<div id="email-inner-content">
+			<%= content.html_safe %>
+		</div>
+	</div>
 </div>
