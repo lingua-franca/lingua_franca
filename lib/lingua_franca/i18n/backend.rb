@@ -344,20 +344,30 @@ module I18n
 
 			def translation_info(locale = I18n.locale, lookup = true)
 				info = {}
-				get_translation_info().each { |key, value|
-					info[key] = value
-					#info[key][:value] = lookup ? I18n.t(key, :locale => locale, :resolve => false, :throw => true) : nil
-					info[key][:value] = nil
+				plurals = pluralization_rules(locale)
+				get_translation_info().each { |key, data|
+					info[key] = data
+					value = info[key][:value] = nil
 					if lookup
 						catch(:exception) do
-							info[key][:value] = lookup_raw(locale, key)
+							value = info[key][:value] = lookup_raw(locale, key)
 						end
 					end
-					if info[key][:value].is_a?(Array)
-						info[key][:value] = Hash[[*info[key][:value].map.with_index]].invert
-						info[key][:array] = true
+					#if info[key][:value].is_a?(Array)
+					#	info[key][:value] = Hash[[*info[key][:value].map.with_index]].invert
+					#	info[key][:array] = true
+					#end
+					if data.has_key?('vars') && data['vars'].include?(:count)
+						info[key][:count] = true
+						info[key][:value] = Hash.new
+						(plurals | [:zero]).each { |rule|
+							info[key][:value][rule] = value.blank? ? nil : value[rule.to_sym]
+						}
+						info[key][:zero_optional] = !plurals.include?(:zero)
+					else
+						info[key][:value] = value
 					end
-					info[key]['pages'] = value['pages'] ? value['pages'].collect { |page| get_route(page) } : []
+					info[key]['pages'] = data['pages'] ? data['pages'].collect { |page| get_route(page) } : []
 				}
 			end
 
@@ -469,8 +479,20 @@ module I18n
 
 			def undefined_translation_info(locale = I18n.locale)
 				info = Hash.new
+				plurals = pluralization_rules(locale)
 				all_translation_info(locale).each { |key, value|
 					info[key] = value if value[:value].nil?
+					if value[:count]
+						plurals.each do |p|
+							info[key] = value if value[:value][p].nil?
+						end
+					elsif value[:value].is_a?(Hash)
+						value[:value].keys.each do |k|
+							info[key] = value if value[:value][k].nil?
+						end
+					else
+						info[key] = value if value[:value].nil?
+					end
 				}
 				info
 			end
@@ -603,12 +625,15 @@ module I18n
 					complete = 0
 
 					_translation_info.each { |key, info|
-						if info[:value].is_a?(Hash)
+						if info[:count] || info['count']
 							pluralization_rules(locale).each { |rule|
-								if rule.to_sym == :one || rule.to_sym == :other
-									total += 1
-									complete += 1 unless info[:value].nil? || !info[:value].has_key?(rule) || info[:value][rule].nil?
-								end
+								total += 1
+								complete += 1 unless info[:value].nil? || !info[:value].has_key?(rule) || info[:value][rule].nil?
+							}
+						elsif info[:value].is_a?(Hash)
+							info[:value].keys.each { |rule|
+								total += 1
+								complete += 1 unless info[:value].nil? || !info[:value].has_key?(rule) || info[:value][rule].nil?
 							}
 						else
 							total += 1

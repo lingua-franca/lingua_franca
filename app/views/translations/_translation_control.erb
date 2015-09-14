@@ -246,7 +246,7 @@ LinguaFranca.prototype = {
 		$('#translation-value').focus();
 		var value = $this.html();
 		var varname = $this.data().varname;
-		var html = lf.createVariable(value, false, value == '%{' + varname + '}' ? undefined : '%' + varname, $this.hasClass('special'));
+		var html = lf.createVariable(value, false, value == '%{' + varname + '}' ? undefined : varname, $this.hasClass('special'));
 		lf.pasteHtmlAtCaret(html);
 	},
 
