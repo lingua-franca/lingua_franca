@@ -2,6 +2,10 @@ require 'active_record'
 
 module LinguaFranca
 	module ActiveRecord
+		def does_translate(column = nil)
+			return false
+		end
+
 		def translates(*columns)
 			class_eval <<-RUBY, __FILE__, __LINE__+1
 				before_save :set_locale
@@ -33,6 +37,11 @@ module LinguaFranca
 
 				def requires_translation?
 					#{columns.collect{|c| c.to_s + '_requires_translation?'}.join(' && ')}
+				end
+
+				def does_translate(column = nil)
+					return true if column.nil?
+					return columns.include?(column.to_sym)
 				end
 			RUBY
 

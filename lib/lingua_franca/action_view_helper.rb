@@ -63,6 +63,17 @@ module LinguaFrancaHelper
 		_"languages.#{code.to_s}"
 	end
 
+	def url_params(locale, params = {})
+		case I18n.config.language_detection_method
+			when I18n::Config::DETECT_LANGUAGE_FROM_URL_PARAM
+				params[:params] ||= {}
+				params[:params][:lang] = locale.to_s
+			when I18n::Config::DETECT_LANGUAGE_FROM_SUBDOMAIN
+				params[:subdomain] = locale.to_s
+		end
+		return params
+	end
+
 end
 
 ActionView::Base.send :include, LinguaFrancaHelper

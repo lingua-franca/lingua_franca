@@ -239,6 +239,7 @@ module I18n
 			# The threshold is measured by the total number of keys avilable for translation divided by the total
 			#  number of keys that have translations for each locale
 			def enabled_locales
+				return [:en, :es, :fr] if ENV["RAILS_ENV"] == 'test'
 				@@enabled_locales ||= nil
 				if !@@enabled_locales
 					@@enabled_locales = Array.new
@@ -353,10 +354,6 @@ module I18n
 							value = info[key][:value] = lookup_raw(locale, key)
 						end
 					end
-					#if info[key][:value].is_a?(Array)
-					#	info[key][:value] = Hash[[*info[key][:value].map.with_index]].invert
-					#	info[key][:array] = true
-					#end
 					if data.has_key?('vars') && data['vars'].include?(:count)
 						info[key][:count] = true
 						info[key][:value] = Hash.new
