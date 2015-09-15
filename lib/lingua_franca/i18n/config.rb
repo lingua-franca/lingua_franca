@@ -96,13 +96,22 @@ module I18n
 			@@language_detection_method = language_detection_method
 		end
 
-		# the method used for setting the current language form a url
+		# the param used for identifying the locale
 		def language_url_param
 			@@language_url_param ||= 'lang'
 		end
 
 		def language_url_param=(language_url_param)
 			@@language_url_param = language_url_param
+		end
+
+		# the format of subdomain where % is the locale
+		def subdomain_format
+			@@subdomain_format ||= '%'
+		end
+
+		def subdomain_format=(subdomain_format)
+			@@subdomain_format = subdomain_format
 		end
 
 		def host_locale_regex

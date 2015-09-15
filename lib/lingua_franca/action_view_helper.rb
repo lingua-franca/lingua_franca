@@ -67,9 +67,9 @@ module LinguaFrancaHelper
 		case I18n.config.language_detection_method
 			when I18n::Config::DETECT_LANGUAGE_FROM_URL_PARAM
 				params[:params] ||= {}
-				params[:params][:lang] = locale.to_s
+				params[:params][I18n.config.language_url_param] = locale.to_s
 			when I18n::Config::DETECT_LANGUAGE_FROM_SUBDOMAIN
-				params[:subdomain] = locale.to_s
+				params[:subdomain] = I18n.config.subdomain_format.gsub('%', locale.to_s)
 		end
 		return params
 	end
