@@ -30,7 +30,7 @@ module LinguaFranca
 			@old_page_name = I18n.backend.override_page_name(method) if ENV["RAILS_ENV"] == 'test'
 			args = default_mail_options.merge(yield)
 
-			send(method, args[:args]).send("deliver_#{args[:when].to_s}")
+			send(method, *args[:args]).send("deliver_#{args[:when].to_s}")
 			
 			if ENV["RAILS_ENV"] == 'test'
 				I18n.backend.init_request
@@ -41,7 +41,7 @@ module LinguaFranca
 
 		def default_mail_options
 			{
-				:args => {},
+				:args => [],
 				:when => :now
 			}
 		end

@@ -30,6 +30,8 @@ if defined?(Capybara)
 
   				class Server < Capybara::Poltergeist::Server
   					def send(message)
+						I18n.backend.stop_recording_html
+  						
   						@@lingua_franca_email_sending ||= false
   						if @@lingua_franca_email_sending
   							return super(message)
@@ -57,16 +59,6 @@ if defined?(Capybara)
 								"<meta name=\"email-to\" content='#{message.to.join(',')}'/></head>")
 						I18n.backend.set_html(html)
 					end
-
-					#def self.delivering_email(mail)
-					#	I18n.backend.set_html(prepare_email_html(mail.parts && mail.parts.last ? 
-					#		mail.parts.last.body.raw_source : mail.body.raw_source, mail.subject))
-					#end
-
-					#protected
-					#	def self.prepare_email_html(html, title)
-					#		html.gsub(/<!DOCTYPE html>/m, '<!DOCTYPE email>').gsub(/<title>.*?<\/title>/m, "<title>#{title}</title>")
-					#	end
 				end
 			end
 			Capybara.register_driver :lingua_franca_poltergeist do |app|
@@ -74,7 +66,6 @@ if defined?(Capybara)
 			end
 
 			ActionMailer::Base.register_observer(LinguaFrancaPoltergeist::MailObserver)
-			#ActionMailer::Base.register_interceptor(LinguaFrancaPoltergeist::MailObserver)
 		end
 		if defined?(Capybara::Selenium)
 			module LinguaFrancaSelenium
@@ -89,7 +80,7 @@ if defined?(Capybara)
 	end
 
 	Before do |scenario|
-		I18n.backend.set_test_name(scenario.title.gsub(/\s+/, '-'))
+		I18n.backend.set_test_name(scenario.name.gsub(/\s+/, '-'))
 	end
 
 	After do |scenario|
