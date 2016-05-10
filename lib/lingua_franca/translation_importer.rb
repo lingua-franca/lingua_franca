@@ -79,44 +79,24 @@ module LinguaFranca
 			end
 
 			def import_languages locales
-				Net::FTP.open('unicode.org', 'anonymous', '') do |ftp|
-					ftp.chdir('Public/cldr')
-					latest_version = ftp.list("-d -t */")[0].match(/:\d\d\s(.*?)\/?$/)[1]
-					ftp.chdir(latest_version)
-
-					file_to_get = 'json.zip'
-					destination_file = file_to_get.gsub(/\.zip/, "-#{latest_version}.zip")
-
-					if !File.exists?(destination_file)
-						puts "Downloading latest translations: version #{latest_version}..."
-						ftp.get(file_to_get, destination_file)
-					else
-						puts "Latest translations already downloaded: version #{latest_version}."
+				data = {}
+				locales.each do | locale |
+					data[locale] = {'languages' => {}}
+					github_url = "https://raw.githubusercontent.com/unicode-cldr/cldr-localenames-full/master/main/#{locale}/languages.json"
+					puts "Downloading #{locale} data from #{github_url}"
+					github_data = false
+					begin
+						github_data = open(github_url, {ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE})
+					rescue
+						puts "Error downloading #{locale} data"
 					end
-
-					puts "Unzipping data..."
-
-					data = {}
-
-					Zip::File.open(destination_file) do |zipfile|
-						zipfile.each do |file|
-							if /main\/(\w+)\/languages\.json/ =~ file.to_s
-								locale = Regexp.last_match(1)
-								if locales.include?(locale)
-									translations = YAML.load(file.get_input_stream.read)
-									data[locale] = {'languages' => {}}
-									translations['main'][locale]['localeDisplayNames']['languages'].each { |lang, translation|
-										if locales.include?(lang)
-											data[locale]['languages'][lang] = translation
-										end
-									}
-								end
-							end
+					if github_data
+						JSON.parse(github_data.read)['main'][locale]['localeDisplayNames']['languages'].each do | language, translation |
+							data[locale]['languages'][language] = translation
 						end
 					end
-
-					save_data('languages', data)
 				end
+				save_data('languages', data)
 			end
 
 			protected
