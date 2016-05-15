@@ -43,7 +43,7 @@ en:
       can_you_help: "Can you translate from %{language_a} to %{language_b}?"
       un_translated: "Untranslated content"
       outdated_translation: "Outdated content"
-      change_locale: "Read in %{locale}"
+      change_locale: "Read in %{language}"
     volunteer:
       become_a_volunteer: "Become a volunteer translator"
       volunteer: "Can you help us translate it?"

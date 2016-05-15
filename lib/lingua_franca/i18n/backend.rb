@@ -39,7 +39,7 @@ module I18n
 				@@test_driver = test_driver
 			end
 
-			def stop_recording_html#(html)
+			def stop_recording_html
 				@@page_name ||= nil
 				if ENV["RAILS_ENV"] == 'test' && @@page_name && @@lingua_franca_html
 					File.open(File.join(I18n.config.html_records_dir, "#{@@page_name}.html"), 'w+') {
@@ -78,13 +78,16 @@ module I18n
 					return old_name
 				end
 
-				@@page_name = "#{@@test_name}--#{name}"
-				while @@page_names.include? @@page_name
-					id ||= 0
-					id += 1
-					@@page_name = "#{@@test_name}--#{name}-#{id}"
+				@@test_name ||= nil
+				if @@test_name
+					@@page_name = "#{@@test_name}--#{name}"
+					while @@page_names.include? @@page_name
+						id ||= 0
+						id += 1
+						@@page_name = "#{@@test_name}--#{name}-#{id}"
+					end
+					@@page_names << @@page_name
 				end
-				@@page_names << @@page_name
 				return old_name
 			end
 
@@ -96,6 +99,7 @@ module I18n
 					:controller => params['controller'],
 					:action => params['action']
 				}
+				@_lingua_franca_debug = request.params['i18nDebug']
 				init_request
 			end
 
@@ -117,16 +121,14 @@ module I18n
 			def initialize
 
 				I18n.exception_handler = I18n::LinguaFrancaMissingTranslation.new
-				if !File.exist?(I18n.config.info_file)
+				unless File.exist?(I18n.config.info_file)
 					dir = File.dirname(I18n.config.info_file)
 					FileUtils.mkdir_p(dir) unless File.directory?(dir)
 					File.open(I18n.config.info_file, 'w+')
 				end
 
 				# throw an exception if we're missing the pluralizations rules file
-				if !File.exist?(I18n.config.languages_file)
-					throw Exception("Lingua Franca: Missing Pluralization File #{I18n.config.languages_file}")
-				end
+				throw Exception("Lingua Franca: Missing Pluralization File #{I18n.config.languages_file}") unless File.exist?(I18n.config.languages_file)
 
 				super
 			end
@@ -173,7 +175,7 @@ module I18n
 
 				pluralization_file = File.join(Gem.loaded_specs['rails-i18n'].full_gem_path, "rails/pluralization/#{locale.to_s}.rb")
 
-				if !File.exist?(pluralization_file)
+				unless File.exist?(pluralization_file)
 					# if we didn't file pluralization rules, the language must use the default just like English
 					return (@@pluralization_rules[locale] = pluralization_rules(:en))
 				end
@@ -263,9 +265,8 @@ module I18n
 					return @@language_completion[locale]
 				end
 
-				# return 0 if we haven't got all of our base translations in
-				#return 0.0 if _get_language_completion(locale, lingua_franca_translation_info(locale)) < 100
-				return 0.0 unless File.exists?("config/locales/#{locale}.yml")
+				# return nil if we haven't got all of our base translations in
+				return nil unless File.exists?("config/locales/#{locale}.yml")
 
 				# return the percentage of translations in use
 				@@language_completion[locale] = _get_language_completion(locale, translation_info(locale))
@@ -277,7 +278,7 @@ module I18n
 			#  and compared against config.language_threshold to make sure the amount of translations
 			#  available meet the minimum requirements
 			def locale_enabled?(locale)
-				locale.to_s == I18n.default_locale.to_s || get_language_completion(locale) >= I18n.config.language_threshold
+				locale.to_s == I18n.default_locale.to_s || (get_language_completion(locale) || -1) >= I18n.config.language_threshold
 			end
 
 			def add_translation(locale, data, options = {})
@@ -518,13 +519,14 @@ module I18n
 				new_data
 			end
 
-			def _(key, context = nil, context_size = nil, vars: {}, &block)#, html: nil, blockData: {}, &block)
+			def _(key, context = nil, context_size = nil, vars: {}, locale: nil, &block)#, html: nil, blockData: {}, &block)
 				options = vars
 				options[:fallback] = true
 				if context
 					options[:context] = context
 					options[:context_size] = context_size
 				end
+				options[:locale] = locale if locale.present?
 				I18n.translate(key, options)
 			end
 
@@ -542,7 +544,7 @@ module I18n
 			end
 
 			def html_wrapper(*args, &block)
-				return ['', ''] unless can_translate? || @@testing_started
+				return ['', ''] unless can_translate? || @@testing_started || @_lingua_franca_debug
 
 				options  = args.last.is_a?(Hash) ? args.pop.dup : {}
 				scope    = options.has_key?(:scope) ? options[:scope] : []
@@ -568,7 +570,7 @@ module I18n
 
 				should_wrap_translation?(exists) ?
 					[
-						'<span class="translated-content' + (block_given? ? 'block' : '') + '"' + data.map{|k,v| v ? " data-i18n-#{k}=\"#{v}\"" : ''}.join('') + '>',
+						'<span class="translated-content' + (block_given? ? ' translated-contentblock' : '') + '"' + data.map{|k,v| v ? " data-i18n-#{k}=\"#{v}\"" : ''}.join('') + ' tabindex="0">',
 						'</span>'
 					] :
 					['', '']
@@ -580,13 +582,22 @@ module I18n
 			end
 
 			def should_wrap_translation?(translation_exists)
-				(can_translate? && !translation_exists) || @@testing_started
+				(can_translate? && !translation_exists) || @@testing_started || @_lingua_franca_debug
 			end
 
 			def can_translate?
 				translator = I18n.config.translator
 				translator.present? && translator.can_translate?
 			end
+
+			# def translate(*args)#locale, key, options = {})
+			# 	translation = super(*args)
+			# 	if @_lingua_franca_debug
+			# 		key = args[args.length - (args.last.is_a?(Hash) ? 2 : 1)]
+			# 		return "<span class=\"i18n-translation\" data-i18n-key=\"#{key.to_s}\">#{translation}</span>".html_safe
+			# 	end
+			# 	return translation
+			# end
 
 			def current_page
 				page_info[:path] ? get_route(page_info[:path])[:path] : nil
@@ -681,6 +692,10 @@ module I18n
 				#  options[:context] to determine what to return
 				def lookup(locale, key, scope = [], options = {})
 					return '' if translations_blocked
+
+					if @_lingua_franca_debug && available_locales.include?(@_lingua_franca_debug)
+						locale = @_lingua_franca_debug
+					end
 
 					result = super(locale, key, scope, options)
 
