@@ -57,6 +57,14 @@ module I18n
 			@@current_translator = user
 		end
 
+		def callback
+			@@callback ||= nil
+		end
+		
+		def callback=(callback)
+			@@callback = callback
+		end
+
 		# the id of the current translator, used for recording changes in translations
 		def translator_id
 			translator.nil? ? nil : translator.id
