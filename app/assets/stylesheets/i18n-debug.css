@@ -1,7 +1,11 @@
 .translated-content {
-	position: relative;
-	overflow: auto;
-	transform: inherit;
+    position: relative;
+    overflow: visible;
+    transform: inherit;
+}
+
+p > .translated-content {
+    display: inline-block;
 }
 
 .translated-content::before {
@@ -43,8 +47,8 @@
     content: attr(data-i18n-key);
     position: absolute;
     font-size: 1rem;
-    top: 100%;
-    left: 0;
+    bottom: -1em;
+    left: -1em;
     margin-top: 0.5rem;
     background-color: #FFF;
     color: #000;
@@ -56,7 +60,7 @@
     box-shadow: 0 0 1em -0.25em;
     transition: transform 150ms ease-in-out;
     transform: scaleY(0);
-    transform-origin: 0 0;
+    transform-origin: 0 100%;
     text-shadow: none;
     text-align: left;
 }
