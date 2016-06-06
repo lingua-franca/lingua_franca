@@ -36,14 +36,17 @@ module I18n
 		end
 
 		def call(exception, locale, key, options)
+			str = nil
 			if exception.is_a?(I18n::MissingTranslation)
 				if options.has_key?(:resolve) && !options[:resolve]
 					return nil
 				end
-				fallback(key, options[:context], options[:context_size])
+				str = fallback(key, options[:context], options[:context_size])
 			else
-				super
+				str = super
 			end
+			I18n.config.callback.i18n_exception(str, exception, locale, key) if I18n.config.callback.respond_to? :i18n_exception
+			return str
 		end
 	end
 end
