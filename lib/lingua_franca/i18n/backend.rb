@@ -570,7 +570,8 @@ module I18n
 
 				should_wrap_translation?(exists) ?
 					[
-						'<span class="translated-content' + (block_given? ? ' translated-contentblock' : '') + '"' + data.map{|k,v| v ? " data-i18n-#{k}=\"#{v}\"" : ''}.join('') + ' tabindex="0">',
+						'<span class="translated-content' + (block_given? ? ' translated-contentblock' : '') + '"' + data.map{|k,v| v ? " data-i18n-#{k}=\"#{v}\"" : ''}.join('') + ' tabindex="0"' +
+							(exists || options[:context].blank? ? '' : ' lang="la"') + '>',
 						'</span>'
 					] :
 					['', '']

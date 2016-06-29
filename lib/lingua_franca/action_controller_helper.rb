@@ -9,7 +9,12 @@ class LinguaFrancaApplicationController < ActionController::Base
 		if locale_status.nil?
 			locale_not_detected!
 		elsif !locale_status
-			locale = I18n.backend.get_locale(request.host)
+			case I18n.config.language_detection_method
+			when I18n::Config::DETECT_LANGUAGE_FROM_URL_PARAM
+				locale = params[I18n.config.language_url_param.to_sym]
+			when I18n::Config::DETECT_LANGUAGE_FROM_SUBDOMAIN
+				locale = get_locale(host)
+			end
 			
 			if I18n.locale_available?(locale)
 				locale_not_enabled!(locale)

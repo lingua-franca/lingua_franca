@@ -2,6 +2,16 @@ require 'active_record'
 
 module LinguaFranca
 	module ActiveRecord
+		class UntranslatedValue
+			def initialize(value)
+				@value = value
+			end
+
+			def value
+				return @value
+			end
+		end
+
 		def does_translate(column = nil)
 			return false
 		end
@@ -133,7 +143,8 @@ module LinguaFranca
 
 					def #{column}=(value)
 						l = send(:locale).to_s
-						if l.blank? || l == I18n.locale.to_s
+						if l.blank? || l == I18n.locale.to_s || value.is_a?(UntranslatedValue)
+							value = value.value if value.is_a?(UntranslatedValue)
 							original_content_changed(:#{column}, value)
 							return super(value)
 						end

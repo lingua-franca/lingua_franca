@@ -1,36 +1,20 @@
 require 'action_mailer'
 
-class ActionMailer::Base
-	# def lingua_franca_mail(headers = {}, &block)
-	# 	@page_name = headers[:subject]
-	# 	super_mail(headers, &block)
-	# end
-
-	# alias_method :super_mail, :mail
-	# alias_method :mail, :lingua_franca_mail
-
-	#def deliver_now(*args)
-	#	raise "Do not call deliver_now directly, use send_mail instead"
-	#end
-
-	#def deliver_later(*args)
-		#raise "Do not call deliver_later directly, use send_mail instead"
-	#end
-
-	# protected
-	# 	def prepare_email_html(html)
-	# 		html.gsub(/<!DOCTYPE html>/m, '<!DOCTYPE email>').gsub(/<title>.*?<\/title>/m, "<title>#{@page_name}</title>")
-	# 	end
-end
-
 module LinguaFranca
 	module ActionMailer
 
 		def send_mail(method, &block)
 			@old_page_name = I18n.backend.override_page_name(method) if ENV["RAILS_ENV"] == 'test'
-			args = default_mail_options.merge(yield)
+			options = yield
+			options = default_mail_options.merge(options.is_a?(Hash) ? options : { args: options })
+			args = options[:args]
 
-			send(method, *args[:args]).send("deliver_#{args[:when].to_s}")
+			# send immediately if we are running locally, otherwise defer to sidekiq
+			if ENV["RAILS_ENV"] == 'test' || ENV["RAILS_ENV"] == 'development'
+				send(method, *args).deliver_now
+			else
+				delay.send(method, *args)
+			end
 			
 			if ENV["RAILS_ENV"] == 'test'
 				I18n.backend.init_request
@@ -41,8 +25,8 @@ module LinguaFranca
 
 		def default_mail_options
 			{
-				:args => [],
-				:when => :now
+				args: [],
+				when: :now
 			}
 		end
 	end
