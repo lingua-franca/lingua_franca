@@ -9,7 +9,7 @@ module LinguaFranca
 			options = default_mail_options.merge(options.is_a?(Hash) ? options : { args: options })
 			args = []
 
-			options[:args].each do | arg |
+			(options[:args].is_a?(Array) ? options[:args] : [options[:args]]).each do | arg |
 				if arg.is_a?(User) || arg.is_a?(Comment) || arg.is_a?(Workshop) || arg.is_a?(Conference) || arg.is_a?(Workshop) || arg.is_a?(ConferenceRegistration)
 					arg = arg.id
 				elsif arg.is_a?(ActionDispatch::Request)
