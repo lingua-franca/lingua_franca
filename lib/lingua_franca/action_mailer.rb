@@ -10,7 +10,7 @@ module LinguaFranca
 			args = []
 
 			(options[:args].is_a?(Array) ? options[:args] : [options[:args]]).each do | arg |
-				if arg.is_a?(User) || arg.is_a?(Comment) || arg.is_a?(Workshop) || arg.is_a?(Conference) || arg.is_a?(Workshop) || arg.is_a?(ConferenceRegistration)
+				if arg.is_a?(User) || arg.is_a?(Comment) || arg.is_a?(Workshop) || arg.is_a?(Conference) || arg.is_a?(Workshop) || arg.is_a?(ConferenceRegistration) || arg.is_a?(EmailConfirmation)
 					arg = arg.id
 				elsif arg.is_a?(ActionDispatch::Request)
 					request = {
