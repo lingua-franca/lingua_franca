@@ -45,7 +45,7 @@ module LinguaFranca
 				if ENV["RAILS_ENV"] == 'test' || ENV["RAILS_ENV"] == 'development'
 					send(method, *args).deliver_now!
 				elsif options[:deliver_now]
-					send(method, *args).deliver_now
+					send(method, *args)
 				else
 					delay.send(method, *args)
 				end
