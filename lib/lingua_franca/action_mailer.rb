@@ -44,10 +44,8 @@ module LinguaFranca
 				# send immediately if we are running locally, otherwise defer to sidekiq
 				if ENV["RAILS_ENV"] == 'test' || ENV["RAILS_ENV"] == 'development'
 					send(method, *args).deliver_now!
-				elsif options[:deliver_now]
-					delay(:queue => 'low').send(method, *args)
 				else
-					delay.send(method, *args)
+					delay(queue: ENV["RAILS_ENV"]).send(method, *args)
 				end
 				
 				if ENV["RAILS_ENV"] == 'test'
