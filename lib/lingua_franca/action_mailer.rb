@@ -60,8 +60,7 @@ module LinguaFranca
 
 		def default_mail_options
 			{
-				args: [],
-				when: :now
+				args: []
 			}
 		end
 	end

@@ -74,6 +74,23 @@ module LinguaFrancaHelper
 		return params
 	end
 
+	def add_js_translation(key, locale = I18n.locale)
+		@_js_translations ||= Hash.new
+		@_js_translations[locale] ||= Hash.new
+		value = I18n.translate(key, locale: locale, resolve: false)
+		key.to_s.split('.').reverse_each do | sub_key |
+			value = { sub_key => value }
+		end
+		@_js_translations[locale].merge! value
+	end
+
+	def emit_js_translations()
+		@_js_translations ||= nil
+		return unless @_js_translations.present?
+
+		return (content_tag(:script, @_js_translations.to_json.to_s.html_safe, type: :json, id: 'lingua-franca-translations') + 
+			content_tag(:script, Rails.application.assets.find_asset("lingua-franca.js").to_s.html_safe)).html_safe
+	end
 end
 
 ActionView::Base.send :include, LinguaFrancaHelper

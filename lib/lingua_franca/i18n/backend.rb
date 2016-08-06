@@ -439,6 +439,31 @@ module I18n
 				@@all_translation_info[lookup_key][locale] ||= info
 			end
 
+			def locale_diff(locale1, locale2)
+				data1 = YAML.load_file("config/locales/#{locale1.to_s}.yml")["#{locale1.to_s}"]
+				data2 = YAML.load_file("config/locales/#{locale2.to_s}.yml")["#{locale2.to_s}"]
+				data_diff(data1, data2)
+			end
+
+			def data_diff(data1, data2, head = nil)
+				unless data1.is_a? Hash
+					return []
+				end
+
+				diffs = []
+				
+				data1.each do | key, value |
+					new_head = head.present? ? "#{head}.#{key.to_s}" : key.to_s
+					if data2[key].present?
+						diffs += data_diff(value, data2[key], new_head)
+					else
+						diffs << new_head
+					end
+				end
+
+				return diffs
+			end
+
 			def concerns()
 				concern_list = Array.new
 				all_translation_info(I18n.default_locale, false).keys.each { |key|
