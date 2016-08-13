@@ -59,8 +59,10 @@ module LinguaFrancaHelper
 		render 'translations/translations_needed_banner', args
 	end
 
-	def language_name(code)
-		_"languages.#{code.to_s}"
+	def language_name(locale, original_language = false)
+		args = {}
+		args[:locale] = locale if original_language
+		_("languages.#{locale}", args)
 	end
 
 	def url_params(locale, params = {})
