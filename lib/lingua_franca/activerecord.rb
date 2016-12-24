@@ -69,9 +69,15 @@ module LinguaFranca
             ).order('created_at DESC').limit(1).first
         end
 
-        def get_column_for_locale!(column, loc)
+        def get_column_for_locale!(column, loc, use_default = true)
           value = get_column_for_locale(column, loc)
-          return value.is_a?(DynamicTranslationRecord) ? value.value : value
+          v = value.is_a?(DynamicTranslationRecord) ? value.value : value
+          return v if v.present? || !use_default
+
+          @_lingua_franca_use_raw_values = true
+          value = self.send(column)
+          @_lingua_franca_use_raw_values = false
+          return value
         end
 
         def get_translators_for_column_and_locale(column, loc)
@@ -134,11 +140,12 @@ module LinguaFranca
             if l.blank? || l == user_locale || @_lingua_franca_use_raw_values
               return super
             end
-            record = get_column_for_locale(:#{column}, user_locale)
-            return record.value if record.present?
+            
+            value = get_column_for_locale!(:#{column}, user_locale, false)
+            return value if value.present?
 
             # let the user override the fallback behaviour
-            return  self.send(:translate_#{column}, user_locale) if self.respond_to?(:translate_#{column})
+            return self.send(:translate_#{column}, user_locale) if self.respond_to?(:translate_#{column})
             return super
           end
 
