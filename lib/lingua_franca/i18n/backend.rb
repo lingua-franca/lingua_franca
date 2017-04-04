@@ -276,9 +276,7 @@ module I18n
           else
             info[key][:value] = value
           end
-          info[key]['pages'] = data['pages'] ? data['pages'].collect do |page|
-            ::LinguaFranca.get_route(page)
-          end : []
+          info[key]['pages'] = (data['pages'] || []).collect { |page| ::LinguaFranca.get_route(page) }
         end
       end
 
