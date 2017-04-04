@@ -26,7 +26,7 @@ module LinguaFranca
         end
         
         def save_translations
-          if I18n.config.callback.present? && @translatable_content_changed.present?
+          if I18n.config.callback.present? && @translatable_content_changed.present? && I18n.config.callback.respond_to?(:on_translatable_content_change)
             I18n.config.callback.on_translatable_content_change(self, @translatable_content_changed)
             @translatable_content_changed = nil
           end
@@ -43,7 +43,7 @@ module LinguaFranca
               new: translation.value
             }
           }
-          I18n.config.callback.on_translation_change(self, data, loc, translator_id) if I18n.config.callback.present?
+          I18n.config.callback.on_translation_change(self, data, loc, translator_id) if I18n.config.callback.present? && I18n.config.callback.respond_to?(:on_translation_change)
           @pending_translations.each { |translation|
             translation.model_id = send(:id)
             translation.save

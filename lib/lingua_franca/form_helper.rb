@@ -4,7 +4,7 @@ module LinguaFrancaFormHelper
 
   class FormBuilder < ActionView::Helpers::FormBuilder
     def submit_default_value
-      @do_wrap = true
+      # @do_wrap = true
       I18n.t(i18n_key, :scope => i18n_scope)
     end
 
@@ -13,7 +13,7 @@ module LinguaFrancaFormHelper
         @action = value
         value = nil
       end
-      i18n_wrap(super(value, options))
+      super(value, options)
     end
 
     def button(value = nil, options = {}, &block)
@@ -23,15 +23,16 @@ module LinguaFrancaFormHelper
         value = nil
       end
       value = submit_default_value if value.nil?
-      super(i18n_wrap(value), options, &block)
+      # super(i18n_wrap(value), options, &block)
+      super(value, options, &block)
     end
 
     private
       def i18n_wrap(html)
-        @do_wrap ||= false
-        if @do_wrap
-          html = I18n.backend.wrap(html, i18n_key, :scope => i18n_scope)
-        end
+        # @do_wrap ||= false
+        # if @do_wrap
+        #   html = I18n.backend.wrap(html, i18n_key, :scope => i18n_scope)
+        # end
         html
       end
 
@@ -54,19 +55,19 @@ module LinguaFranca
     module Placeholderable
       def initialize(object_name, method_name, template_object, options = {})
         if options[:placeholder] === true
-          options[:placeholder] = I18n.t("#{object_name}.#{method_name}", :scope => "forms.placeholders")
-          @do_wrap = true
+          options[:placeholder] = I18n.translate("#{object_name}.#{method_name}", scope: "forms.placeholders")
+          # @do_wrap = true
         end
         super(object_name, method_name, template_object, options)
       end
 
-      def tag(*)
-        if (@do_wrap ||= false)
-          I18n.backend.wrap(super, "#{@object_name}.#{@method_name}", :scope => "forms.placeholders")
-        else
-          super
-        end
-      end
+      # def tag(*)
+      #   if (@do_wrap ||= false)
+      #     I18n.backend.wrap(super, "#{@object_name}.#{@method_name}", :scope => "forms.placeholders")
+      #   else
+      #     super
+      #   end
+      # end
     end
   end
 end
@@ -107,11 +108,12 @@ module ActionView
               info[:options].collect do |k|
                 key = options[:scope] ? "#{options[:scope]}.#{k}" : "forms.options.#{name}.#{k}"
                 keys << key
-                [I18n.t(key), k]
+                [I18n.t(key).html_safe, k]
               end,
               info[:selected]
             )
-          return I18n.backend.wrap(super_select_tag(name, option_tags, options), keys)
+          # return I18n.backend.wrap(super_select_tag(name, option_tags, options), keys)
+          return super_select_tag(name, option_tags, options)
         end
         super_select_tag(name, option_tags, options)
       end
@@ -119,23 +121,26 @@ module ActionView
       def this_submit_tag(value = nil, options = {})
         if value.nil? || value.is_a?(Symbol)
           key = "forms.actions.generic.#{(value || :submit).to_s}"
-          return I18n.backend.wrap(super_submit_tag(I18n.t(key), options), key)
+          # return I18n.backend.wrap(super_submit_tag(I18n.t(key), options), key)
+          return super_submit_tag(I18n.t(key), options)
         end
         super_submit_tag(value, options)
       end
 
       def this_button_tag(value = nil, options = {}, &block)
-        if !block_given? && (value.nil? || value.is_a?(Symbol))
-          key = "forms.actions.generic.#{(value || :button).to_s}"
-          return I18n.backend.wrap(super_button_tag(I18n.t(key), options), key)
-        end
+        # if !block_given? && (value.nil? || value.is_a?(Symbol))
+        #   key = "forms.actions.generic.#{(value || :button).to_s}"
+        #   # return I18n.backend.wrap(super_button_tag(I18n.t(key), options), key)
+        #   return super_button_tag(I18n.t(key), options)
+        # end
         super_button_tag(value, options, &block)
       end
 
       def placeholderable(super_method, name, value = nil, options = {})
         if options[:placeholder] === true
           options[:placeholder] = I18n.t("generic.#{name}", :scope => "forms.placeholders")
-          return I18n.backend.wrap(send(super_method, name, value, options), "generic.#{name}", :scope => "forms.placeholders")
+          # return I18n.backend.wrap(send(super_method, name, value, options), "generic.#{name}", :scope => "forms.placeholders")
+          # return send(super_method, name, value, options)
         end
         send(super_method, name, value, options)
       end
@@ -154,12 +159,12 @@ module ActionView
 
           # if content_or_options === true then we'll push the key to the stack
           #  the user will be responsible for popping it using _!
-          if content_or_options === true
-            I18n.backend.push(key)
-            content_or_options = nil
-          else
-            content_or_options = I18n.backend.wrap(I18n.t(key), key)
-          end
+          # if content_or_options === true
+          #   I18n.backend.push(key)
+          #   content_or_options = nil
+          # else
+          #   content_or_options = I18n.backend.wrap(I18n.t(key), key)
+          # end
         end
         super_label_tag(name, content_or_options, options, &block)
       end
