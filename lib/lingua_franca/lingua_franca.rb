@@ -201,6 +201,13 @@ module LinguaFranca
       end
 
       translation, tail = tail.split(/#{REGEX_END_TRANSLATION.gsub('(.*?)', key)}/, 2)
+
+      translation_keys = nil
+      while translation_keys.nil? || translation_keys.present?
+        translation, translation_keys = analyze_html(translation)
+        keys.merge!(translation_keys)
+      end
+
       return analyze_html(head + (tail || ''), keys)
     end
 
@@ -209,9 +216,8 @@ module LinguaFranca
       return nil unless page_name.present?
 
       # remove translated content from the HTML
-      SANITIZE_HTML_REGEX.each do |replace, regex|
-        html.gsub!(regex, replace)
-      end
+      SANITIZE_HTML_REGEX.each { |replace, regex| html.gsub!(regex, replace) }
+
       data = get_translation_info
 
       sanitized_html, keys = analyze_html(html)
@@ -219,11 +225,14 @@ module LinguaFranca
       # strip out all the HTML
       stripped_string = ActionView::Base.full_sanitizer.sanitize(sanitized_html)
 
+      File.open('test.html', 'w') { |f| f.write(html) }
+
       # if anything is left other than whitespace, there must be content that is not translated
       unless options[:ensure_translated] == false || stripped_string.gsub(/\s*/, '').blank?
         # so fail any tests that might be happening
         # fail "Untranslated content found: [#{stripped_string.strip.gsub(/\s+/, ' ')}] in:\n\t#{ActionView::Base.full_sanitizer.sanitize(html).gsub(/\s+/m, ' ')}"
-        fail "Untranslated content found: [#{stripped_string.strip.gsub(/\s+/, ' ')}] in:\n\t#{html.gsub(/\s+/m, ' ')}"
+        # fail "Untranslated content found: [#{stripped_string.strip.gsub(/\s+/, ' ')}] in:\n\t#{html.gsub(/\s+/m, ' ')}"
+        fail "Untranslated content found: [#{stripped_string.strip.gsub(/\s+/, ' ')}] in:\n\t#{sanitized_html.gsub(/\s+/m, ' ')}"
       end
 
       html_file = nil

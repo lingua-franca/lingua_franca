@@ -405,6 +405,56 @@ module I18n
         end
       end
 
+      def should_wrap?(result, options = {})
+        ::LinguaFranca.recording? || ::LinguaFranca.debugging?
+      end
+
+      def wrap(key, result, options = nil)
+        if result.is_a?(String)
+          if key.present?
+            if options.present?
+              key_data = {}
+              options.each do |k, v|
+                case k.to_sym
+                when :context, :context_size
+                  key_data[k.to_s] = v
+                when :locale, :scope, :resolve
+                  # do nothing
+                else
+                  key_data['vars'] ||= {}
+                  key_data['vars'][k.to_s] = v
+                end
+              end
+              key_data = key_data.present? ? "#{key},#{CGI::escapeHTML(key_data.to_json)}" : key
+            else
+              key_data = key
+            end
+          else
+            key = ''
+            key_data = ''
+          end
+
+          return (
+            ::LinguaFranca::START_TRANSLATION.gsub(::LinguaFranca::KEY_MATCH, key_data) +
+            result + ::LinguaFranca::END_TRANSLATION.gsub(::LinguaFranca::KEY_MATCH, key)
+          ).html_safe
+        elsif result.is_a?(Hash)
+          new_result = {}
+          result.each do |k, v|
+            new_result[k] = wrap("#{key}.#{k}", v, options)
+          end
+          return new_result
+        elsif result.is_a?(Array)
+          new_result = []
+          result.each_with_index do |v, i|
+            new_result << wrap("#{key}[#{i}]", v, options)
+          end
+          return new_result
+        end
+
+        return result
+      end
+
       protected
         def _get_language_completion(locale, _translation_info)
           total = 0
@@ -491,57 +541,6 @@ module I18n
         # Returns true if we're in the test environment and the behaviour is not :strict
         def should_make_record?(options = {})
           ::LinguaFranca.recording? && options[:resolve] != false
-        end
-
-        def should_wrap?(result, options = {})
-          # (::LinguaFranca.recording? || ::LinguaFranca.debugging?) && (result.nil? || result.is_a?(String))
-          ::LinguaFranca.recording? || ::LinguaFranca.debugging?
-        end
-
-        def wrap(key, result, options = nil)
-          if result.is_a?(String)
-            if key.present?
-              if options.present?
-                key_data = {}
-                options.each do |k, v|
-                  case k.to_sym
-                  when :context, :context_size
-                    key_data[k.to_s] = v
-                  when :locale, :scope, :resolve
-                    # do nothing
-                  else
-                    key_data['vars'] ||= {}
-                    key_data['vars'][k.to_s] = v
-                  end
-                end
-                key_data = key_data.present? ? "#{key},#{CGI::escapeHTML(key_data.to_json)}" : key
-              else
-                key_data = key
-              end
-            else
-              key = ''
-              key_data = ''
-            end
-
-            return (
-              ::LinguaFranca::START_TRANSLATION.gsub(::LinguaFranca::KEY_MATCH, key_data) +
-              result + ::LinguaFranca::END_TRANSLATION.gsub(::LinguaFranca::KEY_MATCH, key)
-            ).html_safe
-          elsif result.is_a?(Hash)
-            new_result = {}
-            result.each do |k, v|
-              new_result[k] = wrap("#{key}.#{k}", v, options)
-            end
-            return new_result
-          elsif result.is_a?(Array)
-            new_result = []
-            result.each_with_index do |v, i|
-              new_result << wrap("#{key}[#{i}]", v, options)
-            end
-            return new_result
-          end
-
-          return result
         end
 
         def lookup_raw(locale, key, scope = [], options = {})

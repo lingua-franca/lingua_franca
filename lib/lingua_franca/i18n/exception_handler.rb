@@ -41,10 +41,15 @@ module I18n
           return nil
         end
         str = fallback(key, options[:context], options[:context_size])
+
+        if I18n.backend.should_wrap?(str, options)
+          str = I18n.backend.wrap(key, str, options)
+        end
       else
         str = super
       end
       I18n.config.callback.i18n_exception(str, exception, locale, key) if I18n.config.callback.respond_to? :i18n_exception
+
       return str
     end
   end
