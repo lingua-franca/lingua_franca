@@ -381,13 +381,21 @@ module LinguaFranca
 
     # Returns a hash containing a list of all keys and data on how they are used
     def get_translation_info(app = nil)
-      if app.present?
-        location = File.join(app, I18n.config.info_file)
-      else
-        location = I18n.config.info_file
+      @@translation_info ||= {}
+
+      unless @@translation_info[app].present?
+        if app.present?
+          location = File.join(app, I18n.config.info_file)
+        else
+          location = I18n.config.info_file
+        end
+
+        if File.exists?(location)
+          @@translation_info[app] = YAML.load_file(location) || {}
+        end
       end
-      return {} unless File.exists?(location)
-      YAML.load_file(location) || {}
+
+      return @@translation_info[app] || {}
     end
 
     def write_translation_info(translations)
@@ -403,7 +411,7 @@ module LinguaFranca
       
       unless i18n.loaded?
         # load all translations for all enabled locales
-        available_locales.each do |locale|
+        enabled_locales(app_slug, app_path).each do |locale|
           i18n.load(locale_file(app_path, locale))
         end
       end
@@ -439,7 +447,12 @@ module LinguaFranca
     end
 
     def get_translations(app_slug, app_path, locale)
-      return backend_for_app(app_slug, app_path).get_translations(locale).stringify_keys
+      @@translations ||= {}
+      @@translations[app_slug] ||= {}
+      unless @@translations[app_slug][locale].present?
+        @@translations[app_slug][locale] = backend_for_app(app_slug, app_path).get_translations(locale).stringify_keys
+      end
+      return @@translations[app_slug][locale] || {}
     end
 
     def locales_path(app_path = nil)
