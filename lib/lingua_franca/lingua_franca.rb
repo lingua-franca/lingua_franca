@@ -386,6 +386,7 @@ module LinguaFranca
       else
         location = I18n.config.info_file
       end
+      return {} unless File.exists?(location)
       YAML.load_file(location) || {}
     end
 
