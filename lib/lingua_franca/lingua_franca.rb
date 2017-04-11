@@ -223,7 +223,7 @@ module LinguaFranca
       sanitized_html, keys = analyze_html(html)
 
       # strip out all the HTML, some weird string show up from time to time (particularly in emails)
-      stripped_string = ActionView::Base.full_sanitizer.sanitize(sanitized_html).gsub(/0x[0-9a-f]{7}&gt;/, '').gsub(/(\b)\d(\b)/, '\1\2')
+      stripped_string = ActionView::Base.full_sanitizer.sanitize(sanitized_html).gsub(/0x[0-9a-f]{4,8}&gt;/, '').gsub(/(\b)\d(\b)/, '\1\2')
 
       File.open('test.html', 'w') { |f| f.write(html) }
 
