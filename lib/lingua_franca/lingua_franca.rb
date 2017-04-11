@@ -222,16 +222,14 @@ module LinguaFranca
 
       sanitized_html, keys = analyze_html(html)
 
-      # strip out all the HTML
-      stripped_string = ActionView::Base.full_sanitizer.sanitize(sanitized_html)
+      # strip out all the HTML, some weird string show up from time to time (particularly in emails)
+      stripped_string = ActionView::Base.full_sanitizer.sanitize(sanitized_html).gsub(/0x[0-9a-f]{7}&gt;/, '').gsub(/(\b)\d(\b)/, '\1\2')
 
       File.open('test.html', 'w') { |f| f.write(html) }
 
       # if anything is left other than whitespace, there must be content that is not translated
       unless options[:ensure_translated] == false || stripped_string.gsub(/\s*/, '').blank?
         # so fail any tests that might be happening
-        # fail "Untranslated content found: [#{stripped_string.strip.gsub(/\s+/, ' ')}] in:\n\t#{ActionView::Base.full_sanitizer.sanitize(html).gsub(/\s+/m, ' ')}"
-        # fail "Untranslated content found: [#{stripped_string.strip.gsub(/\s+/, ' ')}] in:\n\t#{html.gsub(/\s+/m, ' ')}"
         fail "Untranslated content found: [#{stripped_string.strip.gsub(/\s+/, ' ')}] in:\n\t#{sanitized_html.gsub(/\s+/m, ' ')}"
       end
 
