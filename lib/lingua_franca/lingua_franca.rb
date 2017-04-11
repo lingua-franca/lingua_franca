@@ -420,11 +420,8 @@ module LinguaFranca
     end
     
     def reload_backend(app_slug, app_path)
-      @@backends ||= {}
-      @@backends[app_slug.to_sym] ||= I18n::Backend::LinguaFranca.new
-      @@backends[app_slug.to_sym].clear_store
-      @@backends[app_slug.to_sym].reload!
-
+      @@translations[app_slug] = nil
+      backend_for_app(app_slug, app_path).clear_store
       backend_for_app(app_slug, app_path)
     end
 
@@ -533,37 +530,13 @@ module LinguaFranca
       return nil
     end
 
-    # def example_html(html)
-    #   html.gsub(/#{LinguaFranca::REGEX_START_TRANSLATION}([^#{LinguaFranca::REGEX_END_TRANSLATION}]*)#{LinguaFranca::REGEX_START_TRANSLATION}(.*?)#{LinguaFranca::REGEX_END_TRANSLATION}/, "#{LinguaFranca::START_TRANSLATION}\\1\u000E\\2\u000F").
-    #        # replace keys in html attributes
-    #        gsub(
-    #          /(<[^<]*\s)([\w\-_]+)="(#{LinguaFranca::REGEX_START_TRANSLATION}[^#{LinguaFranca::REGEX_END_TRANSLATION}]*)<!\-\-([^\"]*)\-\->#{LinguaFranca::REGEX_END_TRANSLATION}"/,
-    #          "\\1\\2=\"\\3#{LinguaFranca::END_TRANSLATION}\" lingua-franca-attr-key=\"\\2:\\4\"").
-    #        # replace keys in text nodes
-    #        gsub(
-    #          # 1=>        2=value    3=key      4=</
-    #          /(>\s*#{LinguaFranca::REGEX_START_TRANSLATION})([^#{LinguaFranca::REGEX_END_TRANSLATION}]*)<!\-\-(.*?)\-\->(#{LinguaFranca::REGEX_END_TRANSLATION}\s*<\/)/,
-    #          ' lingua-franca-key="\3"\1\2\4').
-    #        # gsub(
-    #        #   /(<[^<]*\s)([\w\-_]+)="(#{LinguaFranca::REGEX_START_TRANSLATION}.*?)\u000E([^\u000F]*)<!\-\-([^\"]*)\-\->\u000F(.*?)#{LinguaFranca::REGEX_END_TRANSLATION}"/,
-    #        #   "\\1\\2=\"\\3\\4#{LinguaFranca::END_TRANSLATION}\" lingua-franca-attr-key=\"\\2:\\5\"").
-    #        # gsub(
-    #        #   # 1=>        2=value    3=key      4=</
-    #        #   /\u000E([^\u000E\u000F]*)<!\-\-(.*?)\-\->\u000F/,
-    #        #   '<span lingua-franca-key="\2">\1</span>')
-    # end
-
   private
-    # def cache_file(app_slug, locale)
-    #   File.join(Dir.tmpdir, app_slug, "#{locale.to_s}.yml")
-    # end
 
     def expand_key(key, value)
-      expanded = nil
-      I18n.normalize_keys(key, [], value).reverse_each do |part|
-        expanded = expanded.nil? ? part.to_s : { part.to_s => expanded }
+      expanded = value
+      key.split('.').reverse.each do |part|
+        expanded = { part => expanded }
       end
-
       return expanded
     end
   end

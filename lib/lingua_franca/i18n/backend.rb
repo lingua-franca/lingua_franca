@@ -89,10 +89,10 @@ module I18n
       end
 
       # Reload translations
-      def reload!
-        reset_stats!
-        super
-      end
+      # def reload!
+      #   reset_stats!
+      #   super
+      # end
 
       def reset_stats!
         @@available_locales = nil
@@ -114,7 +114,6 @@ module I18n
 
       def clear_store
         @loaded = false
-        @store = {}
       end
 
       def loaded?
