@@ -21,7 +21,7 @@ module LinguaFranca
   REGEX_START_TRANSLATION = Regexp.escape(START_TRANSLATION).gsub(KEY_MATCH_REGEX, '(.*?)')
   REGEX_END_TRANSLATION = Regexp.escape(END_TRANSLATION).gsub(KEY_MATCH_REGEX, '(.*?)')
   SANITIZE_HTML_REGEX = {
-    '<\1(\2)\3>' => /(?:&lt;|\\u003c)(!\-\- lingua_franca_(?:start|end))\((.*?)\)( \-\-)(?:&gt;|\\u003e)/
+    '<\1(\2)\3>' => /&lt;(!\-\- lingua_franca_(?:start|end))\((.*?)\)( \-\-)&gt;/
   }
 
   class << self
