@@ -21,7 +21,7 @@ module LinguaFranca
   REGEX_START_TRANSLATION = Regexp.escape(START_TRANSLATION).gsub(KEY_MATCH_REGEX, '(.*?)')
   REGEX_END_TRANSLATION = Regexp.escape(END_TRANSLATION).gsub(KEY_MATCH_REGEX, '(.*?)')
   SANITIZE_HTML_REGEX = {
-    '<\1(\2)\3>' => /&lt;(!\-\- lingua_franca_(?:start|end))\((.*?)\)( \-\-)&gt;/
+    '<\1(\2)\3>' => /(?:&lt;|\\u003c)(!\-\- lingua_franca_(?:start|end))\((.*?)\)( \-\-)(?:&gt;|\\u003e)/
   }
 
   class << self
@@ -224,8 +224,6 @@ module LinguaFranca
 
       # strip out all the HTML, some weird string show up from time to time (particularly in emails)
       stripped_string = ActionView::Base.full_sanitizer.sanitize(sanitized_html).gsub(/0x[0-9a-f]{4,8}&gt;/, '').gsub(/(\b)\d(\b)/, '\1\2')
-
-      File.open('test.html', 'w') { |f| f.write(html) }
 
       # if anything is left other than whitespace, there must be content that is not translated
       unless options[:ensure_translated] == false || stripped_string.gsub(/\s*/, '').blank?
