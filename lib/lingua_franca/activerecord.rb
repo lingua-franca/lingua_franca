@@ -134,7 +134,6 @@ module LinguaFranca
         class_eval <<-RUBY, __FILE__, __LINE__+1
 
           def #{column}
-            return '' if I18n.backend.translations_blocked
             user_locale = I18n.locale.to_s
             l = send(:locale).to_s
             if l.blank? || l == user_locale || @_lingua_franca_use_raw_values
@@ -150,7 +149,6 @@ module LinguaFranca
           end
 
           def _#{column}(loc)
-            return '' if I18n.backend.translations_blocked
             l = send(:locale).to_s
             if l.blank? || l == loc.to_s
               return #{column}
@@ -164,7 +162,6 @@ module LinguaFranca
           end
           
           def #{column}!
-            return '' if I18n.backend.translations_blocked
             get_column_for_locale(:#{column}, locale)
           end
 
