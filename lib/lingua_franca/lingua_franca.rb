@@ -473,8 +473,10 @@ module LinguaFranca
             complete += 1 if translations[key].present? && translations[key][v].present?
           end
         else
-          total += 1
-          complete += 1 if translations[key].present?
+          unless key =~ /(?:^geography\.(?:countries|subregions)\.|^languages\.|\[[0-9]+\]$)/
+            total += 1
+            complete += 1 if translations[key].present?
+          end
         end
       end
 
