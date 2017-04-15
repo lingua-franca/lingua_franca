@@ -103,7 +103,8 @@ module LinguaFranca
     def get_html(distance_from_root = 4)
       public_dir = "#{'../' * distance_from_root}public/"
       test_driver.html.gsub(/(=\"|\(['"]?)(?:#{host})?\/(assets|uploads)/, "\\1#{public_dir}\\2")
-        .gsub(/<script id="lingua\-franca\-capture">.*<\/script>\s*/m, '')
+        .gsub(/<script id="lingua\-franca\-capture">.*?<\/script>\s*/m, '')
+        .gsub(/<script type="json" id="lingua\-franca\-translations">.*?<\/script>\s*/m) { |m| m.gsub(/\\u003c!\-\-/, '<!--').gsub(/\-\-\\u003e/, '-->') }
     end
 
     def screenshot_mail
