@@ -62,6 +62,9 @@ module LinguaFranca
 
           FileUtils.rm(info_file)
           FileUtils.mv(recording_info_file, info_file)
+          
+          version_file = File.join(recording _dir, '.version')
+          version_file.write((Time.new.to_i - 1492600000).to_s(36))
 
           FileUtils.mv(recording_dir, records_dir)
         else
@@ -156,9 +159,7 @@ module LinguaFranca
     end
 
     def test_version(app_slug, app_path)
-      @test_versions ||= {}
-      @test_versions[app_slug] ||= (File.mtime(File.join(app_path, 'log/i18n')).to_i - 1491800000).to_s(36)
-      return @test_versions[app_slug]
+      File.join(records_dir, '.version').read
     end
 
     def get_html(distance_from_root = 4)
