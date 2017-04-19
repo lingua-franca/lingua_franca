@@ -1,5 +1,4 @@
 require 'i18n'
-require 'tmpdir'
 require 'set'
 require 'cgi'
 
@@ -34,12 +33,68 @@ module LinguaFranca
       case mode
       when TestModes::RECORD
         # clear the translation info before recording
-        write_translation_info({})
-        FileUtils.rm_rf(Dir.glob(File.join(I18n.config.html_records_dir, '*')))
+        write_translation_info
+
+        # get rid of te recording directory if it exists
+        FileUtils.rm_rf(recording_dir)
+        # get rid of the failed test dir if it exists
+        FileUtils.rm_rf(failed_test_dir)
+        # re-make the recording dir
+        FileUtils.mkdir_p(recording_dir)
       end
 
-      yield
+      # run the tests
+      passed = true
+      begin
+        yield
+      rescue
+        passed = false
+      end
+
+      case mode
+      when TestModes::RECORD
+        if passed
+          # replace the current records
+          FileUtils.rm_rf(last_test_dir)
+          if Dir.exists?(records_dir)
+            FileUtils.mv(records_dir, last_test_dir)
+          end
+
+          FileUtils.rm(info_file)
+          FileUtils.mv(recording_info_file, info_file)
+
+          FileUtils.mv(recording_dir, records_dir)
+        else
+          # don't replace the records if the tests failed
+          FileUtils.mv(recording_dir, failed_test_dir)
+        end
+      end
+
       ENV['_lingua_franca_test'] = nil
+    end
+
+    def info_file
+      I18n.config.info_file
+    end
+
+    def recording_info_file
+      I18n.config.info_file.gsub(/^(.*\/)(.*?)$/, '\1.\2')
+    end
+
+    def records_dir
+      I18n.config.html_records_dir
+    end
+
+    def recording_dir
+      "#{I18n.config.html_records_dir}-testing"
+    end
+
+    def last_test_dir
+      "#{I18n.config.html_records_dir}-last-test"
+    end
+
+    def failed_test_dir
+      "#{I18n.config.html_records_dir}-failed"
     end
 
     def test_mode
@@ -100,6 +155,12 @@ module LinguaFranca
       @@last_email_name = method_name
     end
 
+    def test_version(app_slug, app_path)
+      @test_versions ||= {}
+      @test_versions[app_slug] ||= (File.mtime(File.join(app_path, 'log/i18n')).to_i - 1491800000).to_s(36)
+      return @test_versions[app_slug]
+    end
+
     def get_html(distance_from_root = 4)
       public_dir = "#{'../' * distance_from_root}public/"
       test_driver.html.gsub(/(=\"|\(['"]?)(?:#{host})?\/(assets|uploads)/, "\\1#{public_dir}\\2")
@@ -108,8 +169,8 @@ module LinguaFranca
     end
 
     def screenshot_mail
-      emails = Dir.glob(File.join(I18n.config.html_records_dir, 'email', '*.html')) +
-        Dir.glob(File.join(I18n.config.html_records_dir, 'email', '*.txt'))
+      emails = Dir.glob(File.join(recording_dir, 'email', '*.html')) +
+        Dir.glob(File.join(recording_dir, 'email', '*.txt'))
 
       emails.each do |file|
         # assemble the png file name
@@ -135,7 +196,7 @@ module LinguaFranca
 
     def capture_translations
       data = {}
-      Dir.glob(File.join(I18n.config.html_records_dir, '*', '*.html')).each do |file|
+      Dir.glob(File.join(recording_dir, '*', '*.html')).each do |file|
         sanitized_html, keys = analyze_html(html)
         group = File.basename(File.dirname(file))
         page, page_index = File.basename(file).split('--')
@@ -146,8 +207,8 @@ module LinguaFranca
     end
 
     def capture_mail(mail)
-      FileUtils.mkdir_p(I18n.config.html_records_dir)
-      FileUtils.mkdir_p(File.join(I18n.config.html_records_dir, 'email'))
+      FileUtils.mkdir_p(recording_dir)
+      FileUtils.mkdir_p(File.join(recording_dir, 'email'))
 
       begin
         mail.body.parts.each do |part|
@@ -256,9 +317,9 @@ module LinguaFranca
       if page_index.nil?
         page_index = @@html_cache[page_name][extension].size
         @@html_cache[page_name][extension] << sanitized_html
-        FileUtils.mkdir_p(I18n.config.html_records_dir)
-        FileUtils.mkdir_p(File.join(I18n.config.html_records_dir, controller || @request[:controller]))
-        html_file = File.join(I18n.config.html_records_dir, "#{page_name}--#{page_index}.#{extension}")
+        FileUtils.mkdir_p(recording_dir)
+        FileUtils.mkdir_p(File.join(recording_dir, controller || @request[:controller]))
+        html_file = File.join(recording_dir, "#{page_name}--#{page_index}.#{extension}")
         File.open(html_file, 'w') { |f| f.write(html) }
       end
 
@@ -302,7 +363,7 @@ module LinguaFranca
     end
 
     def example_file_path(app_path, group, page, index, extension = 'html')
-      File.expand_path(File.join(app_path, I18n.config.html_records_dir, group, "#{page}--#{index}.#{extension}"))
+      File.expand_path(File.join(app_path, records_dir, group, "#{page}--#{index}.#{extension}"))
     end
 
     def load_example(app_path, group, page, index)
@@ -383,9 +444,9 @@ module LinguaFranca
 
       unless @@translation_info[app].present?
         if app.present?
-          location = File.join(app, I18n.config.info_file)
+          location = File.join(app, info_file)
         else
-          location = I18n.config.info_file
+          location = info_file
         end
 
         if File.exists?(location)
@@ -396,8 +457,8 @@ module LinguaFranca
       return @@translation_info[app] || {}
     end
 
-    def write_translation_info(translations)
-      File.open(I18n.config.info_file, 'w') { |f| f.write translations.to_yaml }
+    def write_translation_info(translations = {})
+      File.open(recording_info_file, 'w') { |f| f.write translations.to_yaml }
     end
 
     def backend_for_app(app_slug, app_path)

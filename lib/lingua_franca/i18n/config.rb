@@ -1,23 +1,15 @@
 module I18n
   class Config
-    # def cache_file
-    #   @@translation_cache_file ||= 'log/i18n/translation-cache.yml'
-    # end
-
-    # def cache_file=(cache_file)
-    #   @@translation_cache_file = cache_file
-    # end
-
-    def info_file
-      @@translation_info_file ||= 'log/i18n/translation-info.yml'
-    end
-
     def html_records_dir
       @@html_records_dir ||= 'log/i18n/html_records'
     end
 
     def html_records_dir=(html_records_dir)
       @@html_records_dir = html_records_dir
+    end
+
+    def info_file
+      @@translation_info_file ||= 'log/i18n/translation-info.yml'
     end
 
     def info_file=(info_file)
