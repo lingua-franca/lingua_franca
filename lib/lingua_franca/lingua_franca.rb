@@ -63,7 +63,7 @@ module LinguaFranca
           FileUtils.rm(info_file)
           FileUtils.mv(recording_info_file, info_file)
           
-          version_file = File.join(recording _dir, '.version')
+          version_file = File.join(recording_dir, '.version')
           version_file.write((Time.new.to_i - 1492600000).to_s(36))
 
           FileUtils.mv(recording_dir, records_dir)
