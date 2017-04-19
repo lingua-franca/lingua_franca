@@ -159,7 +159,8 @@ module LinguaFranca
     end
 
     def test_version(app_slug, app_path)
-      File.read(File.expand_path(File.join(app_path, records_dir, '.version')))
+      version_file = File.expand_path(File.join(app_path, records_dir, '.version'))
+      File.exist?(version_file) ? File.read(version_file).strip : nil
     end
 
     def get_html(distance_from_root = 4)
