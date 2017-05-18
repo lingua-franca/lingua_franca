@@ -155,11 +155,6 @@ module I18n
         @@pluralization_rules[locale] ||= load_rb(pluralization_file)[locale.to_sym][:i18n][:plural][:keys]
       end
 
-      # Determines the locale based on the current URL
-      def get_locale(host)
-        host.gsub(I18n.config.host_locale_regex, '\1') || I18n.default_locale
-      end
-
       # Returns a list of all locales that the site currently supports or could support in the future
       def available_locales
         ::LinguaFranca.available_locales

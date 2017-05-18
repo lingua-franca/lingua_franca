@@ -438,6 +438,11 @@ module LinguaFranca
       return (lang.present? && I18n.locale_available?(lang)) ? false : nil
     end
 
+    # Determines the locale based on the current URL
+    def get_locale(host)
+      host.gsub(I18n.config.host_locale_regex, '\1') || I18n.default_locale
+    end
+
     # Returns a hash containing a list of all keys and data on how they are used
     def get_translation_info(app = nil)
       @@translation_info ||= {}
