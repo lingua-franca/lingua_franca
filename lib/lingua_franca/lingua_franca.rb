@@ -432,7 +432,7 @@ module LinguaFranca
           end
           lang = get_locale(host)
       end
-      if lang.present? && (locale_enabled?(lang) || can_translate?)
+      if lang.present? && locale_enabled?(lang)
         I18n.locale = lang
         return true
       end
