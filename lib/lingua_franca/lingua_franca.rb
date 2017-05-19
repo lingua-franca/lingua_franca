@@ -412,6 +412,14 @@ module LinguaFranca
       word.to_s =~ I18n::RESERVED_KEYS_PATTERN
     end
 
+    def with_locale(locale, &block)
+      old_locale = I18n.locale
+      I18n.locale = locale
+      yield
+    ensure
+      I18n.locale = old_locale
+    end
+
     # Sets the current locale based on the URL and user settings
     # If the language is detected and it is avilable, the current locale is set the locale detected
     # If the language language is not detected or is not available, the current locale
