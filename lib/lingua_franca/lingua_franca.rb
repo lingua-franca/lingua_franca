@@ -549,7 +549,7 @@ module LinguaFranca
             complete += 1 if translations[key].present? && translations[key][v].present?
           end
         else
-          unless key =~ /(?:^geography\.(?:countries|subregions)\.|^languages\.|\[[0-9]+\]$)/
+          unless imported_translation?(key)
             total += 1
             complete += 1 if translations[key].present?
           end
@@ -557,6 +557,10 @@ module LinguaFranca
       end
 
       { total: total, complete: complete }
+    end
+
+    def imported_translation?(key)
+      key =~ /(?:^geography\.(?:countries|subregions)\.|^languages\.|^currencies\.|\[[0-9]+\]$)/
     end
 
     def locale_enabled?(locale, app_slug = nil, app_path = nil)
