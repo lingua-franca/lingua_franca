@@ -352,10 +352,10 @@ af:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -365,14 +365,14 @@ af:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -821,10 +821,10 @@ ar:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -834,14 +834,14 @@ ar:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: تاباسكو
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -1290,10 +1290,10 @@ az:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -1303,14 +1303,14 @@ az:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -1708,7 +1708,7 @@ be:
         GO: Штат Гаяс
         MA: Штат Мараньян
         MT: Штат Мату-Гросу
-        MS: Штат Мату-Гросу-ду-Сул
+        MS: Мату-Гросу-ду-Сул
         MG: Штат Мінас-Жэрайс
         PR: Paraná
         PB: Paraíba
@@ -1759,10 +1759,10 @@ be:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -1772,14 +1772,14 @@ be:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -2228,10 +2228,10 @@ bg:
         CH: Чиуауа
         COA: Коауила де Сарагоса
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -2241,14 +2241,14 @@ bg:
         NLE: Нуево Леон
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Сонора
         TAB: Tabasco
-        TAM: Тамаулипас
-        Tlax: Tlaxcala
+        Tamps: Тамаулипас
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -2697,10 +2697,10 @@ bn:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -2710,14 +2710,14 @@ bn:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -3166,10 +3166,10 @@ bs:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -3179,14 +3179,14 @@ bs:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -3635,10 +3635,10 @@ ca:
         CH: Estat de Chihuahua
         COA: Coahuila
         COL: Estat de Colima
-        DUR: Estat de Durango
+        Dgo: Estat de Durango
         BCN: Estado de Baja California
         MEX: Estat de Mèxic
-        Gto: Estat de Guanajuato
+        GUA: Estat de Guanajuato
         GRO: Estat de Guerrero
         Hgo: Estat dHidalgo
         JAL: Jalisco
@@ -3648,14 +3648,14 @@ ca:
         NLE: Nuevo León
         OAX: Estat dOaxaca
         PUE: Estat de Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
-        SLP: San Luis Potosí
+        SLP: Estat de San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Estat de Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcalteques
+        Tamps: Tamaulipas
+        TLA: Tlaxcalteques
         VER: Veracruz
         YUC: Estat de Yucatán
         ZAC: Estat de Zacatecas
@@ -4104,10 +4104,10 @@ cs:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -4117,14 +4117,14 @@ cs:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -4573,10 +4573,10 @@ cy:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -4586,14 +4586,14 @@ cy:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -5042,10 +5042,10 @@ da:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Mexico
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -5055,14 +5055,14 @@ da:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -5511,10 +5511,10 @@ de:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -5524,14 +5524,14 @@ de:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -5980,10 +5980,10 @@ el:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -5993,14 +5993,14 @@ el:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -6449,10 +6449,10 @@ en:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -6462,14 +6462,14 @@ en:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -6918,10 +6918,10 @@ eo:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -6931,14 +6931,14 @@ eo:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Jukatanio
         ZAC: Zacatecas
@@ -6988,7 +6988,7 @@ eo:
         AZ: Arizono
         AR: Arkansaso
         Calif: Kalifornio
-        CO: Kolorado
+        CO: Koloradio
         CT: Konektikuto
         DE: Delavaro
         FL: Florido
@@ -7387,10 +7387,10 @@ es:
         CH: Chihuahua
         COA: Coahuila de Zaragoza
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Baja California
         MEX: México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -7400,14 +7400,14 @@ es:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro de Arteaga
+        QUE: Querétaro de Arteaga
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz-Llave
         YUC: Yucatán
         ZAC: Zacatecas
@@ -7856,10 +7856,10 @@ et:
         CH: Chihuahua osariik
         COA: Coahuila osariik
         COL: Colima osariik
-        DUR: Durango osariik
+        Dgo: Durango osariik
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato osariik
+        GUA: Guanajuato osariik
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -7869,14 +7869,14 @@ et:
         NLE: Nuevo León
         OAX: Oaxaca osariik
         PUE: Puebla
-        Qro: Querétaro osariik
+        QUE: Querétaro osariik
         QRoo: Quintana Roo osariik
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora osariik
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -8325,10 +8325,10 @@ eu:
         CH: Chihuahua
         COA: Coahuila de Zaragoza
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Mexikoko estatua
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -8338,14 +8338,14 @@ eu:
         NLE: Nuevo Leon
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Queretaro
+        QUE: Queretaro
         QRoo: Quintana Roo
         SLP: San Luis Potosi
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatan
         ZAC: Zacatecas
@@ -8794,10 +8794,10 @@ fa:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -8807,14 +8807,14 @@ fa:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: یوکاتان
         ZAC: Zacatecas
@@ -9263,10 +9263,10 @@ fi:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -9276,14 +9276,14 @@ fi:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -9721,7 +9721,7 @@ fr:
       ET:
         SNNPR: SNNPR
       FR:
-        ACAL: Alsace-Champagne-Ardenne-Lorraine
+        ACAL: Grand-Est
       IT:
         FVG: Frioul-Vénétie julienne
       MX:
@@ -9732,10 +9732,10 @@ fr:
         CH: État de Chihuahua
         COA: Coahuila
         COL: État de Colima
-        DUR: État de Durango
+        Dgo: État de Durango
         BCN: Basse-Californie du Nord
         MEX: Estado de México
-        Gto: État de Guanajuato
+        GUA: État de Guanajuato
         GRO: Guerrero
         Hgo: État dHidalgo
         JAL: Jalisco
@@ -9745,14 +9745,14 @@ fr:
         NLE: Nuevo León
         OAX: État de Oaxaca
         PUE: État de Puebla
-        Qro: Querétaro de Arteaga
+        QUE: Querétaro de Arteaga
         QRoo: Quintana Roo
-        SLP: État de San Luis Potosí
+        SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: État de Tlaxcala
+        Tamps: Tamaulipas
+        TLA: État de Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: État de Zacatecas
@@ -10201,10 +10201,10 @@ gl:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -10214,14 +10214,14 @@ gl:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -10670,10 +10670,10 @@ he:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -10683,14 +10683,14 @@ he:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: קרטרו
+        QUE: קרטרו
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -11139,10 +11139,10 @@ hi:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -11152,14 +11152,14 @@ hi:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -11608,10 +11608,10 @@ hr:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -11621,14 +11621,14 @@ hr:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -12077,10 +12077,10 @@ hu:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -12090,14 +12090,14 @@ hu:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -12546,10 +12546,10 @@ id:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -12559,14 +12559,14 @@ id:
         NLE: León Baru
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -13015,10 +13015,10 @@ is:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -13028,14 +13028,14 @@ is:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -13484,10 +13484,10 @@ it:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Messico
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -13497,14 +13497,14 @@ it:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro de Arteaga
+        QUE: Querétaro de Arteaga
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -13953,10 +13953,10 @@ ja:
         CH: チワワ州
         COA: コアウイラ州
         COL: コリマ州
-        DUR: ドゥランゴ州
+        Dgo: ドゥランゴ州
         BCN: Estado de Baja California
         MEX: メヒコ州
-        Gto: グアナフアト州
+        GUA: グアナフアト州
         GRO: ゲレーロ州
         Hgo: イダルゴ州
         JAL: ハリスコ州
@@ -13966,14 +13966,14 @@ ja:
         NLE: ヌエボ・レオン州
         OAX: オアハカ州
         PUE: プエブラ州
-        Qro: ケレタロ州
+        QUE: ケレタロ州
         QRoo: キンタナ・ロー州
         SLP: サン・ルイス・ポトシ州
         SIN: シナロア州
         SON: ソノラ州
         TAB: タバスコ州
-        TAM: タマウリパス州
-        Tlax: トラスカラ州
+        Tamps: タマウリパス州
+        TLA: トラスカラ州
         VER: Veracruz
         YUC: ユカタン州
         ZAC: サカテカス州
@@ -14422,10 +14422,10 @@ km:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -14435,14 +14435,14 @@ km:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -14891,10 +14891,10 @@ kn:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -14904,14 +14904,14 @@ kn:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -15360,10 +15360,10 @@ ko:
         CH: 치와와 주
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: 게레로 주
         Hgo: Hidalgo
         JAL: Jalisco
@@ -15373,14 +15373,14 @@ ko:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -15829,10 +15829,10 @@ lb:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -15842,14 +15842,14 @@ lb:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -16298,10 +16298,10 @@ lo:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -16311,14 +16311,14 @@ lo:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -16767,10 +16767,10 @@ lt:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -16780,14 +16780,14 @@ lt:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Keretaras
+        QUE: Keretaras
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -17236,10 +17236,10 @@ lv:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -17249,14 +17249,14 @@ lv:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -17705,10 +17705,10 @@ mk:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -17718,14 +17718,14 @@ mk:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -18174,10 +18174,10 @@ mn:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -18187,14 +18187,14 @@ mn:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -18643,10 +18643,10 @@ ms:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -18656,14 +18656,14 @@ ms:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -19112,10 +19112,10 @@ nb:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -19125,14 +19125,14 @@ nb:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -19581,10 +19581,10 @@ ne:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -19594,14 +19594,14 @@ ne:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -20050,10 +20050,10 @@ nl:
         CH: Chihuahua
         COA: Coahuila de Zaragoza
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Mexico
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -20063,14 +20063,14 @@ nl:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro de Arteaga
+        QUE: Querétaro de Arteaga
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -20519,10 +20519,10 @@ nn:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -20532,14 +20532,14 @@ nn:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -20988,10 +20988,10 @@ or:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -21001,14 +21001,14 @@ or:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -21457,10 +21457,10 @@ pa:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -21470,14 +21470,14 @@ pa:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -21926,10 +21926,10 @@ pl:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -21939,14 +21939,14 @@ pl:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Jukatan
         ZAC: Zacatecas
@@ -22364,7 +22364,7 @@ pt:
         AB: Alberta
         BC: Colúmbia Britânica
         MB: Manitoba
-        NB: Nova Brunsvique
+        NB: Nova Brunswick
         NL: Terra Nova e Labrador
         NT: Territórios do Noroeste
         NS: Nova Escócia
@@ -22395,10 +22395,10 @@ pt:
         CH: Chihuahua
         COA: Coahuila de Zaragoza
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -22408,14 +22408,14 @@ pt:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Iucatã
         ZAC: Zacatecas
@@ -22864,10 +22864,10 @@ rm:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -22877,14 +22877,14 @@ rm:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -23333,10 +23333,10 @@ ro:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -23346,14 +23346,14 @@ ro:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -23802,10 +23802,10 @@ ru:
         CH: Чиуауа
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -23815,14 +23815,14 @@ ru:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Керетаро
+        QUE: Керетаро
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Сонора
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -23883,7 +23883,7 @@ ru:
         IN: Индиана
         IA: Айова
         KS: Канзас
-        KY: Кентуки
+        KY: Кентукки
         LA: Луизиана
         ME: Мэн
         MD: Мэриленд
@@ -23912,7 +23912,7 @@ ru:
         TX: Техас
         UT: Юта
         VT: Вермонт
-        VA: Виргиния
+        VA: Вирджиния
         WA: Вашингтон
         DC: Округ Колумбия
         WV: Западная Виргиния
@@ -24271,10 +24271,10 @@ sk:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -24284,14 +24284,14 @@ sk:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -24740,10 +24740,10 @@ sl:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -24753,14 +24753,14 @@ sl:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -25209,10 +25209,10 @@ sq:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -25222,14 +25222,14 @@ sq:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -25678,10 +25678,10 @@ sr:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -25691,14 +25691,14 @@ sr:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -26147,10 +26147,10 @@ sv:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -26160,14 +26160,14 @@ sv:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro Arteaga
+        QUE: Querétaro Arteaga
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -26616,10 +26616,10 @@ sw:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -26629,14 +26629,14 @@ sw:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -27085,10 +27085,10 @@ ta:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -27098,14 +27098,14 @@ ta:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -27554,10 +27554,10 @@ th:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -27567,14 +27567,14 @@ th:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -28023,10 +28023,10 @@ tl:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -28036,14 +28036,14 @@ tl:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -28492,10 +28492,10 @@ tr:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -28505,14 +28505,14 @@ tr:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -28961,10 +28961,10 @@ tt:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -28974,14 +28974,14 @@ tt:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -29430,10 +29430,10 @@ ug:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -29443,14 +29443,14 @@ ug:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -29899,10 +29899,10 @@ uk:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -29912,14 +29912,14 @@ uk:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -29974,7 +29974,7 @@ uk:
         DE: Делавер
         FL: Флорида
         GA: Georgia
-        HI: Гавайські острови
+        HI: Гаваї
         ID: Айдахо
         IL: Іллінойс
         IN: Індіана
@@ -30368,10 +30368,10 @@ ur:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -30381,14 +30381,14 @@ ur:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -30837,10 +30837,10 @@ uz:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -30850,14 +30850,14 @@ uz:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -31306,10 +31306,10 @@ vi:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -31319,14 +31319,14 @@ vi:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas
@@ -31775,10 +31775,10 @@ wo:
         CH: Chihuahua
         COA: Coahuila
         COL: Colima
-        DUR: Durango
+        Dgo: Durango
         BCN: Estado de Baja California
         MEX: Estado de México
-        Gto: Guanajuato
+        GUA: Guanajuato
         GRO: Guerrero
         Hgo: Hidalgo
         JAL: Jalisco
@@ -31788,14 +31788,14 @@ wo:
         NLE: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
-        Qro: Querétaro
+        QUE: Querétaro
         QRoo: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
         TAB: Tabasco
-        TAM: Tamaulipas
-        Tlax: Tlaxcala
+        Tamps: Tamaulipas
+        TLA: Tlaxcala
         VER: Veracruz
         YUC: Yucatán
         ZAC: Zacatecas

@@ -13,6 +13,7 @@ module LinguaFranca
       def import!(backend = I18n::Backend::LinguaFranca.new)
         locales = backend.available_locales
         import_languages locales
+        import_currencies locales
         import_geography locales
       end
 
@@ -81,16 +82,9 @@ module LinguaFranca
         locales.each do |locale|
           locale = locale.to_s
           data[locale] = {'languages' => {}}
-          github_url = "https://raw.githubusercontent.com/unicode-cldr/cldr-localenames-full/master/main/#{locale}/languages.json"
-          puts "Downloading #{locale} data from #{github_url}"
-          github_data = false
-          begin
-            github_data = open(github_url, {ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE})
-          rescue
-            puts "Error downloading #{locale} data"
-          end
-          if github_data
-            JSON.parse(github_data.read)['main'][locale]['localeDisplayNames']['languages'].each do | language, translation |
+          languages = import_from("https://raw.githubusercontent.com/unicode-cldr/cldr-localenames-full/master/main/#{locale}/languages.json", locale)
+          if languages
+            languages['localeDisplayNames']['languages'].each do |language, translation|
               data[locale]['languages'][language] = translation
             end
           end
@@ -98,7 +92,33 @@ module LinguaFranca
         save_data('languages', data)
       end
 
+      def import_currencies(locales)
+        data = {}
+        locales.each do |locale|
+          locale = locale.to_s
+          data[locale] = {'currencies' => {}}
+          numbers = import_from("https://raw.githubusercontent.com/unicode-cldr/cldr-numbers-full/master/main/#{locale}/currencies.json", locale)
+          if numbers
+            numbers['numbers']['currencies'].each do |currency, translation|
+              data[locale]['currencies'][currency] = translation
+            end
+          end
+        end
+        save_data('languages', data)
+      end
+
       protected
+        def import_from(github_url, locale)
+          puts "Downloading #{locale} data from #{github_url}"
+          github_data = false
+          begin
+            github_data = open(github_url, {ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE})
+          rescue
+            puts "Error downloading #{locale} data"
+          end
+          return JSON.parse(github_data.read)['main'][locale] if github_data
+          return nil
+        end
 
         def save_data(file, data)
           File.open(File.join(File.expand_path('../../..', __FILE__), "config/locales/#{file}.yml"), 'w') { |f| f.write data.to_yaml }
