@@ -39,26 +39,12 @@ ActionController::Base.class_eval do
   end
 
   def lingua_franca_fix_html
-    if LinguaFranca.debugging? && response.content_type == 'text/html'
-      # response.body = response.body.
-      #   # replace inner keys
-      #   gsub(/#{LinguaFranca::REGEX_START_TRANSLATION}([^#{LinguaFranca::REGEX_END_TRANSLATION}]*)#{LinguaFranca::REGEX_START_TRANSLATION}(.*?)#{LinguaFranca::REGEX_END_TRANSLATION}/, "#{LinguaFranca::START_TRANSLATION}\\1\u000E\\2\u000F").
-      #   # replace keys in html attributes
-      #   gsub(
-      #     /(<[^<]*\s)([\w\-_]+)="(#{LinguaFranca::REGEX_START_TRANSLATION}[^#{LinguaFranca::REGEX_END_TRANSLATION}]*)<!\-\-([^\"]*)\-\->#{LinguaFranca::REGEX_END_TRANSLATION}"/,
-      #     "\\1\\2=\"\\3#{LinguaFranca::END_TRANSLATION}\" lingua-franca-attr-key=\"\\2:\\4\"").
-      #   # replace keys in text nodes
-      #   gsub(
-      #     # 1=>        2=value    3=key      4=</
-      #     /(>\s*#{LinguaFranca::REGEX_START_TRANSLATION})([^#{LinguaFranca::REGEX_END_TRANSLATION}]*)<!\-\-(.*?)\-\->(#{LinguaFranca::REGEX_END_TRANSLATION}\s*<\/)/,
-      #     ' lingua-franca-key="\3"\1\2\4').
-      #   gsub(
-      #     /(<[^<]*\s)([\w\-_]+)="(#{LinguaFranca::REGEX_START_TRANSLATION}.*?)\u000E([^\u000F]*)<!\-\-([^\"]*)\-\->\u000F(.*?)#{LinguaFranca::REGEX_END_TRANSLATION}"/,
-      #     "\\1\\2=\"\\3\\4#{LinguaFranca::END_TRANSLATION}\" lingua-franca-attr-key=\"\\2:\\5\"").
-      #   gsub(
-      #     # 1=>        2=value    3=key      4=</
-      #     /\u000E([^\u000E\u000F]*)<!\-\-(.*?)\-\->\u000F/,
-      #     '<span lingua-franca-key="\2">\1</span>')
+    if LinguaFranca.debugging? || LinguaFranca.recording?
+      if response.content_type == 'text/html'
+        response.body = response.body.gsub(/(<[^>]+\s+)([\w\-]+=")(#{LinguaFranca::REGEX_START_TRANSLATION}[^"]+?#{LinguaFranca::REGEX_END_TRANSLATION})(".*?>)/) { |match| "#{$1}#{$2}#{ActionView::Base.full_sanitizer.sanitize($3)}\" lingua-franca-#{$2}#{$3}#{$6}" }
+        response.body = response.body.gsub(/(<[^>]+\s+)([\w\-]+=')(#{LinguaFranca::REGEX_START_TRANSLATION}[^']+?#{LinguaFranca::REGEX_END_TRANSLATION})('.*?>)/) { |match| "#{$1}#{$2}#{ActionView::Base.full_sanitizer.sanitize($3)}' lingua-franca-#{$2}#{$3}#{$6}" }
+        response.body = response.body.gsub(/<(title)>(\s*#{LinguaFranca::REGEX_START_TRANSLATION}[^>]+?#{LinguaFranca::REGEX_END_TRANSLATION}\s*)(<\/title>)/) { |match| "<#{$1} lingua-franca-#{$1}=\"#{$2}\">#{ActionView::Base.full_sanitizer.sanitize($2)}#{$5}" }
+      end
     end
 
     if LinguaFranca.recording? && response.content_type == 'text/html'
