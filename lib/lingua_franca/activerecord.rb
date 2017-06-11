@@ -137,15 +137,27 @@ module LinguaFranca
             user_locale = I18n.locale.to_s
             l = send(:locale).to_s
             if l.blank? || l == user_locale || @_lingua_franca_use_raw_values
-              return super
+              value = super
+            else
+              value = get_column_for_locale!(:#{column}, user_locale, false)
             end
             
-            value = get_column_for_locale!(:#{column}, user_locale, false)
-            return value if value.present?
 
-            # let the user override the fallback behaviour
-            return self.send(:translate_#{column}, user_locale) if self.respond_to?(:translate_#{column})
-            return super
+            unless value.present?
+              # let the user override the fallback behaviour
+              if self.respond_to?(:translate_#{column})
+                value = self.send(:translate_#{column}, user_locale)
+              else
+                value = super
+              end
+            end
+
+            return nil if value.nil?
+
+            if LinguaFranca.recording? || LinguaFranca.debugging?
+              return I18n.backend._!(value).html_safe
+            end
+            return value
           end
 
           def _#{column}(loc)
