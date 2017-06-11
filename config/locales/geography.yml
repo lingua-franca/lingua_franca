@@ -347,7 +347,7 @@ af:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -362,11 +362,11 @@ af:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -421,7 +421,7 @@ af:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornië
+        CA: Kalifornië
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -816,7 +816,7 @@ ar:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: تشياباس
         CH: Chihuahua
         COA: Coahuila
@@ -831,11 +831,11 @@ ar:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -890,7 +890,7 @@ ar:
         AK: ألاسكا
         AZ: أريزونا
         AR: أركنساس
-        Calif: كاليفورنيا
+        CA: كاليفورنيا
         CO: كولورادو
         CT: كونيتيكت
         DE: ديلاوير
@@ -1285,7 +1285,7 @@ az:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -1300,11 +1300,11 @@ az:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -1359,7 +1359,7 @@ az:
         AK: Alyaska
         AZ: Arizona
         AR: Arkanzas
-        Calif: Kaliforniya
+        CA: Kaliforniya
         CO: Kolorado
         CT: Konnektikut
         DE: Delaver
@@ -1754,7 +1754,7 @@ be:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -1769,11 +1769,11 @@ be:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -1828,7 +1828,7 @@ be:
         AK: Штат Аляска
         AZ: Штат Арызона
         AR: Штат Арканзас
-        Calif: Штат Каліфорнія
+        CA: Штат Каліфорнія
         CO: Штат Каларада
         CT: Штат Канектыкут
         DE: Штат Дэлавэр
@@ -2223,7 +2223,7 @@ bg:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Кампече
+        Camps: Кампече
         CHP: Chiapas
         CH: Чиуауа
         COA: Коауила де Сарагоса
@@ -2238,11 +2238,11 @@ bg:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Нуево Леон
+        NL: Нуево Леон
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Сонора
@@ -2297,7 +2297,7 @@ bg:
         AK: Аляска
         AZ: Аризона
         AR: Арканзас
-        Calif: Калифорния
+        CA: Калифорния
         CO: Колорадо
         CT: Кънектикът
         DE: Делауеър
@@ -2692,7 +2692,7 @@ bn:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -2707,11 +2707,11 @@ bn:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -2766,7 +2766,7 @@ bn:
         AK: আলাস্কা
         AZ: অ্যারিজোনা
         AR: আর্কানসাস
-        Calif: ক্যালিফোর্নিয়া
+        CA: ক্যালিফোর্নিয়া
         CO: কলোরাডো
         CT: কানেটিকাট
         DE: ডেলাওয়্যার
@@ -3161,7 +3161,7 @@ bs:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -3176,11 +3176,11 @@ bs:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -3235,7 +3235,7 @@ bs:
         AK: Aljaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornija
+        CA: Kalifornija
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -3630,7 +3630,7 @@ ca:
       MX:
         Ags: Estat dAguascalientes
         BCS: Baixa Califòrnia Sud
-        CAM: Estat de Campeche
+        Camps: Estat de Campeche
         CHP: Chiapas
         CH: Estat de Chihuahua
         COA: Coahuila
@@ -3645,11 +3645,11 @@ ca:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Estat dOaxaca
         PUE: Estat de Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: Estat de San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -3704,7 +3704,7 @@ ca:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Califòrnia
+        CA: Califòrnia
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -4099,7 +4099,7 @@ cs:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -4114,11 +4114,11 @@ cs:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -4173,7 +4173,7 @@ cs:
         AK: Aljaška
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornie
+        CA: Kalifornie
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -4568,7 +4568,7 @@ cy:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -4583,11 +4583,11 @@ cy:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -4642,7 +4642,7 @@ cy:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Califfornia
+        CA: Califfornia
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -5037,7 +5037,7 @@ da:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -5052,11 +5052,11 @@ da:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -5111,7 +5111,7 @@ da:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Californien
+        CA: Californien
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -5506,7 +5506,7 @@ de:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -5521,11 +5521,11 @@ de:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -5580,7 +5580,7 @@ de:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornien
+        CA: Kalifornien
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -5975,7 +5975,7 @@ el:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -5990,11 +5990,11 @@ el:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -6049,7 +6049,7 @@ el:
         AK: Αλάσκα
         AZ: Αριζόνα
         AR: Αρκάνσας
-        Calif: Καλιφόρνια
+        CA: Καλιφόρνια
         CO: Κολοράντο
         CT: Κονέκτικατ
         DE: Ντέλαγουερ
@@ -6444,7 +6444,7 @@ en:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -6459,11 +6459,11 @@ en:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -6518,7 +6518,7 @@ en:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -6913,7 +6913,7 @@ eo:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -6928,11 +6928,11 @@ eo:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -6987,7 +6987,7 @@ eo:
         AK: Alasko
         AZ: Arizono
         AR: Arkansaso
-        Calif: Kalifornio
+        CA: Kalifornio
         CO: Koloradio
         CT: Konektikuto
         DE: Delavaro
@@ -7382,7 +7382,7 @@ es:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila de Zaragoza
@@ -7397,11 +7397,11 @@ es:
         MIC: Michoacán de Ocampo
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro de Arteaga
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -7456,7 +7456,7 @@ es:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -7851,7 +7851,7 @@ et:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Suri osariik
-        CAM: Campeche osariik
+        Camps: Campeche osariik
         CHP: Chiapase osariik
         CH: Chihuahua osariik
         COA: Coahuila osariik
@@ -7866,11 +7866,11 @@ et:
         MIC: Michoacán
         MOR: Morelose osariik
         NAY: Nayariti osariik
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca osariik
         PUE: Puebla
         QUE: Querétaro osariik
-        QRoo: Quintana Roo osariik
+        ROO: Quintana Roo osariik
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora osariik
@@ -7925,7 +7925,7 @@ et:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -8320,7 +8320,7 @@ eu:
       MX:
         Ags: Aguascalientes
         BCS: Hego Kalifornia Beherea
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila de Zaragoza
@@ -8335,11 +8335,11 @@ eu:
         MIC: Michoacan
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo Leon
+        NL: Nuevo Leon
         OAX: Oaxaca
         PUE: Puebla
         QUE: Queretaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosi
         SIN: Sinaloa
         SON: Sonora
@@ -8394,7 +8394,7 @@ eu:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornia
+        CA: Kalifornia
         CO: Colorado
         CT: Conecticut
         DE: Delaware
@@ -8789,7 +8789,7 @@ fa:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -8804,11 +8804,11 @@ fa:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -8863,7 +8863,7 @@ fa:
         AK: آلاسکا
         AZ: آریزونا
         AR: آرکانزاس
-        Calif: کالیفرنیا
+        CA: کالیفرنیا
         CO: کلرادو
         CT: کنتیکت
         DE: دلاویر
@@ -9258,7 +9258,7 @@ fi:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -9273,11 +9273,11 @@ fi:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -9332,7 +9332,7 @@ fi:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornia
+        CA: Kalifornia
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -9727,7 +9727,7 @@ fr:
       MX:
         Ags: État d'Aguascalientes
         BCS: Basse-Californie du Sud
-        CAM: État de Campeche
+        Camps: État de Campeche
         CHP: Chiapas
         CH: État de Chihuahua
         COA: Coahuila
@@ -9742,11 +9742,11 @@ fr:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: État de Oaxaca
         PUE: État de Puebla
         QUE: Querétaro de Arteaga
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -9801,7 +9801,7 @@ fr:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Californie
+        CA: Californie
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -10196,7 +10196,7 @@ gl:
       MX:
         Ags: Aguascalientes
         BCS: Baixa California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -10211,11 +10211,11 @@ gl:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -10270,7 +10270,7 @@ gl:
         AK: Alasca
         AZ: Arizona
         AR: Arcansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -10665,7 +10665,7 @@ he:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -10680,11 +10680,11 @@ he:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: קרטרו
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -10739,7 +10739,7 @@ he:
         AK: אלסקה
         AZ: אריזונה
         AR: ארקנסו
-        Calif: קליפורניה
+        CA: קליפורניה
         CO: קולורדו
         CT: קונטיקט
         DE: דלאוור
@@ -11134,7 +11134,7 @@ hi:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -11149,11 +11149,11 @@ hi:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -11208,7 +11208,7 @@ hi:
         AK: अलास्का
         AZ: एरीजोना
         AR: आर्कन्सा
-        Calif: कैलिफ़ोर्निया
+        CA: कैलिफ़ोर्निया
         CO: कॉलोराडो
         CT: कनेक्टिकट
         DE: डेलावेयर
@@ -11603,7 +11603,7 @@ hr:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -11618,11 +11618,11 @@ hr:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -11677,7 +11677,7 @@ hr:
         AK: Aljaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornija
+        CA: Kalifornija
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -12072,7 +12072,7 @@ hu:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -12087,11 +12087,11 @@ hu:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -12146,7 +12146,7 @@ hu:
         AK: Alaszka
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornia
+        CA: Kalifornia
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -12541,7 +12541,7 @@ id:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -12556,11 +12556,11 @@ id:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: León Baru
+        NL: León Baru
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -12615,7 +12615,7 @@ id:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -13010,7 +13010,7 @@ is:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -13025,11 +13025,11 @@ is:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -13084,7 +13084,7 @@ is:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornía
+        CA: Kalifornía
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -13479,7 +13479,7 @@ it:
       MX:
         Ags: Aguascalientes
         BCS: Bassa California del Sud
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -13494,11 +13494,11 @@ it:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro de Arteaga
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -13553,7 +13553,7 @@ it:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -13948,7 +13948,7 @@ ja:
       MX:
         Ags: アグアスカリエンテス州
         BCS: バハ・カリフォルニア・スル州
-        CAM: カンペチェ州
+        Camps: カンペチェ州
         CHP: チアパス州
         CH: チワワ州
         COA: コアウイラ州
@@ -13963,11 +13963,11 @@ ja:
         MIC: ミチョアカン州
         MOR: モレロス州
         NAY: ナヤリット州
-        NLE: ヌエボ・レオン州
+        NL: ヌエボ・レオン州
         OAX: オアハカ州
         PUE: プエブラ州
         QUE: ケレタロ州
-        QRoo: キンタナ・ロー州
+        ROO: キンタナ・ロー州
         SLP: サン・ルイス・ポトシ州
         SIN: シナロア州
         SON: ソノラ州
@@ -14022,7 +14022,7 @@ ja:
         AK: アラスカ州
         AZ: アリゾナ州
         AR: アーカンソー州
-        Calif: カリフォルニア州
+        CA: カリフォルニア州
         CO: コロラド州
         CT: コネチカット州
         DE: デラウェア州
@@ -14417,7 +14417,7 @@ km:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -14432,11 +14432,11 @@ km:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -14491,7 +14491,7 @@ km:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -14886,7 +14886,7 @@ kn:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -14901,11 +14901,11 @@ kn:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -14960,7 +14960,7 @@ kn:
         AK: ಅಲಾಸ್ಕ
         AZ: ಆರಿಜೋನ
         AR: ಅರ್ಕಾನ್ಸಾಸ್
-        Calif: ಕ್ಯಾಲಿಫೊರ್ನಿಯ
+        CA: ಕ್ಯಾಲಿಫೊರ್ನಿಯ
         CO: Colorado
         CT: ಕನೆಕ್ಟಿಕಟ್
         DE: Delaware
@@ -15355,7 +15355,7 @@ ko:
       MX:
         Ags: 아과스칼리엔테스 주
         BCS: 바하칼리포르니아수르 주
-        CAM: 캄페체 주
+        Camps: 캄페체 주
         CHP: 치아파스 주
         CH: 치와와 주
         COA: Coahuila
@@ -15370,11 +15370,11 @@ ko:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -15429,7 +15429,7 @@ ko:
         AK: 알래스카 주
         AZ: 애리조나 주
         AR: 아칸소 주
-        Calif: 캘리포니아 주
+        CA: 캘리포니아 주
         CO: 콜로라도 주
         CT: 코네티컷 주
         DE: 델라웨어 주
@@ -15824,7 +15824,7 @@ lb:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -15839,11 +15839,11 @@ lb:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -15898,7 +15898,7 @@ lb:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornien
+        CA: Kalifornien
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -16293,7 +16293,7 @@ lo:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -16308,11 +16308,11 @@ lo:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -16367,7 +16367,7 @@ lo:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -16762,7 +16762,7 @@ lt:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -16777,11 +16777,11 @@ lt:
         MIC: Michoacán
         MOR: Morelosas
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Keretaras
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -16836,7 +16836,7 @@ lt:
         AK: Aliaska
         AZ: Arizona
         AR: Arkanzasas
-        Calif: Kalifornija
+        CA: Kalifornija
         CO: Koloradas
         CT: Konektikutas
         DE: Delaveras
@@ -17231,7 +17231,7 @@ lv:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -17246,11 +17246,11 @@ lv:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -17305,7 +17305,7 @@ lv:
         AK: Aļaska
         AZ: Arizona
         AR: Ārkanzasa
-        Calif: Kalifornija
+        CA: Kalifornija
         CO: Kolorādo
         CT: Konektikuta
         DE: Delavēra
@@ -17700,7 +17700,7 @@ mk:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -17715,11 +17715,11 @@ mk:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -17774,7 +17774,7 @@ mk:
         AK: Алјаска
         AZ: Аризона
         AR: Арканзас
-        Calif: Калифорнија
+        CA: Калифорнија
         CO: Колорадо
         CT: Конектикат
         DE: Делавер
@@ -18169,7 +18169,7 @@ mn:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -18184,11 +18184,11 @@ mn:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -18243,7 +18243,7 @@ mn:
         AK: Аляска
         AZ: Аризона
         AR: Арканзас
-        Calif: Калифорни
+        CA: Калифорни
         CO: Колорадо
         CT: Коннектикут
         DE: Делавар
@@ -18638,7 +18638,7 @@ ms:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -18653,11 +18653,11 @@ ms:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -18712,7 +18712,7 @@ ms:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -19107,7 +19107,7 @@ nb:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -19122,11 +19122,11 @@ nb:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -19181,7 +19181,7 @@ nb:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -19576,7 +19576,7 @@ ne:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -19591,11 +19591,11 @@ ne:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -19650,7 +19650,7 @@ ne:
         AK: अलास्का
         AZ: एरिजोना
         AR: आर्कान्स
-        Calif: क्यालिफोर्निया
+        CA: क्यालिफोर्निया
         CO: कोलोराडो
         CT: कनेक्टिकट
         DE: डेलावेयर
@@ -20045,7 +20045,7 @@ nl:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila de Zaragoza
@@ -20060,11 +20060,11 @@ nl:
         MIC: Michoacán de Ocampo
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro de Arteaga
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -20119,7 +20119,7 @@ nl:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Californië
+        CA: Californië
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -20514,7 +20514,7 @@ nn:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -20529,11 +20529,11 @@ nn:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -20582,13 +20582,13 @@ nn:
       PK:
         FATA: Føderalt administrerte stammeområde
       RU:
-        MO: Moskva fylke
+        MO: Moskva oblast
       US:
         AL: Alabama
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -20983,7 +20983,7 @@ or:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -20998,11 +20998,11 @@ or:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -21057,7 +21057,7 @@ or:
         AK: ଆଲାସ୍କା
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -21452,7 +21452,7 @@ pa:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -21467,11 +21467,11 @@ pa:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -21526,7 +21526,7 @@ pa:
         AK: ਅਲਾਸਕਾ
         AZ: ਐਰੀਜ਼ੋਨਾ
         AR: ਆਰਕੰਸਾ
-        Calif: ਕੈਲੀਫ਼ੋਰਨੀਆ
+        CA: ਕੈਲੀਫ਼ੋਰਨੀਆ
         CO: ਕੋਲੋਰਾਡੋ
         CT: ਕਨੈਟੀਕਟ
         DE: ਡੇਲਾਵੇਅਰ
@@ -21921,7 +21921,7 @@ pl:
       MX:
         Ags: Aguascalientes
         BCS: Kalifornia Dolna Południowa
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -21936,11 +21936,11 @@ pl:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -21995,7 +21995,7 @@ pl:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornia
+        CA: Kalifornia
         CO: Kolorado
         CT: Connecticut
         DE: Delaware
@@ -22364,7 +22364,7 @@ pt:
         AB: Alberta
         BC: Colúmbia Britânica
         MB: Manitoba
-        NB: Nova Brunswick
+        NB: Nova Brunsvique
         NL: Terra Nova e Labrador
         NT: Territórios do Noroeste
         NS: Nova Escócia
@@ -22390,7 +22390,7 @@ pt:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila de Zaragoza
@@ -22405,11 +22405,11 @@ pt:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -22464,7 +22464,7 @@ pt:
         AK: Alasca
         AZ: Arizona
         AR: Arkansas
-        Calif: Califórnia
+        CA: Califórnia
         CO: Colorado
         CT: Coneticute
         DE: Delauare
@@ -22859,7 +22859,7 @@ rm:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -22874,11 +22874,11 @@ rm:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -22933,7 +22933,7 @@ rm:
         AK: Alasca
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -23328,7 +23328,7 @@ ro:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -23343,11 +23343,11 @@ ro:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -23398,11 +23398,11 @@ ro:
       RU:
         MO: Regiunea Moscova
       US:
-        AL: Алабама
+        AL: Alabama
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -23751,7 +23751,7 @@ ru:
         GO: Гояс
         MA: Мараньян
         MT: Мату-Гросу
-        MS: Мату-Гросу-ду-Сул
+        MS: Ма́ту-Гро́су-ду-Сул
         MG: Минас-Жерайс
         PR: Paraná
         PB: Paraíba
@@ -23797,7 +23797,7 @@ ru:
       MX:
         Ags: Агуаскальентес
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Чьяпас
         CH: Чиуауа
         COA: Coahuila
@@ -23812,11 +23812,11 @@ ru:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Керетаро
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Сонора
@@ -23871,7 +23871,7 @@ ru:
         AK: Аляска
         AZ: Аризона
         AR: Арканзас
-        Calif: Калифорния
+        CA: Калифорния
         CO: Колорадо
         CT: Коннектикут
         DE: Делавэр
@@ -23912,7 +23912,7 @@ ru:
         TX: Техас
         UT: Юта
         VT: Вермонт
-        VA: Вирджиния
+        VA: Виргиния
         WA: Вашингтон
         DC: Округ Колумбия
         WV: Западная Виргиния
@@ -24266,7 +24266,7 @@ sk:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -24281,11 +24281,11 @@ sk:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -24340,7 +24340,7 @@ sk:
         AK: Aljaška
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornia
+        CA: Kalifornia
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -24735,7 +24735,7 @@ sl:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -24750,11 +24750,11 @@ sl:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -24809,7 +24809,7 @@ sl:
         AK: Aljaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornija
+        CA: Kalifornija
         CO: Kolorado
         CT: Connecticut
         DE: Delaware
@@ -25204,7 +25204,7 @@ sq:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -25219,11 +25219,11 @@ sq:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -25278,7 +25278,7 @@ sq:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornia
+        CA: Kalifornia
         CO: Colorado
         CT: Konektikati
         DE: Delaware
@@ -25673,7 +25673,7 @@ sr:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -25688,11 +25688,11 @@ sr:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -25747,7 +25747,7 @@ sr:
         AK: Аљаска
         AZ: Аризона
         AR: Арканзас
-        Calif: Калифорнија
+        CA: Калифорнија
         CO: Колорадо
         CT: Конектикат
         DE: Делавер
@@ -26142,7 +26142,7 @@ sv:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -26157,11 +26157,11 @@ sv:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro Arteaga
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -26216,7 +26216,7 @@ sv:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kalifornien
+        CA: Kalifornien
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -26611,7 +26611,7 @@ sw:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -26626,11 +26626,11 @@ sw:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -26685,7 +26685,7 @@ sw:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -27080,7 +27080,7 @@ ta:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -27095,11 +27095,11 @@ ta:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -27154,7 +27154,7 @@ ta:
         AK: அலாஸ்கா
         AZ: அரிசோனா
         AR: ஆர்கன்சா
-        Calif: கலிபோர்னியா
+        CA: கலிபோர்னியா
         CO: கொலராடோ
         CT: கனெடிகட்
         DE: டெலவெயர்
@@ -27549,7 +27549,7 @@ th:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -27564,11 +27564,11 @@ th:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -27623,7 +27623,7 @@ th:
         AK: รัฐอะแลสกา
         AZ: รัฐแอริโซนา
         AR: รัฐอาร์คันซอ
-        Calif: รัฐแคลิฟอร์เนีย
+        CA: รัฐแคลิฟอร์เนีย
         CO: รัฐโคโลราโด
         CT: รัฐคอนเนตทิคัต
         DE: รัฐเดลาแวร์
@@ -28018,7 +28018,7 @@ tl:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -28033,11 +28033,11 @@ tl:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -28092,7 +28092,7 @@ tl:
         AK: Alaska
         AZ: Arisona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Kolorado
         CT: Konestikut
         DE: Delaware
@@ -28487,7 +28487,7 @@ tr:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -28502,11 +28502,11 @@ tr:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -28561,7 +28561,7 @@ tr:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: Kaliforniya
+        CA: Kaliforniya
         CO: Kolorado
         CT: Connecticut
         DE: Delaware
@@ -28956,7 +28956,7 @@ tt:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -28971,11 +28971,11 @@ tt:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -29030,7 +29030,7 @@ tt:
         AK: Аляска
         AZ: Аризона
         AR: Арканзас
-        Calif: Калифорния
+        CA: Калифорния
         CO: Колорадо
         CT: Коннектикут
         DE: Делавэр
@@ -29425,7 +29425,7 @@ ug:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -29440,11 +29440,11 @@ ug:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -29499,7 +29499,7 @@ ug:
         AK: Alyaska Shitati
         AZ: Arizona Shitati
         AR: Arkanzas Shtati
-        Calif: Kaliforniye Shitati
+        CA: Kaliforniye Shitati
         CO: Kolorado Shitati
         CT: Konnéktikat Shitati
         DE: Délawiyer Shitati
@@ -29894,7 +29894,7 @@ uk:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -29909,11 +29909,11 @@ uk:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -29968,7 +29968,7 @@ uk:
         AK: Аляска
         AZ: Аризона
         AR: Арканзас
-        Calif: Каліфорнія
+        CA: Каліфорнія
         CO: Колорадо
         CT: Коннектикут
         DE: Делавер
@@ -30363,7 +30363,7 @@ ur:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -30378,11 +30378,11 @@ ur:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -30437,7 +30437,7 @@ ur:
         AK: الاسکا
         AZ: ایریزونا
         AR: آرکنساس
-        Calif: کیلیفورنیا
+        CA: کیلیفورنیا
         CO: کولوراڈو
         CT: کنیکٹیکٹ
         DE: ڈیلاویئر
@@ -30832,7 +30832,7 @@ uz:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -30847,11 +30847,11 @@ uz:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -30906,7 +30906,7 @@ uz:
         AK: Alaska
         AZ: Arizona
         AR: Arkanzas
-        Calif: Kaliforniya
+        CA: Kaliforniya
         CO: Kolorado
         CT: Konnektikut
         DE: Delaver
@@ -31301,7 +31301,7 @@ vi:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -31316,11 +31316,11 @@ vi:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -31375,7 +31375,7 @@ vi:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware
@@ -31770,7 +31770,7 @@ wo:
       MX:
         Ags: Aguascalientes
         BCS: Baja California Sur
-        CAM: Campeche
+        Camps: Campeche
         CHP: Chiapas
         CH: Chihuahua
         COA: Coahuila
@@ -31785,11 +31785,11 @@ wo:
         MIC: Michoacán
         MOR: Morelos
         NAY: Nayarit
-        NLE: Nuevo León
+        NL: Nuevo León
         OAX: Oaxaca
         PUE: Puebla
         QUE: Querétaro
-        QRoo: Quintana Roo
+        ROO: Quintana Roo
         SLP: San Luis Potosí
         SIN: Sinaloa
         SON: Sonora
@@ -31844,7 +31844,7 @@ wo:
         AK: Alaska
         AZ: Arizona
         AR: Arkansas
-        Calif: California
+        CA: California
         CO: Colorado
         CT: Connecticut
         DE: Delaware

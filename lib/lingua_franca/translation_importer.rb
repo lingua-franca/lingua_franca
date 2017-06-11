@@ -104,7 +104,7 @@ module LinguaFranca
             end
           end
         end
-        save_data('languages', data)
+        save_data('currencies', data)
       end
 
       protected

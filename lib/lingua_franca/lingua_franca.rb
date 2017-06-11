@@ -288,7 +288,7 @@ module LinguaFranca
       sanitized_html, keys = analyze_html(html)
 
       # strip out all the HTML, some weird string show up from time to time (particularly in emails)
-      stripped_string = ActionView::Base.full_sanitizer.sanitize(sanitized_html).gsub(/(\b)\d(\b)/, '\1\2')
+      stripped_string = ActionView::Base.full_sanitizer.sanitize(sanitized_html.gsub(/<title[\s>].*?<\/title>/m, '')).gsub(/(\b)\d(\b)/, '\1\2')
 
       # if anything is left other than whitespace, there must be content that is not translated
       unless options[:ensure_translated] == false || stripped_string.gsub(/\s*/, '').blank?
