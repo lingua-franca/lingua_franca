@@ -22,7 +22,7 @@ ActionController::Base.class_eval do
         when I18n::Config::DETECT_LANGUAGE_FROM_URL_PARAM
           locale = params[I18n.config.language_url_param.to_sym]
         when I18n::Config::DETECT_LANGUAGE_FROM_SUBDOMAIN
-          locale = I18n.backend.get_locale(request.host)
+          locale = LinguaFranca.get_locale(request.host)
         end
         
         if I18n.locale_available?(locale)
