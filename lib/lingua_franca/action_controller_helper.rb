@@ -99,16 +99,3 @@ ActionController::Base.class_eval do
   end
 
 end
-
-module LinguaFrancaActionMailer
-  def mail(*args)
-    LinguaFranca.last_email_name = caller_locations(1, 1).first.label if LinguaFranca.recording?
-    super(*args)
-  end
-end
-
-module ActionMailer
-  class Base
-    prepend LinguaFrancaActionMailer
-  end
-end
