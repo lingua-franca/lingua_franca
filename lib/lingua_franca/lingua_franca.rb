@@ -151,7 +151,8 @@ module LinguaFranca
     end
 
     def last_email_name
-      @@last_email_name
+      @@last_email_name ||= ''
+      return @@last_email_name
     end
 
     def last_email_name=(method_name)
