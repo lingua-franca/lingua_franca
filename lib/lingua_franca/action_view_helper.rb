@@ -93,8 +93,10 @@ module LinguaFrancaHelper
     @_js_translations ||= nil
     return unless @_js_translations.present?
 
+    js = File.read(File.join(Rails.public_path, ActionController::Base.helpers.asset_path("lingua-franca.js")))
+
     return (content_tag(:script, @_js_translations.to_json.to_s.html_safe, type: :json, id: 'lingua-franca-translations') + 
-      content_tag(:script, File.read(File.join(Rails.public_path, ActionController::Base.helpers.asset_path("lingua-franca.js"))))).html_safe
+      content_tag(:script, js.html_safe)).html_safe
   end
 end
 
