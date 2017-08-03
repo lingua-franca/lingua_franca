@@ -94,7 +94,7 @@ module LinguaFrancaHelper
     return unless @_js_translations.present?
 
     return (content_tag(:script, @_js_translations.to_json.to_s.html_safe, type: :json, id: 'lingua-franca-translations') + 
-      content_tag(:script, Rails.application.assets.find_asset("lingua-franca.js").to_s.html_safe)).html_safe
+      content_tag(:script, File.read(File.join(Rails.public_path, ActionController::Base.helpers.asset_path("lingua-franca.js"))))).html_safe
   end
 end
 
