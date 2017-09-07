@@ -214,6 +214,27 @@ module LinguaFranca
       end
     end
 
+    def capture_mail(mail)
+      FileUtils.mkdir_p(recording_dir)
+      FileUtils.mkdir_p(File.join(recording_dir, 'email'))
+
+      begin
+        mail.body.parts.each do |part|
+          type = part.header.first.field.element.sub_type
+          unless type == 'plain' # hold back on recording plain text until we can fix it
+            extension = type == 'plain' ? 'plain.txt' : 'html'
+
+            capture_html(part.body.raw_source, last_email_name, 'email', {
+                extension: extension, ensure_translated: type != 'plain'
+              })
+          end
+        end
+      rescue Exception => exception
+        puts exception.to_s
+        puts exception.backtrace.join("\n")
+      end
+    end
+
     def capture_request(action = nil, controller = nil)
       debug "request from #{controller}/#{action}"
       if test_driver.respond_to?(:html)
