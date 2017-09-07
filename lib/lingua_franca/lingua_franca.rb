@@ -27,6 +27,7 @@ module LinguaFranca
   class << self
 
     def test(mode, &block)
+      debug "starting test ( #{mode} )"
       ENV['_lingua_franca_test'] = mode
       last_request = nil
 
@@ -35,39 +36,55 @@ module LinguaFranca
         # clear the translation info before recording
         write_translation_info
 
-        # get rid of te recording directory if it exists
+        # get rid of the recording directory if it exists
+        debug "removing directory #{recording_dir}"
         FileUtils.rm_rf(recording_dir)
         # get rid of the failed test dir if it exists
+        debug "removing directory #{failed_test_dir}"
         FileUtils.rm_rf(failed_test_dir)
         # re-make the recording dir
+        debug "creating directory #{recording_dir}"
         FileUtils.mkdir_p(recording_dir)
       end
 
       # run the tests
       passed = true
       begin
+        debug "starting tests..."
         yield
-      rescue
+      rescue Exception => e
+        debug "Failure: #{e.to_s}"
+        debug e.backtrace.join("\n")
         passed = false
       end
 
       case mode
       when TestModes::RECORD
         if passed
+          debug "tests PASSED"
           # replace the current records
+          debug "removing #{last_test_dir}"
           FileUtils.rm_rf(last_test_dir)
           if Dir.exists?(records_dir)
+            debug "moving #{records_dir} to #{last_test_dir}"
             FileUtils.mv(records_dir, last_test_dir)
           end
 
+          debug "deleting #{info_file}"
           FileUtils.rm(info_file)
+          debug "moving #{recording_info_file} to #{info_file}"
           FileUtils.mv(recording_info_file, info_file)
           
           version_file = File.join(recording_dir, '.version')
-          File.open(version_file, 'w') { |f| f.write((Time.new.to_i - 1492600000).to_s(36)) }
+          version = (Time.new.to_i - 1492600000).to_s(36)
+          debug "recording version #{version}"
+          File.open(version_file, 'w') { |f| f.write(version) }
 
+          debug "moving #{recording_dir} to #{records_dir}"
           FileUtils.mv(recording_dir, records_dir)
         else
+          debug "tests FAILED"
+          debug "moving #{recording_dir} to #{failed_test_dir}"
           # don't replace the records if the tests failed
           FileUtils.mv(recording_dir, failed_test_dir)
         end
@@ -197,40 +214,8 @@ module LinguaFranca
       end
     end
 
-    def capture_translations
-      data = {}
-      Dir.glob(File.join(recording_dir, '*', '*.html')).each do |file|
-        sanitized_html, keys = analyze_html(html)
-        group = File.basename(File.dirname(file))
-        page, page_index = File.basename(file).split('--')
-        page_index = page_index.gsub(/^(\d+).*$/, '\1').to_i
-        data = collect_translations(data, keys, current_page(page, group), page_index)
-      end
-      write_translation_info(data)
-    end
-
-    def capture_mail(mail)
-      FileUtils.mkdir_p(recording_dir)
-      FileUtils.mkdir_p(File.join(recording_dir, 'email'))
-
-      begin
-        mail.body.parts.each do |part|
-          type = part.header.first.field.element.sub_type
-          unless type == 'plain' # hold back on recording plain text until we can fix it
-            extension = type == 'plain' ? 'plain.txt' : 'html'
-
-            capture_html(part.body.raw_source, last_email_name, 'email', {
-                extension: extension, ensure_translated: type != 'plain'
-              })
-          end
-        end
-      rescue Exception => exception
-        puts exception.to_s
-        puts exception.backtrace.join("\n")
-      end
-    end
-
     def capture_request(action = nil, controller = nil)
+      debug "request from #{controller}/#{action}"
       if test_driver.respond_to?(:html)
       
         filename = capture_html(get_html, action, controller)
@@ -474,7 +459,9 @@ module LinguaFranca
     end
 
     def write_translation_info(translations = {})
-      File.open(recording_info_file, 'w') { |f| f.write translations.to_yaml }
+      yaml_data = translations.to_yaml
+      debug "writing #{yaml_data.to_s.length} bytes to #{recording_info_file}"
+      File.open(recording_info_file, 'w') { |f| f.write yaml_data }
     end
 
     def backend_for_app(app_slug, app_path)
@@ -619,6 +606,10 @@ module LinguaFranca
         expanded = { part => expanded }
       end
       return expanded
+    end
+
+    def debug(str)
+      puts "LinguaFranca::DEBUG --- << #{str} >>" if ENV['I18N_DEBUG']
     end
   end
 end
